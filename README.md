@@ -2,6 +2,9 @@
 
 The Snap! Cloud is a backend for Snap<i>!</i> that stores only metadata in a database for reduced query response time, while storing actual contents in disk.
 
+## [Install](./INSTALL.md) And set things up.
+
+
 ## Third party stuff
 ### Frameworks and tools
 * [Leafo](http://leafo.net/)'s [Lapis](http://leafo.net/lapis/) is the lightweight, fast, powerful and versatile [Lua](http://lua.org) web framework that powers the Snap Cloud - [[ MIT ](https://opensource.org/licenses/MIT)]
