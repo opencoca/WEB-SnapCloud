@@ -1,11 +1,26 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
 RUN apt-get install -y lua5.1 liblua5.1-0-dev
-RUN apt-get install -y luarocks
-RUN apt-get install -y libssl3
+RUN apt-get install -y libssl1.1
+
+# Install dependencies for LuaRocks and OpenSSL
+RUN apt-get update && \
+    apt-get install -y wget build-essential unzip libreadline-dev libncurses5-dev libssl-dev lua5.1 luarocks
+
+
+# Upgrade LuaRocks
+RUN wget https://luarocks.org/releases/luarocks-3.9.2.tar.gz && \
+    tar zxpf luarocks-3.9.2.tar.gz && \
+    cd luarocks-3.9.2 && \
+    ./configure --lua-version=5.1 --versioned-rocks-dir && \
+    make && make install && \
+    cd .. && rm -rf luarocks-3.9.2.tar.gz luarocks-3.9.2
+
+# Install OpenSSL module
+RUN luarocks install openssl
 
 # Install PostgreSQL and create a new database and user
 RUN apt-get install -y postgresql postgresql-client postgresql-contrib \
