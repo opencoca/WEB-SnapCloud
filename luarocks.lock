@@ -12,7 +12,6 @@ return {
       ["lua-resty-http"] = "0.17.0.beta.1-0",
       ["lua-resty-mail"] = "1.0.2-1",
       luabitop = "1.0.2-3",
-      luafilesystem = "scm-1",
       luaossl = "scm-0",
       luasec = "scm-1",
       luasocket = "scm-3",
