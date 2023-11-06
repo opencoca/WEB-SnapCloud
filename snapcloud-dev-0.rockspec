@@ -2,7 +2,7 @@ package = "snapcloud"
 version = "dev-0"
 
 source = {
-   url = "git+https://github.com/snap-cloud/snapCloud.git"
+   url = "git+https://github.com/opencoca/snapCloud.git"
 }
 
 description = {
