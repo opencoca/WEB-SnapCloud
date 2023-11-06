@@ -12,6 +12,18 @@ $ git clone --recursive git@github.com:snap-cloud/snapCloud.git
 
 **NOTE**: If you forked the repo, make sure that `snap-cloud` is replaced with your **GitHub username**. However, submodules will be from the original author.
 
+**NOTE**: If you didn't do a recursive clone you can do the following:
+
+```
+git submodule update --init --recursive
+```
+For git 1.8.2 or above, the option --remote was added to support updating to latest tips of remote branches:
+
+```
+git submodule update --recursive --remote
+```
+This has the added benefit of respecting any "non default" branches specified in the .gitmodules or .git/config files (if you happen to have any, default is origin/master, in which case some of the other answers here would work as well).
+
 ## Development
 
 ### Steps to look into
