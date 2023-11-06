@@ -47,6 +47,7 @@ COPY . /app
 RUN luarocks install argparse
 RUN luarocks install lub
 RUN luarocks install openssl
+RUN luarocks install luasocket
 RUN ln -s /usr/lib/aarch64-linux-gnu /usr/lib/x86_64-linux-gnu
 
 #CMD ["/bin/bash"]
