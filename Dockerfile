@@ -48,6 +48,8 @@ RUN luarocks install argparse
 RUN luarocks install lub
 RUN luarocks install openssl
 RUN luarocks install luasocket
+RUN luarocks install luasec
+RUN luarocks install luaossl
 RUN ln -s /usr/lib/aarch64-linux-gnu /usr/lib/x86_64-linux-gnu
 
 #CMD ["/bin/bash"]
@@ -70,6 +72,11 @@ RUN cd /app/certs/ \
 
 RUN service postgresql start \
   && su postgres -c "psql -d snapcloud -a -f /app/cloud.sql"
+
+
+# env file for snap cloud
+COPY env.sh /app/.env
+
 
 EXPOSE 8080
 ENV PORT=8080
