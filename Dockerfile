@@ -42,8 +42,6 @@ RUN apt-get -y install --no-install-recommends openresty
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
-COPY . /app
-
 RUN luarocks install argparse
 RUN luarocks install lub
 RUN luarocks install openssl
@@ -52,13 +50,15 @@ RUN luarocks install luasec
 RUN luarocks install luaossl
 RUN ln -s /usr/lib/aarch64-linux-gnu /usr/lib/x86_64-linux-gnu
 
-#CMD ["/bin/bash"]
-
 RUN git config --global url."https://".insteadOf git://
+
+COPY snapcloud-dev-0.rockspec /app/snapcloud-dev-0.rockspec
 
 RUN luarocks install /app/snapcloud-dev-0.rockspec
 
-RUN mkdir keys
+COPY certs/ /app/certs/
+
+RUN mkdir /keys
 RUN cd /keys \
   &&openssl genrsa > privkey.pem  \
   && openssl req -new -x509 -key privkey.pem > fullchain.pem -batch \
@@ -70,13 +70,15 @@ RUN cd /app/certs/ \
   && openssl dhparam -out dhparams.pem 1024 -batch \
   && openssl dhparam -out dhparam.cert 1024 -batch
 
+COPY cloud.sql /app/cloud.sql
+
 RUN service postgresql start \
   && su postgres -c "psql -d snapcloud -a -f /app/cloud.sql"
 
+COPY . /app
 
 # env file for snap cloud
 COPY env.sh /app/.env
-
 
 EXPOSE 8080
 ENV PORT=8080
