@@ -75,6 +75,16 @@ COPY cloud.sql /app/cloud.sql
 RUN service postgresql start \
   && su postgres -c "psql -d snapcloud -a -f /app/cloud.sql"
 
+RUN service postgresql start \
+  && su postgres -c "psql -c \"ALTER USER cloud WITH PASSWORD 'password';\""
+
+RUN service postgresql start \
+  && su postgres -c "psql -c \"ALTER ROLE cloud WITH LOGIN;\""
+
+# Start PostgreSQL service, make 'cloud' a superuser, and run your SQL script
+RUN service postgresql start \
+    && su postgres -c "psql -c \"ALTER USER cloud WITH SUPERUSER;\""
+
 COPY . /app
 
 # env file for snap cloud
