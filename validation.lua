@@ -527,12 +527,12 @@ end
 
 -- Block certain requests from being made using Tor
 prevent_tor_access = function (self)
-    local file = io.open('lib/torbulkexitlist', 'r')
-    local tor_ips = file:read('all')
-    local ip = ngx.var.remote_addr
-    if tor_ips:find(ip) then
-        yield_error(err.tor_not_allowed)
-    end
+--    local file = io.open('lib/torbulkexitlist', 'r')
+--    local tor_ips = file:read('all')
+--    local ip = ngx.var.remote_addr
+--    if tor_ips:find(ip) then
+--        yield_error(err.tor_not_allowed)
+--    end
 end
 
 local assert_exists = function (resource)
