@@ -5,7 +5,7 @@ config({'development', 'staging', 'production', 'test'}, {
         host = os.getenv('DATABASE_HOST') or '127.0.0.1',
         port = os.getenv('DATABASE_PORT') or '5432',
         user = os.getenv('DATABASE_USERNAME') or 'cloud',
-        password = os.getenv('DATABASE_PASSWORD') or 'password',
+        password = os.getenv('DATABASE_PASSWORD') or 'snap-cloud-password',
         database = os.getenv('DATABASE_NAME') or 'snapcloud'
     },
     session_name = 'snapsession',
