@@ -171,7 +171,8 @@ package.loaded.Projects = Model:extend('active_projects', {
         end
     },
     url_for = function (self, purpose, dev_version)
-        local base = 'https://snap.berkeley.edu/' ..
+        --local base = 'https://snap.berkeley.edu/' ..
+        local base = '/' ..
             (dev_version and 'snapsource/dev/' or '') ..
             'snap.html'
         local urls = {
