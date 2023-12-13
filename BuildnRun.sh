@@ -29,7 +29,12 @@ echo      BRANCH=$BRANCH
 # Then tag the image with the openco/$PROJECT-$BRANCH:latest tag, and run the ./Run.sh script
 echo docker build -t openco/$PROJECT-$BRANCH:$TAG .
 echo docker tag -f openco/$PROJECT-$BRANCH:$TAG openco/$PROJECT-$BRANCH:latest
-docker build -t openco/$PROJECT-$BRANCH:$TAG . \
+docker build \
+   \
+  -t openco/$PROJECT-$BRANCH:$TAG . \
+  && \
+docker tag openco/$PROJECT-$BRANCH:$TAG \
+ openco/$PROJECT-$BRANCH:linux_arm \
   && \
 docker tag openco/$PROJECT-$BRANCH:$TAG \
  openco/$PROJECT-$BRANCH:latest \
