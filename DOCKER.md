@@ -39,3 +39,7 @@ This guide explains how to build multi-architecture Docker images using the `doc
     After pushing, you can view the new tag on Docker Hub, which references all the architecture-specific images.
 
 *Note: Replace `your-username` with your actual Docker Hub username.*
+
+For more details see Multi-arch build and images, the simple way[^1].
+
+[^1]:https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/
