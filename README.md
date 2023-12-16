@@ -4,6 +4,7 @@ The Snap! Cloud is a backend for Snap<i>!</i> that stores only metadata in a dat
 
 ## [Install](./INSTALL.md) And set things up.
 
+## Use the Docker build to run things smoothly.
 
 ## Third party stuff
 ### Frameworks and tools

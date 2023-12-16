@@ -1,0 +1,20 @@
+{
+    "name": "snapcloud",
+    "version": "1.0.0",
+    "scripts": {
+        
+        "buildnrun": "./BuildnRun.sh",
+        "git:add": "git add .",
+        "git:commit": "git commit -m 'deploy'",
+        "git:push": "git push",
+        "deployserver": "npm run git:add && npm run git:commit && npm run git:push",
+        "fetch:backup": "ssh $REMOTE_SERVER './backup_snapcloud.sh'",
+        "fetch:store": "rsync -avz --progress $REMOTE_STORE_PATH .",
+        "fetch:db": "rsync -avz --progress $REMOTE_DB_PATH .",
+        "fetchProductionData": "npm run fetch:backup && npm run fetch:store && npm run fetch:db"
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+}

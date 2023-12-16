@@ -2,6 +2,10 @@ store/*/
 
 torbulkexitlist
 
+# Yarn gitignore related files
+yarn-error.log
+
+# Python virtualenv
 .env
 setenv
 logs
