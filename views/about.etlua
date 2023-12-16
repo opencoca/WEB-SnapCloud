@@ -1,47 +1,19 @@
-<h1 localizable>About Snap<em>!</em></h1>
-<p>Snap<em>!</em> (formerly BYOB) is a visual, drag-and-drop programming language. It is an extended reimplementation of <a href="https://scratch.mit.edu/">Scratch</a> (a project of the <a href="https://llk.media.mit.edu/">Lifelong Kindergarten Group</a> at the <a href="https://media.mit.edu/">MIT Media Lab</a>) that allows you to Build Your Own Blocks. It also features first class<sup><a href="#firstclass">[1]</a></sup> lists, first class procedures, and first class continuations<sup><a href="#continuations">[2]</a></sup>. These added capabilities make it suitable for a serious introduction to computer science for high school or college students.</p>
-
-<p>In the example below, a Snap<em>!</em> user can create new control structures, such as a <code>for</code> loop, by writing a script as shown at the left. Once the <code>for</code> block is created, it can be used even to make nested loops, as shown in the center. A sprite carries out that script at the right.</p> </section>
-
-<p><img src="https://snap.berkeley.edu/old_site/comp09/forbanner.png"/></p>
-
-<p>Snap<em>!</em> runs in your browser. It is implemented using Javascript, which is designed to limit the ability of browser-based software to affect your computer outside of Snap<i>!</i> itself, so it’s safe to run even other people’s projects, even if you don’t trust our competence or good intentions.  (Our lawyers make us say we offer NO WARRANTY; see our <a href="/tos">Terms of Service</a>.)</p>
-
-<p>Snap<em>!</em> is presented by the University of California at Berkeley. It is developed by Jens Mönig at SAP, with design input and documentation by Brian Harvey at UC Berkeley, and contributions by students at UC Berkeley and elsewhere.</p>
-
-
-<h2>First Class Data Types</h2>
-
-<p>A data type is considered <em>first class</em> in a programming language if instances of that type can be</p>
-
-<ul class="indent bullets not-v-spaced">
-    <li>the value of a variable</li>
-    <li>a member of an aggregate (array, list, etc.)</li>
-    <li>an argument (input) to a procedure</li>
-    <li>the value returned by a procedure</li>
-    <li>used without having a name (being the value of a variable)</li>
-</ul>
-
-<br/>
-<p>For example, numbers are first class in every language. Text strings are first class in many languages, but not in C, in which the relevant first class type is “pointer to a character.”</p>
-
-<p>One of the limitations of Scratch as a language for computer science education is that its lists are not first class, so you can’t have a list of lists. Making lists first class is enough of an extension to Scratch to allow the creation of any other <strong>data structures</strong> (trees, heaps, hash tables, dictionaries, and so on) in user-defined Snap<em>!</em> code,
-implemented as lists of lists.</p>
-
-<p>A less obvious limitation, because it is shared by many “adult” programming languages, is that procedures (blocks) are not first class. Making blocks first class in Snap<em>!</em> allows us to create <strong>control structures</strong>, such as the <code>for</code> block above, as user-defined Snap<em>!</em> code.  In particular, users can write the higher order list functions that are essential in the functional programming style.</p>
-
-<p>Without<a name="continuations">&nbsp;</a>being doctrinaire about it, we believe that in general, anything that’s in a language at all should be first class in that language. The Snap<em>!</em> object system introduces first class sprites, first class costumes, and first class sounds.</p>
-
-
-<h2>Continuations</h2>
-
-<p>One example of a data type that exists behind the scenes in pretty much every programming language is the stack frame, the data structure that keeps track of active procedure calls and their local variables. Following Scheme, we make these data available to the programmer in the form of a first class data type called a <em>continuation</em>, which represents “the work still to be done after this point” as a callable procedure. Using continuations, the Snap<em>!</em> programmer can implement nonlocal control mechanisms such as catch/throw and threads.</p>
-
-
-<h2>Visual Representation for Advanced Ideas</h2>
-
-<img style="float:right; margin-left:10pt" src="https://snap.berkeley.edu/old_site/veelist.png">
-
-<p>Part of the genius of Scratch is the way it uses pictures to represent ideas such as loops, Booleans, and threads. The three different block shapes, for example, aren’t just a way to prevent syntax errors; they’re a way to <em>teach</em> the idea that some procedures return values and others don’t.</p>
-
-<p>In Snap<em>!</em> we extend this visual teaching to ideas that have previously been considered too hard for young learners. For example, the banner on our <a href="http://snap.berkeley.edu">home page</a> includes this picture of a <em>list of blocks</em>. Experienced Scratch programmers will never have seen anything quite like this before, but they recognize the pictorial representation of a list in Scratch, and they know what blocks look like, and so it’s immediately obvious to them what they’re seeing. They realize without explicit teaching that blocks, which they’ve until then used only as program control elements, can also be used as data.</p>
+<h1 id="-snap-unleashing-creativity-with-drag-and-drop-programming-"><strong>Snap.Startr.Cloud: Unleashing Creativity with Drag-and-Drop Programming</strong></h1>
+<p>Hey There, Future Programmers! 👋</p>
+<p>Are you ready to dive into the colorful world of Snap.Startr.Cloud? It&#39;s not just any programming language; it&#39;s a playground where your creativity meets coding. Let me walk you through what makes Snap.Startr.Cloud an absolute gem in the world of programming.</p>
+<h2 id="-snap-a-supercharged-version-of-scratch-"><strong>Snap.Startr.Cloud: A Supercharged Version of Scratch</strong></h2>
+<p>Imagine Scratch, the friendly programming language from <a href="https://llk.media.mit.edu/">MIT Media Lab&#39;s Lifelong Kindergarten Group</a>. Now, give it a turbo boost -- that&#39;s Snap.Startr.Cloud for you! It&#39;s like Scratch&#39;s cooler cousin, letting you &#39;Build Your Own Blocks&#39; and play with awesome features like first-class lists, procedures, and continuations. Perfect for high school or college students, Snap.Startr.Cloud makes diving into computer science as fun as a day at the beach.</p>
+<h2 id="-creating-with-snap-a-visual-treat-"><strong>Creating With Snap*!: A Visual Treat</strong></h2>
+<p>Picture this: You&#39;re in Snap.Startr.Cloud, crafting your own <code>for</code> loop block. It&#39;s like building a LEGO masterpiece, but with code. Once you&#39;ve got your block, you can even nest loops within each other. It&#39;s coding, but with a twist of fun and loads of creativity.</p>
+<p><img src="https://snap.berkeley.edu/old_site/comp09/forbanner.png" alt="A Banner Showing the For Loop in Snap*!*"></p>
+<h2 id="safe-and-sound-in-your-browser">Safe and Sound in Your Browser</h2>
+<p>Snap.Startr.Cloud lives right in your browser, powered by Javascript. And guess what? It&#39;s super safe. You can explore and run projects made by others without worrying about your computer&#39;s safety -- it&#39;s like having a playground with the safest swings and slides.</p>
+<h2 id="-the-brains-behind-snap-"><strong>The Brains Behind Snap.Startr.Cloud</strong></h2>
+<p>Hats off to Startr.Team and the University of California at Berkeley, Jens Mönig at SAP, Brian Harvey at UC Berkeley, and the bright students contributing from all over. These folks are the wizards behind Snap.Startr.Cloud.</p>
+<h2 id="first-class-data-types-your-vip-pass">First-Class Data Types: Your VIP Pass</h2>
+<p>In the world of Snap.Startr.Cloud, data types like numbers and text strings are treated like VIPs. They get the first-class treatment, meaning you can use them in so many ways -- as variables, list members, procedure arguments, and more. Unlike Scratch, where lists are a bit limited, Snap.Startr.Cloud lets you create lists of lists. Think of it like a Russian doll, but for data structures.</p>
+<h2 id="visual-learning-at-its-best">Visual Learning at Its Best</h2>
+<p>Snap.Startr.Cloud takes the visual brilliance of Scratch and kicks it up a notch. It uses pictures to explain complex ideas like loops and Booleans. For example, have you ever seen a list of blocks? It&#39;s a new concept for even seasoned Scratch programmers, but in Snap.Startr.Cloud, it&#39;s as clear as day. Just take a peek at our <a href="http://snap.berkeley.edu/">home page</a> to see what I mean!</p>
+<p><img src="https://snap.berkeley.edu/old_site/veelist.png" alt="Visual Representation of Advanced Ideas"></p>
+<h2 id="wrap-up">Wrap-Up</h2>
+<p>So, ready to jump into the Snap.Startr.Cloud universe? It&#39;s more than just coding; it&#39;s about bringing your wildest ideas to life with blocks, loops, and a whole lot of fun. Snap.Startr.Cloud is where your imagination gets to run wild in the world of code. Let&#39;s get snapping! 🌟👾💻</p>

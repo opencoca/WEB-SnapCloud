@@ -49,7 +49,7 @@ local locale = {
     t_support = "Support",
     t_legal = "Rechtliches",
     -- Links
-    about = "Über Snap<em>!</em>",
+    about = "Über Snap.Startr.Cloud",
     blog = "",
     credits = "Credits",
     requirements = "Technische Voraussetzungen",

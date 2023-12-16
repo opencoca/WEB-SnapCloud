@@ -1,38 +1,26 @@
-<h1>Using Snap<em>!</em> Without an Internet Connection</h1>
-<p>Snap<em>!</em> is a web application hosted at <a class="snap-link" href="" title="Snap! online" rel="nofollow">https://snap.berkeley.edu/run</a>.</p>
-<p>If you would like to use Snap<em>!</em> without being connected to the internet, e.g. in a remote area or in a school with limited or unreliable online service you can easily set up Snap<em>!</em> locally on your computer, by following these</p>
-<h2>Simple Steps:</h2>
+<h1 id="using-snap-startr-cloud-offline-a-user-s-guide">Using Snap.Startr.Cloud Offline: A User&#39;s Guide</h1>
+<p>Snap.Startr.Cloud is a versatile web application accessible at <a href="http://localhost:8080/snap/snap.html">localhost:8080/snap/snap.html</a>. For those needing to use it offline -- perhaps in remote locations or areas with unstable internet connections -- setting it up locally on your computer is straightforward.</p>
+<h3 id="easy-setup-steps">Easy Setup Steps</h3>
 <ol>
-    <li>Download the latest Snap<em>!</em> Release from <a href="https://github.com/jmoenig/Snap/releases/latest" title="Snap! Source Code">https://github.com/jmoenig/Snap/releases/latest</a>, and unpack the contents of the archive to your local disk.</li>
-    <li>Open the file <code>snap.html</code> in your browser.</li>
-    <li>There is no step 3.</li>
+<li>Download: Get the latest Snap.Startr.Cloud release from <a href="https://github.com/jmoenig/Snap/releases/latest">GitHub</a>. Unpack the contents onto your local drive.</li>
+<li>Launch: Open the <code>snap.html</code> file in your web browser.</li>
+<li>Enjoy: That&#39;s it! No third step is necessary.</li>
 </ol>
-<p>Snap<em>!</em> is just a web page, you can open it locally in your browser, no need to install anything on your computer. You can use whichever operating system you like, you don't even need admin rights. You can also use a memory stick to distribute the directory with source files among the participants of a workshop or the students of your class, even if some of them are using MacOS and others run MS Windows or Linux.</p>
-<h2>Remember to Unpack</h2>
-<p>Windows users, this is for you.</p>
-<p>Once you've downloaded the source code, please remember to actually unpack the archive to your computer. If you downloaded the zip file please actually unzip it, before you open <code>snap.html</code>. If you use a Mac simply double-clicking the zip file unpacks it. But if you're on Windows double clicking the zip fie will <em>not</em> unzip it but instead show you the contents of the archive.</p>
-<h2>Which Web Browser?</h2>
-<p>It's best to open Snap<em>!</em> in Chrome or Firefox.</p>
-<p>Snap<em>!</em> is using web standards and runs in any modern web browser. Some browsers are faster than others, which makes using Snap<em>!</em> more fun. For the best user experience we recommend Chrome or Firefox. IE does not comply with modern web standards and will not work. Edge will work, but some operations will be so slow it takes the fun out of programming and playing.</p>
-<h2>What about Tablets?</h2>
-<p>We don't recommend it.</p>
-<p>Snap<em>!</em> sorta runs on tablets, but the UI isn't optimized for mobile use. Also, many mobile web browsers enforce some restrictions that are not web-standards compliant, e.g. they will not support the soft keyboard or intentionally slow down certain operations to discourage using web apps in favor of proprietary "native" apps.</p>
-<h2>Restrictions of the Offline Version</h2>
-<p>You can't access the cloud, duh. Everything else just works.</p>
-<p>Aside from accessing the cloud using Snap<em>!</em> offline in the browser by opening the <code>snap.html</code> file locally there aren't any restrictions. You can use all the blocks, import pictures, sounds, libraries, take snapshots with the webcam, record sounds with the microphone, draw your own costumes etc.</p>
-<h2>Saving and Loading</h2>
-<p>When you use Snap<em>!</em> locally you will not be able to save projects to the cloud, nor can you access projects saved in the cloud. Instead projects will be exported as xml-files to your computer, from where they can also be opened again.</p>
-<p>There are two ways to load projects and assets from your computer when you use Snap<em>!</em> without an internet connection:</p>
+<p>Snap.Startr.Cloud functions as a simple web page. Open it locally in your browser without any additional installations. It&#39;s compatible with various operating systems and doesn&#39;t require administrative privileges. You can even share it using a memory stick, making it a breeze to distribute among workshop participants or students, regardless of their operating systems.</p>
+<h3 id="important-for-windows-users-unzipping-the-download">Important for Windows Users: Unzipping the Download</h3>
+<p>After downloading the source code, ensure you unpack the archive. For Windows users, remember that double-clicking a zip file only reveals its contents, not extracts them. Perform an actual unzip process before accessing <code>snap.html</code>.</p>
+<h3 id="recommended-browsers">Recommended Browsers</h3>
+<p>Snap.Startr.Cloud performs best on Chrome or Firefox, thanks to their adherence to modern web standards. While Edge supports it, some operations might be slower. Internet Explorer, due to its non-compliance with these standards, is not recommended.</p>
+<h3 id="tablet-compatibility">Tablet Compatibility</h3>
+<p>Snap.Startr.Cloud shines on tablets, optimized for mobile use. Some mobile browsers might impose restrictions, like slowing down specific operations. If you encounter any issues on your tablet, please report them to us.</p>
+<h3 id="offline-version-limitations">Offline Version Limitations</h3>
+<p>The primary limitation of using Snap.Startr.Cloud offline is the inability to access cloud features. However, all other functionalities, such as using blocks, importing media, and recording via webcam or microphone, remain unaffected.</p>
+<h3 id="saving-and-loading-projects">Saving and Loading Projects</h3>
+<p>Working offline means you cannot save to or access projects from the cloud (unless you get back online). Instead, projects are exported as XML files to your computer, where they can also be re-opened. You have two ways to load projects and assets:</p>
 <ol>
-    <li>Using the options in Snap's file menu opens an OS-native file dialog that lets you select which file to import or load.</li>
-    <li>Alternatively you can drag projects and assets (extension libraries, pictures, sounds etc.) from your computer directly into Snap<em>!</em> and drop it. If you import sounds or images you can also drag and drop several files all at once.</li>
+<li>Through Snap&#39;s file menu, using an OS-native file dialog.</li>
+<li>By dragging and dropping files directly into Snap.Startr.Cloud.</li>
 </ol>
-<p>Easy, isn't it?</p>
-<h2>Keeping Snap<em>!</em> up-to-date</h2>
-<p>From time to time it's wise to check whether a new version of Snap<em>!</em> is available. You can find out the latest release using the link above, and compare that to the offline sources on your computer. If there is a newer version, simply replace the source files with the newer ones.</p>
-<p>Enjoy!</p>
-<script>
-    var snapLink = document.querySelector('.snap-link');
-    snapLink.href = snapURL;
-    snapLink.innerText = snapURL;
-</script>
+<h3 id="keeping-snap-startr-cloud-updated">Keeping Snap.Startr.Cloud Updated</h3>
+<p>Regularly check for new versions of Snap.Startr.Cloud. Compare the version on your computer with the latest release available via the provided GitHub link. Update by replacing old source files with the new ones.</p>
+<p>Enjoy your Snap.Startr.Cloud experience!</p>

@@ -26,9 +26,7 @@
             <p><a href="extensions"><%- locale.get('extensions') %></a></p>
             <p><a href="snapp">Snapp<em>!</em></a></p>
             <p><a href="snapinator">Snapinator</a></p>
-            <p><a href="https://smerge.org/">Smerge</a></p>
-            <p><a href="old_site/old-byob.html"
-                >BYOB <%- locale.get('old_snap', '<em>!</em>') %></a></p>
+            <p><a href="https://codezy.org/">Codezy Versioning</a></p>
         </div>
         <div class="pure-u-1-5">
             <p><h4><%- locale.get('t_support') %></h4></p>
@@ -45,9 +43,7 @@
         </div>
         <div class="credits pure-u-1-1">
             <a href="/partners">
-                <p>Snap<em>!</em> is brought to you by UC Berkeley and SAP.</p>
-                <img src="static/img/ucb-logo-footer.png"></img>
-                <img src="static/img/sap-logo-footer.png"></img>
+                <p>Snap.Startr.Cloud is brought to you by Startr.Team.</p>
             </a>
         </div>
     </div>

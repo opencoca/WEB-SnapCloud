@@ -4,11 +4,49 @@
 <h1>Blog</h1>
 <div class="blog"></div>
 
-<script>
-    var blog =
-        new DiscourseBlog(
-            'https://forum.snap.berkeley.edu',
-            'announcements/blog',
-            document.querySelector('.blog')
-        );
-</script>
+<h2 id="introducing-our-new-edtech-api-a-comprehensive-guide">Introducing Our New EdTech API: A Comprehensive Guide</h2>
+<p>We&#39;re thrilled to announce the launch of our new API, designed to enhance your EdTech experience. This API provides a wide range of functionalities, from user management to project handling and collections. Here&#39;s a detailed overview of our API endpoints:</p>
+<h4 id="users">Users</h4>
+<ul>
+<li>GET /users/c: Fetch the currently logged-in user&#39;s username and credentials.</li>
+<li>GET /users: Obtain a paginated list of users based on username or email. Search with &#39;matchtext&#39;. The returned parameters depend on the query issuer&#39;s permissions.</li>
+<li>GET /users/:username: Retrieve detailed information about a specific user.</li>
+<li>GET /users/:username/password_reset/:token: Check and use a reset password token.</li>
+<li>GET /users/:username/verify_user/:token: Verify a user&#39;s email or remove an expired token. Admins can verify users directly.</li>
+<li>GET /users/email/:email: Send an email listing all users associated with an email address.</li>
+<li>POST /users/:username: Add or update a user&#39;s information, including pre-hashed (SHA512) passwords.</li>
+<li>POST /users/:username/newpassword: Set a new password for a user, with SHA512 pre-hashing.</li>
+<li>POST /users/:username/resendverification: Resend a user verification email.</li>
+<li>POST /users/:username/password_reset: Generate a token to reset a user&#39;s password.</li>
+<li>POST /users/:username/login: Log a user into the system.</li>
+<li>POST /logout: Log out the current user.</li>
+</ul>
+<h4 id="projects">Projects</h4>
+<ul>
+<li>GET /projects: Access a list of published projects with filtering options.</li>
+<li>GET /projects/:username: Get project metadata filtered by various parameters.</li>
+<li>GET /projects/:username/:projectname: Retrieve specific project details.</li>
+<li>GET /projects/:username/:projectname/metadata: Access project metadata.</li>
+<li>GET /projects/:username/:projectname/versions: View information about project versions.</li>
+<li>GET /projects/:username/:projectname/remixes: List all published remixes of a project.</li>
+<li>GET /projects/:username/:projectname/thumbnail: Fetch a project&#39;s thumbnail.</li>
+<li>POST /projects/:username/:projectname: Add or update a project.</li>
+<li>POST /projects/:username/:projectname/metadata: Modify project metadata.</li>
+<li>DELETE /projects/:username/:projectname: Remove a specific project.</li>
+</ul>
+<h4 id="collections">Collections</h4>
+<ul>
+<li>GET /collections: Admins can view all collections or search by name.</li>
+<li>GET /users/:username/collections: View a user&#39;s collections with search functionality.</li>
+<li>GET /users/:username/collections/:collection_slug: Obtain details about a specific collection.</li>
+<li>GET /users/:username/collections/:collection_slug/items(/:item_id): List items in a collection.</li>
+<li>POST /users/:username/collections/:collection_slug: Create a new collection.</li>
+<li>POST /users/:username/collections/:collection_slug/items(/:item_id): Add items to a collection.</li>
+<li>DELETE /users/:username/collections/:collection_slug: Delete a collection.</li>
+<li>DELETE /users/:username/collections/:collection_slug/items(/:item_id): Remove an item from a collection.</li>
+</ul>
+<h3 id="our-writing-process">Our Writing Process</h3>
+<p>Our API documentation is crafted with precision and clarity. We believe in providing comprehensive yet understandable information to our users. We focus on clear language, practical examples, and thorough explanations of each endpoint. Our goal is to make your integration process as smooth as possible.</p>
+<p>Stay tuned for more updates, and don&#39;t hesitate to reach out with any questions or feedback. Happy coding!</p>
+
+We keep a canonical copy of our API endpoints at <a href="/static/API">/static/API</a> for your convenience.

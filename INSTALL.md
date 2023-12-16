@@ -8,7 +8,7 @@ First, clone the Snap!Cloud repository into a local folder:
 $ git clone --recursive git@github.com:snap-cloud/snapCloud.git
 ```
 
-(Use the `--recursive` option so that you can have a working Snap<em>!</em> install.)
+(Use the `--recursive` option so that you can have a working Snap.Startr.Cloud install.)
 
 **NOTE**: If you forked the repo, make sure that `snap-cloud` is replaced with your **GitHub username**. However, submodules will be from the original author.
 
@@ -198,7 +198,7 @@ In development, it's completely fine to stick with these provided values. Howeve
 
 
 ### Getting Emails
-The Snap<em>!</em>Cloud sends emails for certain actions, like new user signups and password resets. In order to test those actions, you need an SMTP server.
+The Snap.Startr.Cloud sends emails for certain actions, like new user signups and password resets. In order to test those actions, you need an SMTP server.
 
 We've included a configuration to run a local server called [maildev][maildev].
 

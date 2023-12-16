@@ -776,7 +776,7 @@ app:match(
             local user_page = function ()
                 return htmlPage(
                     self,
-                    'User verified | Welcome to Snap<em>!</em>',
+                    'User verified | Welcome to Snap.Startr.Cloud',
                     '<p>Your account <strong>' .. user.username ..
                     '</strong> has been verified.</p>' ..
                     '<p>Thank you!</p>' ..

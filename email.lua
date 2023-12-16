@@ -44,29 +44,29 @@ mail_bodies = {
                    '<p><strong>Please change it immediately</strong> after logging in.</p><br/>' ..
                    '<p>Your new password is:</p>',
     project_unpublished = '<h1>Your project has been unpublished</h1>' ..
-                          '<p>One of your projects has been unpublished from the Snap<em>!</em> community website by a system ',
+                          '<p>One of your projects has been unpublished from the Snap.Startr.Cloud community website by a system ',
     project_deleted = '<h1>Your project has been deleted</h1>' ..
-                      '<p>One of your projects has been deleted from the Snap<em>!</em> community website by a system ',
+                      '<p>One of your projects has been deleted from the Snap.Startr.Cloud community website by a system ',
     set_role_banned = '<h1>Your user has been banned</h1>' ..
-                      '<p>You have been banned from the Snap<em>!</em> community website because of a violation of our code of conduct.</p>' ..
+                      '<p>You have been banned from the Snap.Startr.Cloud community website because of a violation of our code of conduct.</p>' ..
                       '<p>You can no longer publish any projects, but you can still make use of all the other functionalities.</p>' ..
                       '<p>All of your projects are still available to you and can be privately shared with other people.</p>',
     set_role_standard = '<h1>You are now a standard user</h1>' ..
                         '<p></p>',
     set_role_reviewer = '<h1>You are now a reviewer</h1>' ..
-                        '<p>You have been appointed reviewer in the Snap<em>!</em> community website.</p>' ..
+                        '<p>You have been appointed reviewer in the Snap.Startr.Cloud community website.</p>' ..
                         '<p>As a reviewer, you can now unpublish projects that violate our code of conduct.</p>' ..
                         '<p>Remember, do not abuse your newly acquired powers and use them responsibly.</p>',
     set_role_moderator = '<h1>You are now a moderator</h1>' ..
-                         '<p>You have been appointed moderator in the Snap<em>!</em> community website.</p>' ..
+                         '<p>You have been appointed moderator in the Snap.Startr.Cloud community website.</p>' ..
                          '<p>As a moderator, you can now verify users manually, upgrade other users to reviewers or moderators, unpublish and delete projects that violate our code of conduct, and ban or permanently delete re-offending users.</p>' ..
                          '<p><strong>Banning a user should be your very last resort. Deleting a user should never be necessary.</strong></p>' ..
                          '<p>Remember, do not abuse your newly acquired powers and use them responsibly.</p>' ,
     set_role_admin = '<h1>You are now an administrator</h1>' ..
-                     '<p>You have been appointed an administrator in the Snap<em>!</em> community website.</p>' ..
+                     '<p>You have been appointed an administrator in the Snap.Startr.Cloud community website.</p>' ..
                      '<p>Remember, do not abuse your newly acquired superpowers and use them responsibly.</p>',
     users_for_email = '<h1>Users associated with to email account</h1>' ..
-                      '<p>This is the list of Snap<em>!</em> usernames associated to your email account:</p>',
+                      '<p>This is the list of Snap.Startr.Cloud usernames associated to your email account:</p>',
     bad_flag = function (user, project)
         return '<h1>Flagging System Abuse</h1>' ..
         '<p>You have flagged the project ' .. project.projectname .. ' by ' ..  project.username .. ', but we have not found it to violate any of our guidelines.</p>' ..
@@ -76,7 +76,7 @@ mail_bodies = {
             '') ..
         'Please do not do that again.</p><br>' ..
         '<p>Thank you,</p>' ..
-        '<p>The Snap<em>!</em> team</p>'
+        '<p>The Snap.Startr.Cloud team</p>'
     end
 }
 

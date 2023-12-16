@@ -2,7 +2,7 @@
     <div class="pure-menu-horizontal pure-menu">
         <ul class="pure-g pure-menu-list">
             <a class="pure-u-1-12" href="/" aria-label="Snap! home page">
-                <img src="/static/img/topbar-logo.png" height=32 class="logo clickable"/>
+                <img src="/static/img/topbar-logo.png" height=64 class="logo clickable"/>
             </a>
             <span class="pure-u-5-12">
                 <li class="pure-menu-item">
@@ -14,15 +14,15 @@
                     <a class="pure-menu-link explore" href="/explore"
                         ><%- locale.get('explore') %></a>
                 </li>
-                <li class="pure-menu-item">
+                <!--<li class="pure-menu-item">
                     <a class="pure-menu-link forum"
                         href="https://forum.snap.berkeley.edu/"
                         ><%- locale.get('forum') %></a>
-                </li>
+                </li>-->
                 <!--   =======   Snap!Con   =======
                 <li class="pure-menu-item">
                     <a class="pure-menu-link" target="_blank"
-                    href="https://www.snapcon.org">Snap<em>!</em>Con</a>
+                    href="https://www.snapcon.org">Snap.Startr.CloudCon</a>
                 </li>
                 -->
             </span>

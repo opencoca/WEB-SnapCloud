@@ -65,7 +65,7 @@ err = {
     nonvalidated_user_html = {
         msg = '<p>This user has not been validated within the first 3 days ' ..
             'after its creation.</p>' ..
-            '<p>Please <a href="/run">open the Snap<em>!</em> editor</a> and' ..
+            '<p>Please <a href="/run">open the Snap.Startr.Cloud editor</a> and' ..
             ' then use the cloud menu to ask for a new validation link:</p>' ..
             '<p><img src="/static/cloud_menu.png"></img></p>',
         status = 401 },

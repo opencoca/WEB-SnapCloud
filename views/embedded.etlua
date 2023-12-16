@@ -7,9 +7,12 @@
         <meta name="author" content="Bernat Romagosa, Michael Ball, Jens Mönig, Brian Harvey, Jadge Hügle">
         <meta name="snap-cloud-domain" location="https://snap.berkeley.edu">
         <link rel="icon" href="/static/img/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
+        <link rel="manifest" href="/static//site.webmanifest">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- External libs, both stylesheets and JS -->
-        <link rel="stylesheet" href="/static/style/reset.css">
         <link rel="stylesheet" href="/static/style/pure-min.css">
         <link rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
@@ -18,6 +21,7 @@
         <!-- Stylesheets -->
         <link rel="stylesheet" href="/static/style/elements.css">
         <link rel="stylesheet" href="/static/style/classes.css">
+        <link rel="stylesheet" href="https://startr.style/style.css">
         <!-- JS -->
         <script type="text/javascript" src="/static/js/locale.js"></script>
         <script type="text/javascript">modules = [];</script>

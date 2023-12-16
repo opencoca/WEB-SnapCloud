@@ -24,10 +24,11 @@
 .article-list {
     display: flex;
     flex-flow: wrap;
+    justify-content: space-between;
 }
 
-.article-list li {
-    flex: 50%;
-    padding: 1em;
-    box-sizing: border-box;
-}
+.article-list    li{
+        list-style: none;
+    }
+
+
