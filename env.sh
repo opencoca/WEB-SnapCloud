@@ -1,4 +1,7 @@
 export LAPIS_ENVIRONMENT=development
+
+export PORT=80
+
 export DATABASE_URL=127.0.0.1:5432
 export DATABASE_USERNAME=cloud
 export DATABASE_PASSWORD=snap-cloud-password

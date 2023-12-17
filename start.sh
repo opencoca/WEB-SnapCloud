@@ -4,6 +4,8 @@ source /app/.env
 service postgresql start &
 
 cd /app/ \
+  && . .env \
+  && echo $PORT \
   && lapis server $LAPIS_ENVIRONMENT --trace &
 
 sleep infinity

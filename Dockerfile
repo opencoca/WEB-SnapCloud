@@ -3,7 +3,7 @@ FROM openco/snapcloud-develop:manifest-latest
 ENV DEBIAN_FRONTEND noninteractive
 
 # Add canonical snap store
-COPY snapcloud.app.store /app/store
+COPY store /app/store
 # Add canonical database
 COPY snapcloud.sql /app/bin/snapcloud.sql
 RUN chmod 777 /app/store
@@ -20,7 +20,7 @@ COPY env.sh /app/.env
 
 COPY . /app
 
-EXPOSE 8080
-ENV PORT=8080
+EXPOSE 80
+ENV PORT=80
 
 CMD ["/app/start.sh"]

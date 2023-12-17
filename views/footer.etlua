@@ -24,7 +24,7 @@
             <p><h4><%- locale.get('t_tools') %></h4></p>
             <p><a href="offline"><%- locale.get('offline') %></a></p>
             <p><a href="extensions"><%- locale.get('extensions') %></a></p>
-            <p><a href="snapp">Snapp<em>!</em></a></p>
+            <p><a href="snapp">SnApp App Maker<em>!</em></a></p>
             <p><a href="snapinator">Snapinator</a></p>
             <p><a href="https://codezy.org/">Codezy Versioning</a></p>
         </div>

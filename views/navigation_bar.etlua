@@ -1,9 +1,13 @@
 <nav id="top-bar">
     <div class="pure-menu-horizontal pure-menu">
-        <ul class="pure-g pure-menu-list">
-            <a class="pure-u-1-12" href="/" aria-label="Snap! home page">
-                <img src="/static/img/topbar-logo.png" height=64 class="logo clickable"/>
+    <a style="
+        --ml: 60px;
+        --d: inline-block;" 
+        class="pure-u-1-12" href="/" aria-label="Snap! home page">
+                <img src="/static/img/topbar-logo.png" height=64 class="logo clickable" style="--maxw: inherit;"/>
             </a>
+        <ul class="pure-g pure-menu-list">
+            
             <span class="pure-u-5-12">
                 <li class="pure-menu-item">
                     <a class="pure-menu-link run" target="_blank"

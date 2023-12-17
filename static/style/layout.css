@@ -85,7 +85,7 @@
 }
 
 #top-bar .pure-menu ul.pure-menu-list {
-    display: block;
+    display: inline-block;
     font-size: 14px;
     line-height: 48px;
     height: 48px;
@@ -276,10 +276,10 @@
 /* PHONES, TABLETS AND SMALL SCREENS */
 @media only screen and (max-width: 1080px) {
     #wrapper {
-        width: auto;
+        width: 100%;
     }
 
     #top-bar .pure-menu ul.pure-menu-list {
-        width: auto;
+        width: 100%;
     }
 }
