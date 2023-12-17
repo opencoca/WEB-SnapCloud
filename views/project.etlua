@@ -47,9 +47,10 @@
             </div>
 
             <!-- Project embed -->
+            <!-- TODO Make it work everywhere -->
             <iframe allow="geolocation; microphone; camera"
                 sandbox="allow-scripts allow-same-origin"
-                src="<%= project:url_for('viewer', params.devVersion) %>"
+                src="https://snap.startr.cloud<%= project:url_for('viewer', params.devVersion) %>"
                 height="406"></iframe>
 
             <!-- Project Action Buttons -->
