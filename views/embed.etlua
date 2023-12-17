@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <title><%= project.projectname %></title>
 
         <script type="text/javascript" src="/static/js/locale.js"></script>
@@ -38,7 +39,7 @@
                 <a title="See source code" class="edit" href="<%= project:url_for('open', params.devVersion) %>" target="_blank"><i class="far fa-eye"></i></a>
         <% end %>
             </div>
-            <iframe allow="geolocation; microphone; camera" sandbox="allow-scripts allow-same-origin" src="https://snap.startr.cloud<%= project:url_for('viewer', params.devVersion) %>" height="406"></iframe>
+            <iframe allow="geolocation; microphone; camera" sandbox="allow-scripts allow-same-origin" src="<%= project:url_for('viewer', params.devVersion) %>" height="406"></iframe>
 
         </div>
         <script type="text/javascript">
