@@ -188,7 +188,7 @@ package.loaded.Projects = Model:extend('active_projects', {
             site = '/project?username=' .. escape(self.username) ..
                 '&projectname=' .. escape(self.projectname),
             author = '/user?username=' .. escape(self.username),
-            embed = 'https://snap.berkeley.edu/embed?projectname=' ..
+            embed = 'https://snap.startr.cloud/embed?projectname=' ..
                 escape(self.projectname) .. '&username=' ..
                 escape(self.username)
         }

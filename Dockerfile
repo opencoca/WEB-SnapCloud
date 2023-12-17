@@ -6,9 +6,8 @@ ENV DEBIAN_FRONTEND noninteractive
 COPY ./store /app/store
 # Add canonical database
 COPY snapcloud.sql /app/bin/snapcloud.sql
-RUN chmod 777 /app/store
-# A better option for security so the it was not 777 and allowed write and read
-RUN chmod --recursive 777 /app/store
+
+
 
 RUN service postgresql start \
   && su postgres -c "dropdb snapcloud" \
@@ -19,6 +18,8 @@ RUN service postgresql start \
 COPY env.sh /app/.env
 
 COPY . /app
+
+RUN chmod -R 777 /app/store
 
 EXPOSE 80
 ENV PORT=80
