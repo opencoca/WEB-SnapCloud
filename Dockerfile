@@ -3,7 +3,7 @@ FROM openco/snapcloud-develop:manifest-latest
 ENV DEBIAN_FRONTEND noninteractive
 
 # Add canonical snap store
-COPY store /app/store
+COPY ./store /app/store
 # Add canonical database
 COPY snapcloud.sql /app/bin/snapcloud.sql
 RUN chmod 777 /app/store
