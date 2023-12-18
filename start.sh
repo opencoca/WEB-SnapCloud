@@ -3,9 +3,10 @@ source /app/.env
 
 service postgresql start &
 
+chmod -R 777 /app/store
+
 cd /app/ \
   && . .env \
-  && echo $PORT \
   && lapis server $LAPIS_ENVIRONMENT --trace &
 
 sleep infinity

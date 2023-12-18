@@ -611,9 +611,9 @@ COPY public.lapis_migrations (name) FROM stdin;
 --
 
 COPY public.projects (id, projectname, ispublic, ispublished, notes, created, lastupdated, lastshared, username, firstpublished, deleted) FROM stdin;
-1	asteroidz - landscape	t	t	Asteroidz is our take on the classic space shooter	2023-12-14 17:05:29+00	2023-12-14 17:16:49+00	2023-12-14 17:05:51+00	outofpaper	2023-12-14 17:05:56+00	\N
 2	Binary Counter	t	f	An example of working with Binary counters	2023-12-17 19:47:56+00	2023-12-17 19:48:14+00	2023-12-17 19:48:09+00	outofpaper	\N	\N
 3	play with the BALL	t	t	Simulating a cat chasing a ball is so fun!\n\nUse the color slider to change your cat's color.	2023-12-17 19:57:08+00	2023-12-17 19:57:37+00	2023-12-17 19:57:26+00	mcat2000	2023-12-17 19:57:32+00	\N
+1	asteroidz - landscape	t	t	Asteroidz is our take on the classic space shooter	2023-12-14 17:05:29+00	2023-12-18 12:21:16+00	2023-12-14 17:05:51+00	outofpaper	2023-12-14 17:05:56+00	\N
 \.
 
 
