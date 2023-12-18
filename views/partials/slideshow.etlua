@@ -20,25 +20,25 @@
     %>
     <a href="collection?username=snapcloud&collection=<%= totms[1].name %>">
         <div class="slide fade">
-            <img src="/static/img/totm.png" style="width:100%">
+            <img src="/static/img/totm.png" style="--w:100%; --shadow:10">
         </div>
     </a>
     <% end %>
 
     <div class="slide fade">
-        <img src="/static/img/snap-byob.png" style="width:100%">
+        <img src="/static/img/snap-byob.png" style="--w:100%; --shadow:10">
     </div>
 
     <div class="slide fade">
-        <img src="/static/img/lowfloor.png" style="width:100%">
+        <img src="/static/img/lowfloor.png" style="--w:100%; --shadow:10">
     </div>
 
     <div class="slide fade">
-        <img src="/static/img/widewalls.png" style="width:100%">
+        <img src="/static/img/widewalls.png" style="--w:100%; --shadow:10">
     </div>
 
     <div class="slide fade">
-        <img src="/static/img/noceiling.png" style="width:100%">
+        <img src="/static/img/noceiling.png" style="--w:100%; --shadow:10">
     </div>
 
     <a class="previous" onclick="plusSlides(-1)">&#10094;</a>

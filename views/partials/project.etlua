@@ -3,7 +3,13 @@
     <i class="no-image fas fa-question-circle"></i>
     <% end %>
     <a target="_self" href="<%= item:url_for('site') %>">
-        <img class="thumbnail" title=""
+        <img class="thumbnail"
+
+            style="
+                --shadow:8;
+                --shadow-hvr:4"
+
+            title=""
             <% if (item.thumbnail) then %>
                 src="<%= item.thumbnail %>"
             <% end %>
