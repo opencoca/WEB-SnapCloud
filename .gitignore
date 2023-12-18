@@ -1,5 +1,8 @@
+# Apple files
+.DS_Store
 
 
+# TOR entry/exit node lists
 torbulkexitlist
 
 # Yarn gitignore related files

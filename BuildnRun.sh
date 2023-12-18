@@ -30,7 +30,7 @@ echo      BRANCH=$BRANCH
 echo docker build -t openco/$PROJECT-$BRANCH:$TAG .
 echo docker tag -f openco/$PROJECT-$BRANCH:$TAG openco/$PROJECT-$BRANCH:latest
 docker build \
-   \
+  -f Dockerfile \
   -t openco/$PROJECT-$BRANCH:$TAG . \
   && \
 docker tag openco/$PROJECT-$BRANCH:$TAG \

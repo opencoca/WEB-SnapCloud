@@ -11,7 +11,7 @@
         "fetch:backup": "ssh $REMOTE_SERVER './backup_snapcloud.sh'",
         "fetch:store": "rsync -avz --progress $REMOTE_STORE_PATH . && rm -rf ./store && mv ./snapcloud.app.store ./store",
         "fetch:db": "rsync -avz --progress $REMOTE_DB_PATH .",
-        "fetchProductionData": "npm run fetch:backup && npm run fetch:store && npm run fetch:db"
+        "fetchproduction": "npm run fetch:backup && npm run fetch:store && npm run fetch:db"
     },
     "dependencies": {
     },
