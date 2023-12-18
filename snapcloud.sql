@@ -612,6 +612,8 @@ COPY public.lapis_migrations (name) FROM stdin;
 
 COPY public.projects (id, projectname, ispublic, ispublished, notes, created, lastupdated, lastshared, username, firstpublished, deleted) FROM stdin;
 1	asteroidz - landscape	t	t	Asteroidz is our take on the classic space shooter	2023-12-14 17:05:29+00	2023-12-14 17:16:49+00	2023-12-14 17:05:51+00	outofpaper	2023-12-14 17:05:56+00	\N
+2	Binary Counter	t	f	An example of working with Binary counters	2023-12-17 19:47:56+00	2023-12-17 19:48:14+00	2023-12-17 19:48:09+00	outofpaper	\N	\N
+3	play with the BALL	t	t	Simulating a cat chasing a ball is so fun!\n\nUse the color slider to change your cat's color.	2023-12-17 19:57:08+00	2023-12-17 19:57:37+00	2023-12-17 19:57:26+00	mcat2000	2023-12-17 19:57:32+00	\N
 \.
 
 
@@ -628,6 +630,7 @@ COPY public.remixes (original_project_id, remixed_project_id, created) FROM stdi
 --
 
 COPY public.tokens (created, username, purpose, value) FROM stdin;
+2023-12-17 19:56:18	mcat2000	verify_user	d4c7f3788b83f496c8d4b8df9cc192d70a6ef93bf8b0fce4358cee0dea3a9392433269665b5c06212a4359cd4e10d90837e5e96965624edf0090f62d1d81ed4e
 \.
 
 
@@ -638,6 +641,7 @@ COPY public.tokens (created, username, purpose, value) FROM stdin;
 COPY public.users (id, created, username, email, salt, password, about, location, verified, role, deleted, unique_email, bad_flags, is_teacher, creator_id) FROM stdin;
 519956	\N	snapcloud	\N	\N	\N	\N	\N	t	admin	\N	\N	0	f	\N
 1	2023-12-14 16:57:55+00	outofpaper	alexander.somma@gmail.com	474db717ffb04ff86ce18837f1080920	edfe0ab37f934f2bd7004d710c96a44c514716e3a9e8f191f79d839e9882dbb192a220e3504e37f9a986393f59368daf6a5b931c50160a1ff85a5208de2013c0	\N	\N	t	admin	\N	\N	0	f	\N
+2	2023-12-17 19:56:18+00	mcat2000	malcolm.sooma@gmail.com	88649af1d0db2e937d1d1ac2ebc9451c	5b1d3a8975ceadeada8a5d698cfeefaa5aa2455f84e94a7185dbea5c8ff3ec080335ce792a936d2029eb230b0a05aeda4066a3e8c70b189e874b00a058c47e59	\N	\N	t	standard	\N	\N	0	f	\N
 \.
 
 
@@ -666,14 +670,14 @@ SELECT pg_catalog.setval('public.flagged_projects_id_seq', 1, false);
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.projects_id_seq', 1, true);
+SELECT pg_catalog.setval('public.projects_id_seq', 3, true);
 
 
 --
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 1, true);
+SELECT pg_catalog.setval('public.users_id_seq', 2, true);
 
 
 --
