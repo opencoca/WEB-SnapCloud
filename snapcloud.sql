@@ -614,6 +614,7 @@ COPY public.projects (id, projectname, ispublic, ispublished, notes, created, la
 3	play with the BALL	t	t	Simulating a cat chasing a ball is so fun!\n\nUse the color slider to change your cat's color.	2023-12-17 19:57:08+00	2023-12-17 19:57:37+00	2023-12-17 19:57:26+00	mcat2000	2023-12-17 19:57:32+00	\N
 1	asteroidz - landscape	t	t	Asteroidz is our take on the classic space shooter	2023-12-14 17:05:29+00	2023-12-18 12:21:16+00	2023-12-14 17:05:51+00	outofpaper	2023-12-14 17:05:56+00	\N
 2	Binary Counter	t	t	An example of working with Binary counters	2023-12-17 19:47:56+00	2023-12-18 13:34:42+00	2023-12-17 19:48:09+00	outofpaper	2023-12-18 13:34:37+00	\N
+4	space fight	t	t	fight your enemies in space	2023-12-18 16:24:31+00	2023-12-18 16:28:09+00	2023-12-18 16:27:30+00	mcat2000	2023-12-18 16:27:34+00	\N
 \.
 
 
@@ -630,7 +631,6 @@ COPY public.remixes (original_project_id, remixed_project_id, created) FROM stdi
 --
 
 COPY public.tokens (created, username, purpose, value) FROM stdin;
-2023-12-17 19:56:18	mcat2000	verify_user	d4c7f3788b83f496c8d4b8df9cc192d70a6ef93bf8b0fce4358cee0dea3a9392433269665b5c06212a4359cd4e10d90837e5e96965624edf0090f62d1d81ed4e
 \.
 
 
@@ -670,7 +670,7 @@ SELECT pg_catalog.setval('public.flagged_projects_id_seq', 1, false);
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.projects_id_seq', 3, true);
+SELECT pg_catalog.setval('public.projects_id_seq', 4, true);
 
 
 --
