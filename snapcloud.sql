@@ -614,7 +614,15 @@ COPY public.projects (id, projectname, ispublic, ispublished, notes, created, la
 3	play with the BALL	t	t	Simulating a cat chasing a ball is so fun!\n\nUse the color slider to change your cat's color.	2023-12-17 19:57:08+00	2023-12-17 19:57:37+00	2023-12-17 19:57:26+00	mcat2000	2023-12-17 19:57:32+00	\N
 1	asteroidz - landscape	t	t	Asteroidz is our take on the classic space shooter	2023-12-14 17:05:29+00	2023-12-18 12:21:16+00	2023-12-14 17:05:51+00	outofpaper	2023-12-14 17:05:56+00	\N
 2	Binary Counter	t	t	An example of working with Binary counters	2023-12-17 19:47:56+00	2023-12-18 13:34:42+00	2023-12-17 19:48:09+00	outofpaper	2023-12-18 13:34:37+00	\N
-4	space fight	t	t	fight your enemies in space	2023-12-18 16:24:31+00	2023-12-18 16:28:09+00	2023-12-18 16:27:30+00	mcat2000	2023-12-18 16:27:34+00	\N
+4	space fight	t	t	fight your enemies in space	2023-12-18 16:24:31+00	2023-12-19 13:16:02+00	2023-12-18 16:27:30+00	mcat2000	2023-12-18 16:27:34+00	\N
+5	HTML Blocks	t	t	An example of working with HTML elements. We add an element we call our WebApp. After this we add the styling for a simple row and column system and then populate it with some example content.	2023-12-19 13:36:08+00	2023-12-19 13:36:37+00	2023-12-19 13:36:17+00	outofpaper	2023-12-19 13:36:37+00	\N
+6	canons	t	t	avoid rocks and shoot your friends.	2023-12-19 13:50:28+00	2023-12-19 13:51:19+00	2023-12-19 13:51:14+00	mcat2000	2023-12-19 13:51:19+00	\N
+8	the time game show	t	t	gain and lose points based on time and acurisy	2023-12-20 10:01:59+00	2023-12-20 10:06:43+00	2023-12-20 10:02:10+00	mcat2000	2023-12-20 10:02:13+00	\N
+9	Sound and Vision	t	t	An example of working with pen colors, sound, and the launch block.	2023-12-20 11:31:38+00	2023-12-20 11:33:39+00	2023-12-20 11:33:36+00	outofpaper	2023-12-20 11:33:39+00	\N
+7	AI Development 001	t	t	This is a sneak peek into the brain(s) of AI.\n\nBrains are like parties. Connections are made and information is exchanged.\n\nThink of it as a social party where each of the colorful spheres is a guest. We’ve got a someone in blue, pink, yellow, green, and purple, all mingling through these orange lines that are the conversations happening between them.\n\nBrains be they real or virtual also connect in a simular fasion. Instead of people brains have neurons. Imagine each sphere as a neuron inside an AI's neural network. \n\nThose lines? They're the digital chit-chat—data zipping back and forth. Now, if you're diving into AI development, this is your bread and butter. You're the host of this shindig, and it's your job to make sure these guests connect, share info, and learn from each other.\n\nKeep this picture in mind when you're designing learning experiences. Each connection represents potential growth, a pathway to learning something new. And remember, just like in a real network, the strength of the connection matters. Weak connections? They're like those forgettable small talks. Strong connections are your deep, memorable conversations.\n\nNext time you're piecing together an AI, think about these vibrant little spheres. Your goal? To create those strong, meaningful links that turn a casual meet-up into a transformative gathering. Keep it colorful, keep it connected, and watch the magic happen!	2023-12-19 18:22:46+00	2023-12-20 17:20:08+00	2023-12-19 18:22:52+00	outofpaper	2023-12-19 18:22:55+00	\N
+10	size and whiet	t	t		2023-12-21 09:52:59+00	2023-12-21 09:53:15+00	2023-12-21 09:53:12+00	mcat2000	2023-12-21 09:53:15+00	\N
+12	RIAC Sound Levels	t	t	Created By Li and Ben. This application explores looking at sound levels and clones.	2023-12-21 13:09:04+00	2023-12-21 13:11:41+00	2023-12-21 13:10:32+00	outofpaper	2023-12-21 13:10:35+00	\N
+13	beat jumper	t	t		2023-12-21 13:10:26+00	2023-12-22 12:42:27+00	2023-12-21 13:11:10+00	mcat2000	2023-12-21 13:11:14+00	\N
 \.
 
 
@@ -631,6 +639,7 @@ COPY public.remixes (original_project_id, remixed_project_id, created) FROM stdi
 --
 
 COPY public.tokens (created, username, purpose, value) FROM stdin;
+2023-12-20 10:03:06	izzyplante	verify_user	b39e8150162309c7f08d881d4ca10345445b8b9a1a2a0e1832e35280865aab764fc35d84e5ac4f2ff213e8aa65cbd87a5b9e4fcfd2881025964956cf7b7cca87
 \.
 
 
@@ -640,8 +649,10 @@ COPY public.tokens (created, username, purpose, value) FROM stdin;
 
 COPY public.users (id, created, username, email, salt, password, about, location, verified, role, deleted, unique_email, bad_flags, is_teacher, creator_id) FROM stdin;
 519956	\N	snapcloud	\N	\N	\N	\N	\N	t	admin	\N	\N	0	f	\N
-1	2023-12-14 16:57:55+00	outofpaper	alexander.somma@gmail.com	474db717ffb04ff86ce18837f1080920	edfe0ab37f934f2bd7004d710c96a44c514716e3a9e8f191f79d839e9882dbb192a220e3504e37f9a986393f59368daf6a5b931c50160a1ff85a5208de2013c0	\N	\N	t	admin	\N	\N	0	f	\N
 2	2023-12-17 19:56:18+00	mcat2000	malcolm.somma@gmail.com	474db717ffb04ff86ce18837f1080920	edfe0ab37f934f2bd7004d710c96a44c514716e3a9e8f191f79d839e9882dbb192a220e3504e37f9a986393f59368daf6a5b931c50160a1ff85a5208de2013c0	\N	\N	t	standard	\N	\N	0	f	\N
+1	2023-12-14 16:57:55+00	outofpaper	alexander.somma@gmail.com	474db717ffb04ff86ce18837f1080920	edfe0ab37f934f2bd7004d710c96a44c514716e3a9e8f191f79d839e9882dbb192a220e3504e37f9a986393f59368daf6a5b931c50160a1ff85a5208de2013c0	\N	\N	t	admin	\N	\N	0	t	\N
+3	2023-12-20 10:03:06+00	izzyplante	izzy.plante@gmail.com	a150936aa5e5facffbd914268d12b6f5	0c5e6798433c8df3a4768f026fc138a5546f555cf9a72eb47bf1b3213540f495f95afc836e1896f1e9c16516ce756eb6dba62339bd140f60487659fb0476ded6	\N	\N	t	standard	\N	\N	0	f	\N
+4	2023-12-20 14:09:31+00	aliogas	aliogas@thestudy.qc.ca	6004fafbabfc762b946c865db416fe43	20cbd5a16a27ef8c04433ebd922117523a72e64aee1e6e89fd8216a6fd2fb9399b85d9554cf235fa8c394caeeac3e13f165c23759b24fa80f8313c510971679e	\N	\N	t	standard	\N	\N	0	t	\N
 \.
 
 
@@ -670,14 +681,14 @@ SELECT pg_catalog.setval('public.flagged_projects_id_seq', 1, false);
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.projects_id_seq', 4, true);
+SELECT pg_catalog.setval('public.projects_id_seq', 13, true);
 
 
 --
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 2, true);
+SELECT pg_catalog.setval('public.users_id_seq', 4, true);
 
 
 --

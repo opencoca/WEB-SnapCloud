@@ -29,7 +29,7 @@
     </div>
     <div class="viewer pure-g">
         <!-- Project viewer -->
-        <div class="embed pure-u-1-2">
+        <div class="embed pure-u-17-24">
             <!-- Spinner shown while embed hasn't been loaded -->
             <i class="project-loader fas fa-spinner fa-spin fa-3x"
                 aria-hidden="true"></i>

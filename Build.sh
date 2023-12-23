@@ -5,7 +5,7 @@
 # This script is licensed under the GNU Affero General Public License v3.0.
 # For more information, see https://www.gnu.org/licenses/agpl-3.0.en.html
 
-# OpenCo™ Cocom Build 'n' Run Script
+# Startr OpenCo™ Build Script
 
 # This simple script builds and runs this directory 's Dockerfile Image
 # Set PROJECTPATH to the path of the current directory
@@ -37,12 +37,4 @@ docker tag openco/$PROJECT-$BRANCH:$TAG \
  openco/$PROJECT-$BRANCH:linux_arm \
   && \
 docker tag openco/$PROJECT-$BRANCH:$TAG \
- openco/$PROJECT-$BRANCH:latest \
-  && \
-  #Run.sh
-  docker run \
-    -p 8888:8888 \
-    -p 8080:8080 \
-    -p:443:443 \
-    -p 80:80 \
-    -it openco/$PROJECT-$BRANCH:latest
+ openco/$PROJECT-$BRANCH:latest

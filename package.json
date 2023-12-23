@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "scripts": {
         "serve": "./Run.sh", 
-        "buildnrun": "./BuildnRun.sh",
+        "buildnrun": "./Build.sh && ./Run.sh",
         "git:add": "git add .",
         "git:commit": "git commit -m 'deploy'",
         "git:push": "git push",

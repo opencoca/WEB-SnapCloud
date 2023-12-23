@@ -1,11 +1,11 @@
 #!/bin/bash
-# Version 1.0
+# Version 1.1
 
 # Copyright (c) Startr LLC. All rights reserved.
 # This script is licensed under the GNU Affero General Public License v3.0.
 # For more information, see https://www.gnu.org/licenses/agpl-3.0.en.html
 
-# OpenCo™ Cocom Run Script
+# Startr OpenCo™ Run Script
 
 # This simple script builds and runs this directory 's Dockerfile Image
 # Set PROJECTPATH to the path of the current directory
@@ -26,9 +26,6 @@ echo FULL_BRANCH=$FULL_BRANCH
 echo      BRANCH=$BRANCH
 
 docker run \
-    -p 8888:8888 \
-    -p 8080:8080 \
-    -p:443:443 \
     -p 80:80 \
     -v $PROJECTPATH:/app \
     -it openco/$PROJECT-$BRANCH:latest

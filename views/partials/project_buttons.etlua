@@ -1,10 +1,14 @@
 <div class="buttons">
-    <a class="pure-button open" target="_blank"
+
+    <a target="_blank"
         href="<%= project:url_for('open', params.devVersion) %>"
-        ><%= (current_user and current_user.username == project.username) and
+        >
+        <button><%= (current_user and current_user.username == project.username) and
             locale.get('edit') or
             locale.get('see_code')
-        %></a>
+        %>
+        </button>
+        </a>
     <a class="pure-button download"
         href="<%= project:url_for('download', params.devVersion) %>" download
         ><%= locale.get('download') %></a>
