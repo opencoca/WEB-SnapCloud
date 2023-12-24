@@ -1,7 +1,7 @@
 <script src="/static/js/project.js"></script>
 <link rel="stylesheet" href="/static/style/project.css">
 
-<section style="--d: flex; --df: row-reverse">
+<section style="--d: flex; --fd: row-reverse">
 
 <div>
     <% render('views.partials.slideshow') %>
@@ -19,39 +19,45 @@
 </section>
 
 
-    <div class="v-spaced" style="--d: flex; --jc:space-evenly;">
-    <a href="/snap" class="pure-button"
-        >
-        <button class="white">
-        <%- locale.get('run_now', '<em>!</em>') %>
-        </button>
-    </a>
-    <% if current_user then %>
-        <a href="/my_projects" class="pure-button"
-            >
-            <button class="white">
-                <%- locale.get('my_projects') %>
-            </button>
-        </a>
-        <a href="<%- current_user:url_for('site') %>"
-            class="pure-button my-public-projects"
-            >
-            <button class="white">
-            <%- locale.get('my_public_page') %>
-            </button></a>
-    <% end %>
-    <a href="/examples" class="pure-button">
-        <button class="white">
-            <%- locale.get('examples') %>
-        </button>
-    </a>
-    <a href="/snap/help/SnapManual.pdf" class="pure-button"
-        >
-    <button class="white">
-        <%- locale.get('manual') %>
+<div class="v-spaced" style="--d: flex; --jc:space-evenly;">
+<div class="group">
+<a href="/snap" class="pure-button"
+    >
+    <button class="red">
+    <%- locale.get('run_now', '<em>!</em>') %>
     </button>
-        </a>
+</a>
+</div>
+<% if current_user then %>
+<div class="group">
+    <a href="/my_projects" class="pure-button"
+        >
+        <button class="white">
+            <%- locale.get('my_projects') %>
+        </button>
+    </a>
+    <a href="<%- current_user:url_for('site') %>"
+        class="pure-button my-public-projects"
+        >
+        <button class="white">
+        <%- locale.get('my_public_page') %>
+        </button></a>
+</div >
+<% end %>
+<div class="group">
+<a href="/examples" class="pure-button">
+    <button class="white">
+        <%- locale.get('examples') %>
+    </button>
+</a>
+<a href="/snap/help/SnapManual.pdf" class="pure-button"
+    >
+<button class="white">
+    <%- locale.get('manual') %>
+</button>
+    </a>
     </div>
+</div>
 
 <br class="v-spaced">
 
