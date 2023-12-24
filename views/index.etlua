@@ -1,12 +1,12 @@
 <script src="/static/js/project.js"></script>
 <link rel="stylesheet" href="/static/style/project.css">
 
-<section style="--d: flex">
+<section style="--d: flex; --df: row-reverse">
 
 <div>
     <% render('views.partials.slideshow') %>
 </div>
-<div style="--w:50%; --p: 0  0 0 1.5em">
+<div style="--w:50%; --p: 0 1.5em 0 0 ">
     <h1><span><% if current_user then %>
     <%= locale.get('welcome_logged_in', current_user.username) %>
     <% else %>
