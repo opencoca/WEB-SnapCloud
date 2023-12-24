@@ -43,6 +43,7 @@ local suspicious_paths = {
     '/(*).env',
     '/(*).action',
     '/(*).jsp',
+    '/(*).aspx',
     '/mysql(*)',
     '/.backup(*)',
     '/.env(*)',
