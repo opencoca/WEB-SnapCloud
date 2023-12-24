@@ -7,8 +7,6 @@ COPY ./store /app/store
 # Add canonical database
 COPY snapcloud.sql /app/bin/snapcloud.sql
 
-
-
 RUN service postgresql start \
   && su postgres -c "dropdb snapcloud" \
   && su postgres -c "createdb snapcloud" \

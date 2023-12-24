@@ -1,25 +1,29 @@
 <script src="/static/js/project.js"></script>
 <link rel="stylesheet" href="/static/style/project.css">
 
-<section style="--d: flex; --fd: row-reverse">
+<section style="--d-sm: flex; --fd: row-reverse">
 
 <div>
     <% render('views.partials.slideshow') %>
 </div>
-<div style="--w:50%; --p: 0 1.5em 0 0 ">
+<div style="--w-sm:50%; --p: 0 1.5em 0 0 ">
     <h1><span><% if current_user then %>
     <%= locale.get('welcome_logged_in', current_user.username) %>
     <% else %>
     <%- locale.get('welcome', '<em>!</em>') %>
     <% end %></span></h1>
 
-    <div style="    --ws: pre-line;" 
+    <div style="
+    --ws: pre-line;
+    --h: 7rem;
+    --h-sm: initial;
+    --of: scroll;" 
     ><%- locale.get('snap_description', '<em>!</em>') %></div>
 </div>
 </section>
 
 
-<div class="v-spaced" style="--d: flex; --jc:space-evenly;">
+<div class="v-spaced" style="--d: flex; --jc:space-evenly; --fw: wrap;">
 <div class="group">
 <a href="/snap" class="pure-button"
     >
@@ -45,7 +49,7 @@
 </div >
 <% end %>
 <div class="group">
-<a href="/examples" class="pure-button">
+<a href="/examples" style="--d: none; --d-sm:block">
     <button class="white">
         <%- locale.get('examples') %>
     </button>

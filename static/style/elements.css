@@ -29,10 +29,20 @@ p {
 
 ul, ol {
     padding: .5em 0;
+    margin-block-start: -1.4rem;
+}
+
+li a {
+    display: block;
 }
 
 ol {
     list-style: decimal inside;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 1em 0 .5em 0;
 }
 
 h2 {
