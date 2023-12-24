@@ -551,7 +551,6 @@ COPY public.collections (id, name, creator_id, created_at, updated_at, descripti
 9	Science Projects	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00	A collection of science-related projects curated by the Snap! team.	t	2023-12-13 14:13:07.565057+00	t	2023-12-13 14:13:07.565057+00	\N	{}	f
 37	Animations	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00		t	2023-12-13 14:13:07.565057+00	t	2023-12-13 14:13:07.565057+00	\N	{}	f
 67	Simulations	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00	Simulating real-world behavior in Snap!.	f	\N	f	\N	\N	{}	f
-390	Snap!Con 2019	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00	Projects that we all demoed, shared or developed during Snap!Con 2019 in Heidelberg.	t	2023-12-13 14:13:07.565057+00	t	2023-12-13 14:13:07.565057+00	\N	{}	f
 \.
 
 
