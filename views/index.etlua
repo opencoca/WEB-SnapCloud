@@ -1,31 +1,57 @@
 <script src="/static/js/project.js"></script>
 <link rel="stylesheet" href="/static/style/project.css">
 
-<% render('views.partials.slideshow') %>
+<section style="--d: flex">
 
-<h1><span><% if current_user then %>
+<div>
+    <% render('views.partials.slideshow') %>
+</div>
+<div style="--w:50%; --p: 0  0 0 1.5em">
+    <h1><span><% if current_user then %>
     <%= locale.get('welcome_logged_in', current_user.username) %>
     <% else %>
     <%- locale.get('welcome', '<em>!</em>') %>
     <% end %></span></h1>
 
-<div class="indent bigger"
+    <div style="    --ws: pre-line;" 
     ><%- locale.get('snap_description', '<em>!</em>') %></div>
+</div>
+</section>
 
-<div class="indent v-spaced">
+
+    <div class="v-spaced" style="--d: flex; --jc:space-evenly;">
     <a href="/snap" class="pure-button"
-        ><%- locale.get('run_now', '<em>!</em>') %></a>
+        >
+        <button class="white">
+        <%- locale.get('run_now', '<em>!</em>') %>
+        </button>
+    </a>
     <% if current_user then %>
         <a href="/my_projects" class="pure-button"
-            ><%- locale.get('my_projects') %></a>
+            >
+            <button class="white">
+                <%- locale.get('my_projects') %>
+            </button>
+        </a>
         <a href="<%- current_user:url_for('site') %>"
             class="pure-button my-public-projects"
-            ><%- locale.get('my_public_page') %></a>
+            >
+            <button class="white">
+            <%- locale.get('my_public_page') %>
+            </button></a>
     <% end %>
-    <a href="/examples" class="pure-button"><%- locale.get('examples') %></a>
+    <a href="/examples" class="pure-button">
+        <button class="white">
+            <%- locale.get('examples') %>
+        </button>
+    </a>
     <a href="/snap/help/SnapManual.pdf" class="pure-button"
-        ><%- locale.get('manual') %></a>
-</div>
+        >
+    <button class="white">
+        <%- locale.get('manual') %>
+    </button>
+        </a>
+    </div>
 
 <br class="v-spaced">
 

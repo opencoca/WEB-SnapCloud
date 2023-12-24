@@ -365,13 +365,11 @@ img.collection-thumbnail {
     padding: .5em;
     background: #f3eeeb;
     border-radius: 5px;
-    overflow: auto;
-    box-sizing: border-box;
     font-family: FreeSans,Arimo,"Droid Sans",Helvetica,Arial,sans-serif;
     word-wrap: break-word;
     white-space: pre-wrap;
-    height: 100%;
-    margin-bottom: .5em;
+    height: 90%;
+    margin: 0 0 1em;
 }
 
 .collection .description {

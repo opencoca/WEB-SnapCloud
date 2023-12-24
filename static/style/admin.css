@@ -72,9 +72,6 @@
     justify-content: space-between;
 }
 
-.user .buttons .pure-button {
-    margin-top: 0.5em;
-}
 
 .ips.search,
 .user_admin.search {

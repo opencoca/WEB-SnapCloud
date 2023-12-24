@@ -31,7 +31,11 @@
                 { item_name = 'collection'}) %>',
             () => { cloud.delete('/collection/<%= collection.id %>'); }
         );
-    "><%= locale.get('delete_collection_button') %></a>
+    ">
+        <button>
+            <%= locale.get('delete_collection_button') %>
+        </button>
+    </a>
     <% end %>
 </div>
 <script>

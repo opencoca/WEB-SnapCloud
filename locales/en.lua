@@ -76,7 +76,7 @@ local locale = {
     -- ==========
     welcome = "Welcome to Snap@1", -- @1 becomes an italic exclamation mark (!)
     welcome_logged_in = "Welcome, @1!", -- @1 becomes the current user username
-    snap_description = "Snap@1 is not just a programming language; it's a vibrant gateway to the world of coding for learners of all ages. Perfectly balancing fun and educational value, Snap! offers an inviting and engaging experience for both young minds exploring their first code and seasoned hackers delving into the depths of computer science. With its block-based system, Snap! demystifies complex concepts, making them accessible and enjoyable. This is where play meets potential, where every block clicked is a step towards mastering the art of programming. Snap! is your starting line in a thrilling journey of discovery and innovation in the digital world..",
+    snap_description = "Snap@1 is not just a programming language; it's a vibrant gateway to the world of coding for learners of all ages. Perfectly balancing fun and educational value, Snap! offers an inviting and engaging experience for both young minds exploring their first code and seasoned hackers delving into the depths of computer science. \n \n With its block-based system, Snap! demystifies complex concepts, making them accessible and enjoyable. This is where play meets potential, where every block clicked is a step towards mastering the art of programming. Snap! is your starting line in a thrilling journey of discovery and innovation in the digital world..",
     -- Buttons
     run_now = "Run Snap@1 Now",
     -- examples and manual already translated in Footer
