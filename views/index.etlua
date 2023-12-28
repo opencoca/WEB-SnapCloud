@@ -3,68 +3,71 @@
 
 <section style="--d-sm: flex; --fd: row-reverse">
 
-<div>
-    <% render('views.partials.slideshow') %>
-</div>
-<div style="--w-sm:50%; --p-sm: 0 1.5em 0 0 ">
-    <h1><span><% if current_user then %>
-    <%= locale.get('welcome_logged_in', current_user.username) %>
-    <% else %>
-    <%- locale.get('welcome', '<em>!</em>') %>
-    <% end %></span></h1>
+    <div><!-- Slide Show-->
+        <% render('views.partials.slideshow') %>
+        <div class="v-spaced" style="--d: flex; --jc:space-evenly; --fw: wrap;">
 
-    <div style="
-    --ws: pre-line;
-    --h: 9ch;
-    --h-lg: initial;
-    --of: scroll;
-    --of-lg: initial;" 
-    ><%- locale.get('snap_description', '<em>!</em>') %></div>
-</div>
+        <% if current_user then %>
+        <div class="group">
+            <a href="/my_projects" class="pure-button"
+                >
+                <button class="white">
+                    <%- locale.get('my_projects') %>
+                </button>
+            </a>
+            <a href="<%- current_user:url_for('site') %>"
+                class="pure-button my-public-projects"
+                >
+                <button class="white">
+                <%- locale.get('my_public_page') %>
+                </button></a>
+        </div >
+        <% end %>
+        <div class="group">
+        <a href="/examples" style="--d: none; --d-sm:block">
+            <button class="white">
+                <%- locale.get('examples') %>
+            </button>
+        </a>
+        <a href="/snap/help/SnapManual.pdf" style="--d: none; --d-sm:block">
+            <button class="white">
+                <%- locale.get('manual') %>
+            </button>
+            </a>
+            </div>
+        </div>
+    </div>
+
+    <div data-comment="Welcome"
+        style="--w-sm: 50%;
+        --d: flex;
+        --p-sm: 0 1.5em 0 0;
+        --fd: column;
+        --jc: center;">
+        <h1><span><% if current_user then %>
+        <%= locale.get('welcome_logged_in', current_user.username) %>
+        <% else %>
+        <%- locale.get('welcome', '<em>!</em>') %>
+        <% end %></span></h1>
+
+        <div style="
+        --ws: pre-line;
+        --h: 9ch;
+        --h-lg: initial;
+        --of: scroll;
+        --of-lg: initial;" 
+        ><%- locale.get('snap_description', '<em>!</em>') %></div>
+        <div style="--m: 2em auto; --ta: center">
+            <a href="/snap" class="pure-button">
+                <button class="red">
+                    <%- locale.get('run_now', '<em>!</em>') %>
+                </button>
+            </a>
+        </div>
+    </div>
+
 </section>
 
-
-<div class="v-spaced" style="--d: flex; --jc:space-evenly; --fw: wrap;">
-<div class="group">
-<a href="/snap" class="pure-button"
-    >
-    <button class="red">
-    <%- locale.get('run_now', '<em>!</em>') %>
-    </button>
-</a>
-</div>
-<% if current_user then %>
-<div class="group">
-    <a href="/my_projects" class="pure-button"
-        >
-        <button class="white">
-            <%- locale.get('my_projects') %>
-        </button>
-    </a>
-    <a href="<%- current_user:url_for('site') %>"
-        class="pure-button my-public-projects"
-        >
-        <button class="white">
-        <%- locale.get('my_public_page') %>
-        </button></a>
-</div >
-<% end %>
-<div class="group">
-<a href="/examples" style="--d: none; --d-sm:block">
-    <button class="white">
-        <%- locale.get('examples') %>
-    </button>
-</a>
-<a href="/snap/help/SnapManual.pdf" class="pure-button"
-    >
-<button class="white">
-    <%- locale.get('manual') %>
-</button>
-    </a>
-    </div>
-</div>
-
-<br class="v-spaced">
 
 <%
 local FeaturedCollections = package.loaded.FeaturedCollections
