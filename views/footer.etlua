@@ -30,8 +30,6 @@
         </div>
         <div class="pure-u-1-5">
             <p><h4><%- locale.get('t_support') %></h4></p>
-            <p><a target="_blank"
-                href="https://forum.snap.berkeley.edu/"><%- locale.get('forum') %></a></p>
             <p><a href="contact"><%- locale.get('contact') %></a></p>
             <p><a href="mirrors"><%- locale.get('mirrors') %></a></p>
         </div>

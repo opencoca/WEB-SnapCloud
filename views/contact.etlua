@@ -8,9 +8,9 @@
 </div>
 
 <!-- TODO : Add a link to the Snap.Startr.Cloud forum -->
-<p>For bugs and suggestions related to either Snap<em
-     >!</em>, or its community website, please refer to upcomming<a
-     >the Snap.Startr.Cloud forum</a>.</p>
+<p>For bugs and suggestions related to either Snap
+    <em>!</em>, or its community website, please refer to the upcomming
+     <a>Snap.Startr.Cloud forum</a>.</p>
 
 <script>
     setTitle(localizer.localize('Contact Us') +
