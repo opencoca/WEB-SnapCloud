@@ -6,7 +6,7 @@
 <div>
     <% render('views.partials.slideshow') %>
 </div>
-<div style="--w-sm:50%; --p: 0 1.5em 0 0 ">
+<div style="--w-sm:50%; --p-sm: 0 1.5em 0 0 ">
     <h1><span><% if current_user then %>
     <%= locale.get('welcome_logged_in', current_user.username) %>
     <% else %>
@@ -15,9 +15,10 @@
 
     <div style="
     --ws: pre-line;
-    --h: 7rem;
-    --h-sm: initial;
-    --of: scroll;" 
+    --h: 9ch;
+    --h-lg: initial;
+    --of: scroll;
+    --of-lg: initial;" 
     ><%- locale.get('snap_description', '<em>!</em>') %></div>
 </div>
 </section>

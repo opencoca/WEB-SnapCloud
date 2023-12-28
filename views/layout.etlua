@@ -5,7 +5,7 @@
         <title>Snap! Build Your Own Blocks</title>
         <meta name="description" content="The Snap! Community. Snap! is a blocks-based programming language built by Startr LLC with major contributions by creators at UC Berkeley and used by hundreds of thousands of programmers around the world.">
         <meta name="author" content="Startr LLC, Bernat Romagosa, Michael Ball, Jens Mönig, Brian Harvey, Jadge Hügle">
-        <meta name="snap-cloud-domain" location="https://snap.berkeley.edu">
+        <meta name="snap-cloud-domain" location="https://snap.startr.cloud">
         <link rel="icon" href="/static/img/favicon.ico">
         <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
@@ -30,14 +30,15 @@
         <script type="text/javascript" src="/static/js/base.js"></script>
         <script>cloud = new Cloud(); cloud.url = baseURL;</script>
     </head>
-    <body style="--size: 110%;">
+
+    <body style="--ofy:scroll;">
         <% render('views.js.dialog') %>
         <script>new customAlert();</script>
         <div id="loading">
             <i class="fas fa-spinner fa-spin fa-3x" aria-hidden="true"></i>
         </div>
         <% render('views.navigation_bar') %>
-        <div id="wrapper">
+        <div id="wrapper" style="--p:1em">
             <% content_for('inner') %>
         </div>
         <% render('views.footer') %>

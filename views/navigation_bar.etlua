@@ -6,7 +6,7 @@
         class="pure-u-1-12" href="/" aria-label="Snap! home page">
                 <img src="/static/img/topbar-logo.png" height=64 class="logo clickable" style="--maxw: inherit;"/>
             </a>
-        <ul class="pure-g pure-menu-list">
+        <ul class="pure-g pure-menu-list" style="--d:none; --d-sm:inline-block">
             
             <span class="pure-u-5-12">
                 <li class="pure-menu-item">
