@@ -1,9 +1,12 @@
 [submodule "snap"]
 	path = snap
 	url = git@github.com:jmoenig/snap.git
+	shallow = true
 [submodule "lib/raven-lua"]
 	path = lib/raven-lua
 	url = git@github.com:snap-cloud/raven-lua.git
+	shallow = true
 [submodule "eBrain-Snap"]
 	path = eBrain-Snap
 	url = git@github.com:Robot-In-A-Can/eBrain-Snap.git
+	shallow = true
