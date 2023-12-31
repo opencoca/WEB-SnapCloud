@@ -1,4 +1,4 @@
-FROM openco/snapcloud-develop:manifest-latest
+FROM openco/snapcloud-develop:latest-prerequisites
 
 ENV DEBIAN_FRONTEND noninteractive
 
