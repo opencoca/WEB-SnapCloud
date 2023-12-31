@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version 1.2
+# Version 1.3
 
 # Copyright (c) Startr LLC. All rights reserved.
 # This script is licensed under the GNU Affero General Public License v3.0.
@@ -7,7 +7,12 @@
 
 # Startr OpenCo™ Build Script
 
-# This simple script builds and runs this directory 's Dockerfile Image
+# PLATFORM variable can be set via the first script argument. If not set, no platform will be specified in the docker build.
+PLATFORM=$1
+
+# This simple script builds this 
+#directory 's Dockerfile Image
+
 # Set PROJECTPATH to the path of the current directory
 PROJECTPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Set PROJECT to the lowercase version of the name of this directory
@@ -19,25 +24,37 @@ BRANCH=${FULL_BRANCH##*/}
 # Set TAG to the output of the git describe --always --tag command, which returns a "unique identifier" for the current commit
 TAG=$(git describe --always --tag)
 
-# Print the values of PROJECTPATH, PROJECT, FULL_BRANCH, and BRANCH to the console
+# Print the values of the variables
 echo PROJECTPATH=$PROJECTPATH
 echo     PROJECT=$PROJECT
 echo FULL_BRANCH=$FULL_BRANCH
 echo      BRANCH=$BRANCH
 
-# Build the Docker image using the docker build command, and tag it with the openco/$PROJECT-$BRANCH:$TAG tag
-# Then tag the image with the openco/$PROJECT-$BRANCH:latest tag, and run the ./Run.sh script
-
-#Dockerfile.prerequisites.linux_arm \
+# Check if PLATFORM is set and not empty
+if [ -n "$PLATFORM" ]; then
+    echo "Building with specified platform: $PLATFORM"
+    PLATFORM_ARG="--platform $PLATFORM"
+    BUILD_ARG="--build-arg PLATFORM=$PLATFORM"
+    # If PLATFORM is set, build the prerequisites Dockerfile
+    DOCKERFILE="-f Dockerfile.prerequisites"
+    # Replace '/' with '-' in PLATFORM to create FLATPLATFORM
+    FLATPLATFORM=$(echo "$PLATFORM" | tr '/' '-')
+else
+    echo "Building without specifying platform."
+    PLATFORM_ARG=""
+    BUILD_ARG=""
+    # If PLATFORM is not set, build the default Dockerfile
+    DOCKERFILE=""
+    FLATPLATFORM="default"
+fi
 
 echo docker build -t openco/$PROJECT-$BRANCH:$TAG .
 echo docker tag -f openco/$PROJECT-$BRANCH:$TAG openco/$PROJECT-$BRANCH:latest
-docker build \
-  -f Dockerfile \
-  -t openco/$PROJECT-$BRANCH:$TAG . \
-  && \
-docker tag openco/$PROJECT-$BRANCH:$TAG \
- openco/$PROJECT-$BRANCH:linux_arm \
-  && \
-docker tag openco/$PROJECT-$BRANCH:$TAG \
- openco/$PROJECT-$BRANCH:latest
+
+# Build the Docker image
+docker build $PLATFORM_ARG $BUILD_ARG \
+  $DOCKERFILE \
+  -t openco/$PROJECT-$BRANCH:$TAG \
+  -t openco/$PROJECT-$BRANCH:$FLATPLATFORM \
+  -t openco/$PROJECT-$BRANCH:latest \
+  .
