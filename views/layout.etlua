@@ -6,18 +6,35 @@
         <meta name="description" content="The Snap! Community. Snap! is a blocks-based programming language built by Startr LLC with major contributions by creators at UC Berkeley and used by hundreds of thousands of programmers around the world.">
         <meta name="author" content="Startr LLC, Bernat Romagosa, Michael Ball, Jens Mönig, Brian Harvey, Jadge Hügle">
         <meta name="snap-cloud-domain" location="https://snap.startr.cloud">
+        <meta name="snap-cloud-api" location="https://snap.startr.cloud/api">
+
         <link rel="icon" href="/static/img/favicon.ico">
         <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
+        
         <link rel="manifest" href="/static/site.webmanifest">
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <!-- Upgrade security when not running on localhost  
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+
+        <script>
+            window.onload = function() {
+                if (!window.location.href.includes('localhost')) {
+                    var meta = document.createElement('meta');
+                    meta.httpEquiv = "Content-Security-Policy";
+                    meta.content = "upgrade-insecure-requests";
+                    document.getElementsByTagName('head')[0].appendChild(meta);
+                }
+            }
+        </script>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- External libs, both stylesheets and JS -->
         <link rel="stylesheet" href="/static/style/pure-min.css">
         <link rel="stylesheet" href="/static/style/fontawesome.min.css"">
         <link rel="stylesheet" href="/static/style/custom-alert.css">
         <link rel="stylesheet" href="https://startr.style/style.css">
+
         <script type="text/javascript" src="/static/js/FileSaver.min.js"></script>
         <!-- Stylesheets -->
         <link rel="stylesheet" href="/static/style/elements.css">
