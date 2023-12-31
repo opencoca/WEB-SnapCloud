@@ -29,7 +29,17 @@ RUN apt-get update
 RUN apt-get install -y lsb-core
 RUN apt-get -y install --no-install-recommends --fix-missing wget gnupg ca-certificates
 RUN wget --no-check-certificate -O - https://openresty.org/package/pubkey.gpg | apt-key add -
-RUN echo "deb http://openresty.org/package/ubuntu $(lsb_release -sc) main" > openresty.list
+
+# Accept the build argument
+ARG PLATFORM
+
+# Conditional RUN command based on the platform
+RUN if [ "$PLATFORM" = "linux/arm64/v8" ]; then \
+        echo "deb http://openresty.org/package/arm64/ubuntu $(lsb_release -sc) main" > openresty.list; \
+    elif [ "$PLATFORM" = "linux/amd64" ]; then \
+        echo "deb http://openresty.org/package/ubuntu $(lsb_release -sc) main" > openresty.list; \
+    fi
+    
 RUN cp openresty.list /etc/apt/sources.list.d/
 RUN apt-get update
 RUN apt-get -y install --no-install-recommends openresty
@@ -91,13 +101,13 @@ RUN service postgresql start \
 COPY . /app
 
 # add an empty store dir to /app and allow all to write to it
-RUN mkdir /app/store \
+RUN mkdir -p /app/store \
   && chmod 777 /app/store
 
 # env file for snap cloud
 COPY env.sh /app/.env
 
-EXPOSE 8080
-ENV PORT=8080
+EXPOSE 80
+ENV PORT=80
 
 CMD ["/app/start.sh"]
