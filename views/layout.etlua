@@ -17,17 +17,6 @@
         <!-- Upgrade security when not running on localhost  
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
 
-        <script>
-            window.onload = function() {
-                if (!window.location.href.includes('localhost')) {
-                    var meta = document.createElement('meta');
-                    meta.httpEquiv = "Content-Security-Policy";
-                    meta.content = "upgrade-insecure-requests";
-                    document.getElementsByTagName('head')[0].appendChild(meta);
-                }
-            }
-        </script>
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- External libs, both stylesheets and JS -->
         <link rel="stylesheet" href="/static/style/pure-min.css">
