@@ -51,3 +51,4 @@ static/img/totm.png
 
 # local JS tools
 node_modules/
+static/.DS_Store
