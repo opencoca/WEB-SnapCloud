@@ -187,6 +187,12 @@ app:before_filter(function (self)
         self.res.headers['Vary'] = 'Origin'
     end
 
+    -- Set Content Security Policy headers
+    local host = self.req.headers.host
+        if not host:find("^localhost") then
+            self.res.headers['Content-Security-Policy'] = 'upgrade-insecure-requests'
+        end
+
     if ngx.req.get_method() == 'OPTIONS' then
         self.res.headers['access-control-allow-headers'] = 'Content-Type'
         self.res.headers['access-control-allow-methods'] =
