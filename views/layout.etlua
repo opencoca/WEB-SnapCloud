@@ -31,7 +31,7 @@
         <script>cloud = new Cloud(); cloud.url = baseURL;</script>
     </head>
 
-    <body style="--ofx:hidden;">
+    <body style="--ofx:hidden; --size:120%">
         <% render('views.js.dialog') %>
         <script>new customAlert();</script>
         <div id="loading">

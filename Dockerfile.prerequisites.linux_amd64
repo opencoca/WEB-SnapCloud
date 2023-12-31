@@ -29,7 +29,7 @@ RUN apt-get update
 RUN apt-get install -y lsb-core
 RUN apt-get -y install --no-install-recommends --fix-missing wget gnupg ca-certificates
 RUN wget --no-check-certificate -O - https://openresty.org/package/pubkey.gpg | apt-key add -
-RUN echo "deb http://openresty.org/package/arm64/ubuntu $(lsb_release -sc) main" > openresty.list
+RUN echo "deb http://openresty.org/package/ubuntu $(lsb_release -sc) main" > openresty.list
 RUN cp openresty.list /etc/apt/sources.list.d/
 RUN apt-get update
 RUN apt-get -y install --no-install-recommends openresty

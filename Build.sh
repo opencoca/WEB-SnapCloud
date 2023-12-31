@@ -27,6 +27,9 @@ echo      BRANCH=$BRANCH
 
 # Build the Docker image using the docker build command, and tag it with the openco/$PROJECT-$BRANCH:$TAG tag
 # Then tag the image with the openco/$PROJECT-$BRANCH:latest tag, and run the ./Run.sh script
+
+#Dockerfile.prerequisites.linux_arm \
+
 echo docker build -t openco/$PROJECT-$BRANCH:$TAG .
 echo docker tag -f openco/$PROJECT-$BRANCH:$TAG openco/$PROJECT-$BRANCH:latest
 docker build \
