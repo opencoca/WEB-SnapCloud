@@ -1,6 +1,6 @@
 FROM openco/snapcloud-develop:latest-prerequisites
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Add canonical snap store
 COPY ./store /app/store
