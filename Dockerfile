@@ -24,7 +24,8 @@ ENV RCLONE_CONFIG_DROPBOX_TOKEN='{"access_token":"YOUR_ACCESS_TOKEN","token_type
 # Backup path and schedule
 
 ENV BACKUP_PATH=snapcloud-backups
-ENV BACKUP_CRON="0 2 * * *"  # 2 AM EST (7 AM UTC)
+ENV BACKUP_CRON="0 2 * * *"  
+# 2 AM EST (7 AM UTC)
 ENV NOTIFY_URL=https://your-webhook-url.com/notify
 
 # Document the environment variables
