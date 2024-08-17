@@ -2,9 +2,10 @@
 -- =====================
 --
 -- A cloud backend for Snap!
--- Written by Bernat Romagosa and Michael Ball
+-- Written by Startr LLC team with major contributions by Bernat Romagosa & Michael Ball
 --
--- Copyright (C) 2019 by Bernat Romagosa and Michael Ball
+-- Copyright (C) 2023 Startr LLC
+-- Copyright (C) 2019 Bernat Romagosa and Michael Ball
 --
 -- This file is part of Snap Cloud.
 --
@@ -171,7 +172,8 @@ package.loaded.Projects = Model:extend('active_projects', {
         end
     },
     url_for = function (self, purpose, dev_version)
-        local base = 'https://snap.berkeley.edu/' ..
+        --local base = 'https://snap.berkeley.edu/' ..
+        local base = '/' ..
             (dev_version and 'snapsource/dev/' or '') ..
             'snap.html'
         local urls = {
@@ -187,7 +189,7 @@ package.loaded.Projects = Model:extend('active_projects', {
             site = '/project?username=' .. escape(self.username) ..
                 '&projectname=' .. escape(self.projectname),
             author = '/user?username=' .. escape(self.username),
-            embed = 'https://snap.berkeley.edu/embed?projectname=' ..
+            embed = 'https://snap.startr.cloud/embed?projectname=' ..
                 escape(self.projectname) .. '&username=' ..
                 escape(self.username)
         }

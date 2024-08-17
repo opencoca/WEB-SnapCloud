@@ -1,0 +1,4 @@
+# SSH and Rsync Configuration for fetchProductionData
+REMOTE_SERVER=username@example.com
+REMOTE_STORE_PATH=username@example.com:/example/path/to/store
+REMOTE_DB_PATH=username@example.com:/example/path/to/db

@@ -27,7 +27,7 @@ certbot certonly --webroot -w /home/cloud/snapCloud/html/ -d snap-cloud.cs10.org
 After this, certbot will give you the name of the certs it generated. Copy them to the `certs/` folder and update the file paths as necessary.
 
 ## UC Berkeley Certs
-First, generate a CSR and key using `openssl`. Use the EECS website to request a new cert. (You need an EECS account to do this; at least on Snap<em>!</em> team member should be able to do this.)
+First, generate a CSR and key using `openssl`. Use the EECS website to request a new cert. (You need an EECS account to do this; at least on Snap.Startr.Cloud team member should be able to do this.)
 
 When generating a cert from UC Berkeley, there are many possible cert types.
 We need to concatenate the proper files for nginx to be able to read them.

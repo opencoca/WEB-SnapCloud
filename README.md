@@ -1,9 +1,10 @@
-# Snap!Cloud
+# Codezy Snap!Cloud v0.1.0
 
 The Snap! Cloud is a backend for Snap<i>!</i> that stores only metadata in a database for reduced query response time, while storing actual contents in disk.
 
 ## [Install](./INSTALL.md) And set things up.
 
+## Use the Docker build to run things smoothly.
 
 ## Third party stuff
 ### Frameworks and tools

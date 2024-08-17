@@ -1,10 +1,10 @@
 <h1 localizable>Materials</h1>
 <div class="materials"></div>
-<h2>MOOCS and Online Courses</h2>
-<ul>
+<h2>Online Courses</h2>
+<ul style="--lis:none">
     <li>
         <a href="https://open.sap.com/courses/snap1"
-            >Get Coding with Snap<em>!</em></a> at openSAP
+            >Get Coding with Snap.Startr.Cloud</a> at openSAP
     </li>
     <li>
         <a href="https://open.sap.com/courses/snap2"
@@ -18,51 +18,51 @@
     </li>
 </ul>
 <h2>Manuals and Documentation</h2>
-<ul>
+<ul style="--lis:none">
     <li><a href="https://snap.berkeley.edu/snap/help/SnapManual.pdf"
             >Reference Manual</a></li>
     <li><a href="https://blogs.sap.com/2022/01/13/a-summary-of-snap-learning-modules/"
             >Learning Modules for Beginners</a> by SAP Young Thinkers</li>
 </ul>
 <h2>Class Materials</h2>
-<ul>
+<ul style="--lis:none">
     <li><a href="https://computingeducation.de/algorithmen-mit-snap/"
-            >Algorithmen mit Snap<em>!</em></a> at ComputingEducation.de (in German)
+            >Algorithmen mit Snap.Startr.Cloud</a> at ComputingEducation.de (in German)
     </li>
 </ul>
-<h2>Books</h2>
-<ul>
+<h2 style="--bgc: grey; --m: 0 0 2em; --p: 1em">Books</h2>
+<ul style="--lis:none">
     <li>
         <a href="http://codiertekunst.joachim-wedekind.de/"
-            >Codierte Kunst</a>, by Joachim Wedekind (in German)
+            >Codierte Kunst</a> by Joachim Wedekind (in German)
     </li>
     <li>
         <a href="https://www.hinkler.com.au/the-coding-book"
             >The Coding Book</a
-        >, by Virginia King, Lee Ryall and Invent the World
+        > by Virginia King Lee Ryall and Invent the World
     </li>
     <li>
         <a href="http://ddi-mod.uni-goettingen.de/ComputerScienceWithSnap.pdf"
-            >Computer Science with Snap<em>!</em></a>, by Eckart Modrow
+            >Computer Science with Snap.Startr.Cloud</a> by Eckart Modrow
     </li>
     <li>
         <a href="static/doc/TuneScope%20Book.pdf"
-            >TUNESCOPE, Creating Digital Music in Snap<em>!</em></a>, by Glen Bull, Rachel Gibson, Jo Watts, and N. Rich Nguyen
+            >TUNESCOPE Creating Digital Music in Snap.Startr.Cloud</a> by Glen Bull Rachel Gibson Jo Watts and N. Rich Nguyen
     </li>
     <li>
         <a href="static/doc/StapelListeBaum.pdf"
-            >Stapel, Schlange, Liste, Baum mit Snap<em>!</em></a>, by Fritz Hasselhorn (in German)
+            >Stapel Schlange Liste Baum mit Snap.Startr.Cloud</a> by Fritz Hasselhorn (in German)
     </li>
     <li>
         <a href="static/doc/AutomatenGrammatiken.pdf"
-            >Automaten und Grammatiken</a>, by Fritz Hasselhorn (in German)
+            >Automaten und Grammatiken</a> by Fritz Hasselhorn (in German)
     </li>
     <li>
         <a href="static/doc/Codierung.pdf"
-            >Fehlerkorrigierende und komprimierende Codes mit Snap<em>!</em></a>, by Fritz Hasselhorn (in German)
+            >Fehlerkorrigierende und komprimierende Codes mit Snap.Startr.Cloud</a> by Fritz Hasselhorn (in German)
     </li>
     <li>
         <a href="static/doc/Einf%C3%BChrung%20Programmierung.pdf"
-            >Einf ̈uhrung in die Programmierung mit Snap<em>!</em></a>, by Fritz Hasselhorn (in German)
+            >Einf ̈uhrung in die Programmierung mit Snap.Startr.Cloud</a> by Fritz Hasselhorn (in German)
     </li>
 </ul>

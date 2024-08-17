@@ -3,14 +3,14 @@
 
 <div class="indent v-spaced">
    <p><a href=
-       "mailto:contact@snap.berkeley.edu">contact@snap.berkeley.edu</a>
+       "mailto:contact@snap.startr.cloud">contact@snap.startr.cloud</a>
    </p>
 </div>
 
-<p>For bugs and suggestions related to either Snap<em
-     >!</em>, or its community website, please refer to <a
-     href="https://forum.snap.berkeley.edu"
-     >the Snap<em>!</em> forum</a>.</p>
+<!-- TODO : Add a link to the Snap.Startr.Cloud forum -->
+<p>For bugs and suggestions related to either Snap
+    <em>!</em>, or its community website, please refer to the upcomming
+     <a>Snap.Startr.Cloud forum</a>.</p>
 
 <script>
     setTitle(localizer.localize('Contact Us') +

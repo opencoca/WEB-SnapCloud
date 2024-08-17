@@ -1,9 +1,10 @@
 -- Validation and errors
 -- =====================
 --
--- Written by Bernat Romagosa and Michael Ball
+-- Written by Startr LLC team with major contributions by Bernat Romagosa & Michael Ball
 --
--- Copyright (C) 2019 by Bernat Romagosa and Michael Ball
+-- Copyright (C) 2023 Startr LLC
+-- Copyright (C) 2019 Bernat Romagosa and Michael Ball
 --
 -- This file is part of Snap Cloud.
 --
@@ -65,7 +66,7 @@ err = {
     nonvalidated_user_html = {
         msg = '<p>This user has not been validated within the first 3 days ' ..
             'after its creation.</p>' ..
-            '<p>Please <a href="/run">open the Snap<em>!</em> editor</a> and' ..
+            '<p>Please <a href="/run">open the Snap.Startr.Cloud editor</a> and' ..
             ' then use the cloud menu to ask for a new validation link:</p>' ..
             '<p><img src="/static/cloud_menu.png"></img></p>',
         status = 401 },

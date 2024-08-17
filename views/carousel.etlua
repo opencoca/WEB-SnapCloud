@@ -40,7 +40,7 @@ items_per_row = items_per_row or 5
         </div>
     <% end %>
     <% if num_pages > 0 then %>
-    <div class="<%= item_type %>s list pure-g">
+    <div style="--cs: all" class="<%= item_type %>s list pure-g">
         <% for _, item in pairs(items) do %>
             <%
                 render(

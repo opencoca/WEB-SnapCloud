@@ -1,93 +1,66 @@
-FROM ubuntu:20.04
+FROM openco/snapcloud-develop:latest-prerequisites
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update
-RUN apt-get install -y lua5.1 liblua5.1-0-dev
-RUN apt-get install -y libssl1.1
+# Install rclone
+RUN curl https://rclone.org/install.sh | bash
 
-# Install dependencies for LuaRocks and OpenSSL
-RUN apt-get update && \
-    apt-get install -y wget build-essential unzip libreadline-dev libncurses5-dev libssl-dev lua5.1 luarocks
+# Add cron for scheduling backups
+RUN apt-get update && apt-get install -y cron
 
-# Upgrade LuaRocks
-RUN wget https://luarocks.org/releases/luarocks-3.9.2.tar.gz && \
-    tar zxpf luarocks-3.9.2.tar.gz && \
-    cd luarocks-3.9.2 && \
-    ./configure --lua-version=5.1 --versioned-rocks-dir && \
-    make && make install && \
-    cd .. && rm -rf luarocks-3.9.2.tar.gz luarocks-3.9.2
+# Set default values for environment variables
 
-# Install OpenSSL module
-RUN luarocks install openssl
+ENV RCLONE_REMOTE=dropbox
+ENV RCLONE_CONFIG_TYPE=dropbox
+ENV RCLONE_CONFIG_DROPBOX_TOKEN='{"access_token":"YOUR_ACCESS_TOKEN","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}'
 
-RUN apt-get install -yf git
-RUN apt-get install -y libssl-dev
-RUN apt-get install -y build-essential
-RUN apt-get install -y authbind
-RUN apt-get update
-RUN apt-get install -y lsb-core
-RUN apt-get -y install --no-install-recommends --fix-missing wget gnupg ca-certificates
-RUN wget -O - https://openresty.org/package/pubkey.gpg | apt-key add -
-RUN echo "deb http://openresty.org/package/arm64/ubuntu $(lsb_release -sc) main" > openresty.list
-RUN cp openresty.list /etc/apt/sources.list.d/
-RUN apt-get update
-RUN apt-get -y install --no-install-recommends openresty
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/*
+# Optional: Rclone configuration for Google Drive
+# RCLONE_REMOTE=gdrive
+# RCLONE_CONFIG_TYPE=drive
+# RCLONE_CONFIG_DRIVE_CLIENT_ID=YOUR_CLIENT_ID
+# RCLONE_CONFIG_DRIVE_CLIENT_SECRET=YOUR_CLIENT_SECRET
+# RCLONE_CONFIG_DRIVE_SCOPE=drive
+# RCLONE_CONFIG_DRIVE_TOKEN='{"access_token":"YOUR_ACCESS_TOKEN","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}'
+# Backup path and schedule
 
-RUN luarocks install argparse
-RUN luarocks install lub
-RUN luarocks install openssl
-RUN luarocks install luasocket
-RUN luarocks install luasec
-RUN luarocks install luaossl
-RUN ln -s /usr/lib/aarch64-linux-gnu /usr/lib/x86_64-linux-gnu
+ENV BACKUP_PATH=snapcloud-backups
+ENV BACKUP_CRON="0 2 * * *"  
+# 2 AM EST (7 AM UTC)
+ENV NOTIFY_URL=https://your-webhook-url.com/notify
 
-RUN git config --global url."https://".insteadOf git://
+# Document the environment variables
+# RCLONE_REMOTE: The remote storage service to use (default: dropbox)
+# RCLONE_CONFIG_TYPE: The type of remote storage service (default: dropbox)
+# RCLONE_CONFIG_DROPBOX_TOKEN: The access token for Dropbox (default: {"access_token":"YOUR_ACCESS_TOKEN","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"})
+# RCLONE_REMOTE (Google Drive): The remote storage service to use (default: gdrive)
+# RCLONE_CONFIG_TYPE (Google Drive): The type of remote storage service (default: drive)
+# RCLONE_CONFIG_DRIVE_CLIENT_ID: The client ID for Google Drive
+# RCLONE_CONFIG_DRIVE_CLIENT_SECRET: The client secret for Google Drive
+# RCLONE_CONFIG_DRIVE_SCOPE: The scope for Google Drive (default: drive)
+# RCLONE_CONFIG_DRIVE_TOKEN: The access token for Google Drive (default: {"access_token":"YOUR_ACCESS_TOKEN","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"})
+# BACKUP_PATH: The path where backups will be stored (default: snapcloud-backups)
+# BACKUP_CRON: The cron schedule for backups (default: "0 2 * * *")
+# NOTIFY_URL: The URL for notifications (default: https://your-webhook-url.com/notify)
 
-COPY snapcloud-dev-0.rockspec /app/snapcloud-dev-0.rockspec
 
-RUN luarocks install /app/snapcloud-dev-0.rockspec
-
-COPY certs/ /app/certs/
-
-RUN mkdir /keys
-RUN cd /keys \
-  &&openssl genrsa > privkey.pem  \
-  && openssl req -new -x509 -key privkey.pem > fullchain.pem -batch \
-  && ln -s /keys /app/certs/cloud.snap.berkeley.edu  \
-  && ln -s /keys /app/certs/snap.berkeley.edu \
-  && ln -s /keys /app/certs/snap-cloud.cs10.org
-
-RUN cd /app/certs/ \
-  && openssl dhparam -out dhparams.pem 1024 -batch \
-  && openssl dhparam -out dhparam.cert 1024 -batch
-
-# Install PostgreSQL and create a new database and user
-RUN apt-get update
-RUN apt-get install -y postgresql postgresql-client postgresql-contrib \
-  && service postgresql start \
-  && su postgres -c "psql -c \"CREATE USER cloud WITH PASSWORD 'password';\"" \
-  && su postgres -c "psql -c \"CREATE DATABASE snapcloud WITH OWNER cloud;\""
-
-COPY cloud.sql /app/cloud.sql
-COPY bin/seeds.sql /app/bin/seeds.sql
+# Add canonical snap store
+COPY ./store /app/store
+# Add canonical database
+COPY snapcloud.sql /app/bin/snapcloud.sql
 
 RUN service postgresql start \
-  && su postgres -c "psql -d snapcloud -a -f /app/cloud.sql"\
-  && su postgres -c "psql -d snapcloud -a -f /app/bin/seeds.sql"
-
-# Start PostgreSQL service, make 'cloud' a superuser, and run your SQL script
-RUN service postgresql start \
-    && su postgres -c "psql -c \"ALTER USER cloud WITH SUPERUSER;\""
-
-COPY . /app
-
+  && su postgres -c "dropdb snapcloud" \
+  && su postgres -c "createdb snapcloud" \
+  && su postgres -c "psql -c \"ALTER USER cloud WITH SUPERUSER;\"" \
+  && su postgres -c "psql -d snapcloud -f /app/bin/snapcloud.sql"
 # env file for snap cloud
 COPY env.sh /app/.env
 
-EXPOSE 8080
-ENV PORT=8080
+COPY . /app
+
+RUN chmod -R 777 /app/store
+
+EXPOSE 80
+ENV PORT=80
 
 CMD ["/app/start.sh"]

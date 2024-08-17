@@ -10,9 +10,12 @@ description = {
    detailed = [[
       This is currently in active development.
       Maybe this will say something witty one day.
+
+      parent_maintainers =
+      Bernat Romagosa, Michael Ball, Jens Mönig, Brian Harvey, Jadge Hügle
    ]],
-   homepage = "https://snap.berkeley.edu",
-   maintainer = "Bernat Romagosa, Michael Ball, Jens Mönig, Brian Harvey, Jadge Hügle",
+   homepage = "https://snap.Startr.cloud",
+   maintainer = "Startr LLC",
    license = "AGPL"
 }
 

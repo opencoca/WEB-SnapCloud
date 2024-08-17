@@ -341,13 +341,6 @@ img.collection-thumbnail {
     margin: 0 -0.1em;
 }
 
-.collection .buttons a,
-.project.big .buttons a {
-    margin: 5px 0.1em 0 0.1em; /* Edge margins get cancelled out by ↑ margin: 0 -0.1em; ↑ */
-    padding: 0.5em;
-    flex-grow: 0.20; /* 20% max growth */
-}
-
 .collection a.flag,
 .project.big span.flag-container {
     text-align: right;
@@ -372,13 +365,11 @@ img.collection-thumbnail {
     padding: .5em;
     background: #f3eeeb;
     border-radius: 5px;
-    overflow: auto;
-    box-sizing: border-box;
     font-family: FreeSans,Arimo,"Droid Sans",Helvetica,Arial,sans-serif;
     word-wrap: break-word;
     white-space: pre-wrap;
-    height: 150px;
-    margin-bottom: .5em;
+    height: 90%;
+    margin: 0 0 1em;
 }
 
 .collection .description {

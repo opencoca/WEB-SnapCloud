@@ -11,9 +11,10 @@
 -- NOTES:
 -- use _at for timestamps, and always add { timezone = true }
 --
--- Written by Bernat Romagosa and Michael Ball
+-- Written by Startr LLC team with major contributions by Bernat Romagosa & Michael Ball
 --
--- Copyright (C) 2019 by Bernat Romagosa and Michael Ball
+-- Copyright (C) 2023 Startr LLC
+-- Copyright (C) 2019 Bernat Romagosa and Michael Ball
 --
 -- This file is part of Snap Cloud.
 --

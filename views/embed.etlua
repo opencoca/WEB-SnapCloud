@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <title><%= project.projectname %></title>
 
         <script type="text/javascript" src="/static/js/locale.js"></script>
@@ -8,7 +9,6 @@
         <script type="text/javascript" src="/static/js/project.js"></script>
 
         <link rel="icon" href="favicon.png">
-        <link rel="stylesheet" href="/static/style/reset.css">
         <link rel="stylesheet" href="/static/style/pure-min.css">
         <link rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"

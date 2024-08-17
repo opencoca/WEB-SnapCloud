@@ -1,9 +1,10 @@
 -- User controller
 -- ===============
 --
--- Written by Bernat Romagosa and Michael Ball
+-- Written by Startr LLC team with major contributions by Bernat Romagosa & Michael Ball
 --
--- Copyright (C) 2019 by Bernat Romagosa and Michael Ball
+-- Copyright (C) 2023 Startr LLC
+-- Copyright (C) 2019 Bernat Romagosa and Michael Ball
 --
 -- This file is part of Snap Cloud.
 --
@@ -776,7 +777,7 @@ app:match(
             local user_page = function ()
                 return htmlPage(
                     self,
-                    'User verified | Welcome to Snap<em>!</em>',
+                    'User verified | Welcome to Snap.Startr.Cloud',
                     '<p>Your account <strong>' .. user.username ..
                     '</strong> has been verified.</p>' ..
                     '<p>Thank you!</p>' ..

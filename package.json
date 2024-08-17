@@ -1,0 +1,28 @@
+{
+    "name": "snapcloud",
+    "version": "1.0.0",
+    "scripts": {
+        "serve": "./Run.sh",
+        "buildnrun": "./Build.sh && ./Run.sh",
+        "build:amd": "./Build.sh linux/amd64",
+        "build:arm": "./Build.sh linux/arm64/v8",
+        "build:manifest": "docker manifest create openco/snapcloud-develop:latest-prerequisites  --amend openco/snapcloud-develop:linux-amd64 --amend openco/snapcloud-develop:linux-arm64-v8",
+        "push:manifest": "docker manifest push openco/snapcloud-develop:latest-prerequisites",
+        "pull:manifest": "docker manifest pull openco/snapcloud-develop:latest-prerequisites",
+        "build:manifest:latest": "git describe --tags $(git rev-list --tags --max-count=1) | xargs -I {} docker manifest create openco/snapcloud-develop:{} --amend openco/snapcloud-develop:linux-amd64 --amend openco/snapcloud-develop:linux-arm64-v8",
+        "push:manifest:latest": "git describe --tags $(git rev-list --tags --max-count=1) | xargs -I {} docker manifest push openco/snapcloud-develop:{}",
+        "build:manifest:all": "yarn build:manifest && yarn push:manifest && yarn build:manifest:latest && yarn push:manifest:latest",
+        "git:add": "git add .",
+        "git:commit": "git commit -m 'deploy'",
+        "git:push": "git push",
+        "deploy": "yarn git:add && yarn git:commit && yarn git:push && caprover deploy --default",
+        "fetch:backup": "ssh $REMOTE_SERVER './backup_snapcloud.sh'",
+        "fetch:store": "rsync -avz --progress $REMOTE_STORE_PATH . && rm -rf ./store && mv ./snapcloud.app.store ./store",
+        "fetch:db": "rsync -avz --progress $REMOTE_DB_PATH .",
+        "fetch": "yarn fetch:backup && yarn fetch:store && yarn fetch:db"
+    },
+    "dependencies": {
+        "caprover": "^2.3.1"
+    },
+    "devDependencies": {}
+}

@@ -67,7 +67,7 @@ if ((num_pages > 0) or show_if_empty) then %>
 
     </div>
     <% if (num_pages > 0) then %>
-    <div class="<%= class %> list pure-g">
+    <div style="--cs: all" class="<%= class %> list pure-g">
         <% for _, item in pairs(items) do %>
             <%
                 params = {

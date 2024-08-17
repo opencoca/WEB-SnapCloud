@@ -3,16 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>Snap! Build Your Own Blocks</title>
-        <meta name="description" content="The Snap! Community. Snap! is a blocks-based programming language built by UC Berkeley and used by hundreds of thousands of programmers around the world.">
-        <meta name="author" content="Bernat Romagosa, Michael Ball, Jens Mönig, Brian Harvey, Jadge Hügle">
-        <meta name="snap-cloud-domain" location="https://snap.berkeley.edu">
+        <meta name="description" content="The Snap! Community. Snap! is a blocks-based programming language built by Startr LLC with major contributions by creators at UC Berkeley and used by hundreds of thousands of programmers around the world.">
+        <meta name="author" content="Startr LLC, Bernat Romagosa, Michael Ball, Jens Mönig, Brian Harvey, Jadge Hügle">
+        <meta name="snap-cloud-domain" location="https://snap.startr.cloud">
+        <meta name="snap-cloud-api" location="https://snap.startr.cloud/api">
+
         <link rel="icon" href="/static/img/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
+        
+        <link rel="manifest" href="/static/site.webmanifest">
+        <!-- Upgrade security when not running on localhost  
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- External libs, both stylesheets and JS -->
-        <link rel="stylesheet" href="/static/style/reset.css">
         <link rel="stylesheet" href="/static/style/pure-min.css">
         <link rel="stylesheet" href="/static/style/fontawesome.min.css"">
         <link rel="stylesheet" href="/static/style/custom-alert.css">
+        <link rel="stylesheet" href="https://startr.style/style.css">
+
         <script type="text/javascript" src="/static/js/FileSaver.min.js"></script>
         <!-- Stylesheets -->
         <link rel="stylesheet" href="/static/style/elements.css">
@@ -25,14 +36,15 @@
         <script type="text/javascript" src="/static/js/base.js"></script>
         <script>cloud = new Cloud(); cloud.url = baseURL;</script>
     </head>
-    <body>
+
+    <body style="--ofx:hidden; --size:120%">
         <% render('views.js.dialog') %>
         <script>new customAlert();</script>
         <div id="loading">
             <i class="fas fa-spinner fa-spin fa-3x" aria-hidden="true"></i>
         </div>
         <% render('views.navigation_bar') %>
-        <div id="wrapper">
+        <div id="wrapper" style="--p:1em">
             <% content_for('inner') %>
         </div>
         <% render('views.footer') %>

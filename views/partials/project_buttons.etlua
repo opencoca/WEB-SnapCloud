@@ -1,18 +1,34 @@
 <div class="buttons">
-    <a class="pure-button open" target="_blank"
+
+    <a target="_blank"
         href="<%= project:url_for('open', params.devVersion) %>"
-        ><%= (current_user and current_user.username == project.username) and
+        >
+        <button><%= (current_user and current_user.username == project.username) and
             locale.get('edit') or
             locale.get('see_code')
-        %></a>
+        %>
+        </button>
+        </a>
     <a class="pure-button download"
         href="<%= project:url_for('download', params.devVersion) %>" download
-        ><%= locale.get('download') %></a>
+        >
+        <button>
+            <%= locale.get('download') %>
+        </button>
+        </a>
     <a class="pure-button embed-button" target="_blank"
-        onclick="embedDialog()" ><%= locale.get('embed') %></a>
+        onclick="embedDialog()" >
+        <button>
+            <%= locale.get('embed') %>
+        </button>
+    </a>
     <% if current_user then %>
     <a class="pure-button collect" target="_blank"
-        onclick="collectDialog()"><%= locale.get('collect') %></a>
+        onclick="collectDialog()">
+            <button>
+                <%= locale.get('collect') %>
+            </button>
+        </a>
     <% end %>
     <script>
         function embedDialog () {
@@ -72,7 +88,11 @@
         <a class="pure-button pure-button-warning delete"
             target="_blank"
             onclick="confirmDelete()"
-            ><%= locale.get('delete_button') %></a>
+            >
+            <button>
+                <%= locale.get('delete_button') %>
+            </button>
+        </a>
         <script>
         function confirmDelete () {
             confirm(
