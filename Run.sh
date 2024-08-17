@@ -25,7 +25,7 @@ echo     PROJECT=$PROJECT
 echo FULL_BRANCH=$FULL_BRANCH
 echo      BRANCH=$BRANCH
 
-docker run \
+docker run --rm\
     -p 80:80 \
     -v $PROJECTPATH:/app \
     -it openco/$PROJECT-$BRANCH:latest
