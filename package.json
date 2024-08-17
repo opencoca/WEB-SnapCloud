@@ -2,7 +2,7 @@
     "name": "snapcloud",
     "version": "1.0.0",
     "scripts": {
-        "serve": "./Run.sh", 
+        "serve": "./Run.sh",
         "buildnrun": "./Build.sh && ./Run.sh",
         "build:amd": "./Build.sh linux/amd64",
         "build:arm": "./Build.sh linux/arm64/v8",
@@ -22,7 +22,7 @@
         "fetch": "yarn fetch:backup && yarn fetch:store && yarn fetch:db"
     },
     "dependencies": {
+        "caprover": "^2.3.1"
     },
-    "devDependencies": {
-    }
+    "devDependencies": {}
 }
