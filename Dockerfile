@@ -2,6 +2,13 @@ FROM openco/snapcloud-develop:latest-prerequisites
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Install rclone
+RUN curl https://rclone.org/install.sh | bash
+
+# Add cron for scheduling backups
+RUN apt-get update && apt-get install -y cron
+
+
 # Add canonical snap store
 COPY ./store /app/store
 # Add canonical database
