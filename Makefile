@@ -9,6 +9,22 @@ help:
 run:
 	./Build.sh && ./Run.sh
 
+amd64:
+	# Build for amd64 architecture
+	./Build.sh linux/amd64
+
+apple:
+	# Build for apple architecture
+	./Build.sh linux/arm64/v8 
+
+pi:
+	# Build for raspberry pi architecture
+	./Build.sh linux/arm/v7
+
+it_publish:
+	# Publish all our images to docker hub
+	./Publish.sh
+
 it_flow:
 	git flow init
 
