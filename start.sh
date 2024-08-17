@@ -60,7 +60,6 @@ fi
 # Infinite sleep to keep the container running
 sleep infinity
 
-wait -n
-
 # Exit with status of process that exited first
+wait -n
 exit $?
