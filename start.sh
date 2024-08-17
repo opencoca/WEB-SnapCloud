@@ -1,5 +1,5 @@
 #!/bin/bash
-source /app/.env
+source /app/env.sh
 
 # Create rclone config directory
 mkdir -p /root/.config/rclone
@@ -41,7 +41,7 @@ restore_backup
 
 # Start the application
 cd /app/ \
-  && . .env \
+  && . env.sh \
   && lapis server $LAPIS_ENVIRONMENT --trace &
 
 # Schedule backups
