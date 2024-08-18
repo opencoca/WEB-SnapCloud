@@ -40,8 +40,7 @@ minor_release:
 	git flow release start $$(git describe --tags --abbrev=0 | awk -F'[v.]' '{print $$2"."$$3+1".0"}').$$(date +'_%Y-%m-%d')
 
 patch_release:
-	git flow release start $$(git describe --tags --abbrev=0 | awk -F'[v.]' '{print $$2"."$$3"."$$4+1}').$$(date +'_%Y-%m-%d')
-
+	git flow release start $$(next_tag=$$(git describe --tags --abbrev=0 | awk -F'[v.]' '{print $$2"."$$3"."$$4+1}').$$(date +'_%Y-%m-%d'); while git rev-parse "v$${next_tag}" >/dev/null 2>&1; do next_tag=$$(echo $${next_tag} | awk -F'[.]' '{print $$1"."$$2"."$$3+1}'); done; echo $${next_tag})
 major_release:
 	git flow release start $$(git describe --tags --abbrev=0 | awk -F'[v.]' '{print $$2+1".0.0"}').$$(date +'_%Y-%m-%d')
 
