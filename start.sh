@@ -48,6 +48,7 @@ restore_backup() {
   if rclone lsf "$RCLONE_REMOTE:$BACKUP_PATH" > /dev/null 2>&1; then
     echo "Restoring backup from $RCLONE_REMOTE..."
     rclone copy "$RCLONE_REMOTE:$BACKUP_PATH" /app/store/
+    #TODO: Add Postgres restore
     echo "Backup restored successfully."
   else
     echo "No backup found at $RCLONE_REMOTE. Using existing files."
@@ -57,7 +58,10 @@ restore_backup() {
 # Function to perform backup
 backup() {
   echo "Performing backup to $RCLONE_REMOTE..."
-  rclone copy /app/store/ "$RCLONE_REMOTE:$BACKUP_PATH"
+  echo "rclone copy /app/store/ $RCLONE_REMOTE:/$BACKUP_PATH"
+  rclone copy /app/store/ "$RCLONE_REMOTE:/$BACKUP_PATH"
+  #TODO: Add Postgres backup
+
   echo "Backup completed."
 }
 
@@ -72,7 +76,7 @@ start_app() {
   # Start the application
   cd /app/ \
     && . env.sh \
-    && lapis server $LAPIS_ENVIRONMENT --trace
+    && lapis server $LAPIS_ENVIRONMENT --trace &
 
   # Schedule backups
   if [ -z "$BACKUP_HOOK" ]; then
@@ -103,6 +107,7 @@ case "$1" in
     setup_rclone
     ;;
   server)
+    setup_rclone 
     start_app
     ;;
   *)
