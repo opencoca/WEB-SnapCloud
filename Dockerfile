@@ -3,17 +3,18 @@ FROM openco/snapcloud-develop:latest-prerequisites
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install rclone
-RUN curl https://rclone.org/install.sh | bash
-
 # Add cron for scheduling backups
-RUN apt-get update && apt-get install -y cron
+RUN apt-get update && apt-get install -y cron rclone
 
 # Set default values for environment variables
 
-ENV RCLONE_REMOTE=dropbox
-ENV RCLONE_CONFIG_TYPE=dropbox
-ENV RCLONE_CONFIG_DROPBOX_TOKEN='{"access_token":"YOUR_ACCESS_TOKEN","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}'
+ENV RCLONE_CONFIG_B2_TYPE=b2
+ENV RCLONE_CONFIG_B2_ACCOUNT=000000000000000000000000
+ENV RCLONE_CONFIG_B2_KEY=K000000000000000000000000
+ENV RCLONE_CONFIG_B2_HARD_DELETE=true
 
+ENV RCLONE_REMOTE=b2
+ENV BACKUP_PATH=snapcloud-backups
 # Optional: Rclone configuration for Google Drive
 # RCLONE_REMOTE=gdrive
 # RCLONE_CONFIG_TYPE=drive
