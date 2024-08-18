@@ -45,11 +45,11 @@ patch_release:
 major_release:
 	git flow release start $$(next_tag=$$(git describe --tags --abbrev=0 | awk -F'[v.]' '{print $$2+1".0.0"}').$$(date +'_%Y-%m-%d'); while git rev-parse "v$${next_tag}" >/dev/null 2>&1; do next_tag=$$(echo $${next_tag} | awk -F'[.]' '{print $$1"."$$2"."$$3+1}'); done; echo $${next_tag})
 
-release_finish:
-	git flow release finish "$$(git branch --show-current | sed 's/release\///')" && git push origin develop && git push origin master && git push --tags && git checkout develop
-
 hotfix:
 	git flow hotfix start $$(next_tag=$$(git describe --tags --abbrev=0 | awk -F'[v.]' '{print $$2"."$$3"."$$4+1}').$$(date +'_%Y-%m-%d'); while git rev-parse "v$${next_tag}" >/dev/null 2>&1; do next_tag=$$(echo $${next_tag} | awk -F'[.]' '{print $$1"."$$2"."$$3+1}'); done; echo $${next_tag})
+
+release_finish:
+	git flow release finish "$$(git branch --show-current | sed 's/release\///')" && git push origin develop && git push origin master && git push --tags && git checkout develop
 
 hotfix_finish:
 	git flow hotfix finish "$$(git branch --show-current | sed 's/hotfix\///')" && git push origin develop && git push origin master && git push --tags && git checkout develop
