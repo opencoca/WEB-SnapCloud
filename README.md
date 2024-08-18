@@ -1,4 +1,4 @@
-# Codezy Snap!Cloud v0.1.0
+# Codezy Snap!Cloud v0.1.2._2024-08-18
 
 The Snap! Cloud is a backend for Snap<i>!</i> that stores only metadata in a database for reduced query response time, while storing actual contents in disk.
 
