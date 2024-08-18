@@ -38,19 +38,19 @@ feature_finish:
 
 minor_release:
 	# Start a minor release with incremented minor version
-	git flow release start $$(next_tag=$$(git describe --tags --abbrev=0 | awk -F'[v._]' '{if ($$3+0 > 0) print $$2"."$$3+1".0"; else print $$2+1".0.0"}')._$$(date +'_%Y-%m-%d'); while git rev-parse "v$${next_tag}" >/dev/null 2>&1; do next_tag=$$(echo $${next_tag} | awk -F'[_]' '{print $$1"."$$2"."$$3+1"._"$${4}}'); done; echo v$${next_tag})
+	git flow release start $$(next_tag=$$(git describe --tags --abbrev=0 | awk -F'[v.]' '{print $$2"."$$3+1".0"}'); while git rev-parse "v$${next_tag}" >/dev/null 2>&1; do next_tag=$$(echo $${next_tag} | awk -F'[.]' '{print $$1"."$$2+1".0"}'); done; echo v$${next_tag})
 
 patch_release:
 	# Start a patch release with incremented patch version
-	git flow release start $$(next_tag=$$(git describe --tags --abbrev=0 | awk -F'[v._]' '{if ($$4+0 > 0) print $$2"."$$3"."$$4+1; else print $$2"."$$3+1".0"}')._$$(date +'_%Y-%m-%d'); while git rev-parse "v$${next_tag}" >/dev/null 2>&1; do next_tag=$$(echo $${next_tag} | awk -F'[_]' '{print $$1"."$$2"."$$3+1"._"$${4}}'); done; echo v$${next_tag})
+	git flow release start $$(next_tag=$$(git describe --tags --abbrev=0 | awk -F'[v.]' '{print $$2"."$$3"."$$4+1}'); while git rev-parse "v$${next_tag}" >/dev/null 2>&1; do next_tag=$$(echo $${next_tag} | awk -F'[.]' '{print $$1"."$$2"."$$3+1}'); done; echo v$${next_tag})
 
 major_release:
 	# Start a major release with incremented major version
-	git flow release start $$(next_tag=$$(git describe --tags --abbrev=0 | awk -F'[v._]' '{if ($$3+0 > 0) print $$2+1".0.0"; else print $$2+1".0.0"}')._$$(date +'_%Y-%m-%d'); while git rev-parse "v$${next_tag}" >/dev/null 2>&1; do next_tag=$$(echo $${next_tag} | awk -F'[_]' '{print $$1"."$$2"."$$3+1"._"$${4}}'); done; echo v$${next_tag})
+	git flow release start $$(next_tag=$$(git describe --tags --abbrev=0 | awk -F'[v.]' '{print $$2+1".0.0"}'); while git rev-parse "v$${next_tag}" >/dev/null 2>&1; do next_tag=$$(echo $${next_tag} | awk -F'[.]' '{print $$1+1".0.0"}'); done; echo v$${next_tag})
 
 hotfix:
-	# Start a hotfix with the same version but updated date
-	git flow hotfix start $$(next_tag=$$(git describe --tags --abbrev=0 | awk -F'[v._]' '{print $$2"."$$3"."$$4}')._$$(date +'_%Y-%m-%d'); while git rev-parse "v$${next_tag}" >/dev/null 2>&1; do next_tag=$$(echo $${next_tag} | awk -F'[_]' '{print $$1"."$$2"."$$3+1"._"$${4}}'); done; echo v$${next_tag})
+	# Start a hotfix with the same version but updated patch number
+	git flow hotfix start $$(next_tag=$$(git describe --tags --abbrev=0 | awk -F'[v.]' '{print $$2"."$$3"."$$4+1}'); while git rev-parse "v$${next_tag}" >/dev/null 2>&1; do next_tag=$$(echo $${next_tag} | awk -F'[.]' '{print $$1"."$$2"."$$3+1}'); done; echo v$${next_tag})
 
 release_finish:
 	git flow release finish "$$(git branch --show-current | sed 's/release\///')" && git push origin develop && git push origin master && git push --tags && git checkout develop
