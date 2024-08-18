@@ -1,5 +1,12 @@
 #!/bin/bash
-source /app/env.sh
+#source /app/env.sh
+# if /app/.env exists, source it
+if [ -f /app/.env ]; then
+  echo "Sourcing /app/.env..."
+  source /app/.env
+else
+  echo "No /app/.env found. Using environment and env.sh variables."
+fi
 
 # Create rclone config directory
 mkdir -p /root/.config/rclone
