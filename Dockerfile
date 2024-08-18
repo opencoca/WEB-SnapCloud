@@ -8,22 +8,6 @@ RUN apt-get update && apt-get install -y cron rclone
 
 # Set default values for environment variables
 
-ENV RCLONE_CONFIG_B2_TYPE=b2
-ENV RCLONE_CONFIG_B2_ACCOUNT=000000000000000000000000
-ENV RCLONE_CONFIG_B2_KEY=K000000000000000000000000
-ENV RCLONE_CONFIG_B2_HARD_DELETE=true
-
-ENV RCLONE_REMOTE=b2
-ENV BACKUP_PATH=snapcloud-backups
-# Optional: Rclone configuration for Google Drive
-# RCLONE_REMOTE=gdrive
-# RCLONE_CONFIG_TYPE=drive
-# RCLONE_CONFIG_DRIVE_CLIENT_ID=YOUR_CLIENT_ID
-# RCLONE_CONFIG_DRIVE_CLIENT_SECRET=YOUR_CLIENT_SECRET
-# RCLONE_CONFIG_DRIVE_SCOPE=drive
-# RCLONE_CONFIG_DRIVE_TOKEN='{"access_token":"YOUR_ACCESS_TOKEN","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}'
-# Backup path and schedule
-
 ENV BACKUP_PATH=snapcloud-backups
 ENV BACKUP_CRON="0 2 * * *"  
 # 2 AM EST (7 AM UTC)
@@ -64,4 +48,4 @@ RUN chmod -R 777 /app/store
 EXPOSE 80
 ENV PORT=80
 
-CMD ["/app/start.sh"]
+CMD ["/app/start.sh", "server"]
