@@ -1,22 +1,36 @@
 #!/bin/bash
-#source /app/env.sh
-# if /app/.env exists, source it
 if [ -f /app/.env ]; then
   echo "Sourcing /app/.env..."
-  source /app/.env
+  . /app/.env
+  echo "RCLONE_CONFIG_DROPBOX_TYPE: $RCLONE_CONFIG_DROPBOX_TYPE"
+  echo "RCLONE_CONFIG_DROPBOX_TOKEN: $RCLONE_CONFIG_DROPBOX_TOKEN"
+  echo "RCLONE_REMOTE: $RCLONE_REMOTE"
+  echo "BACKUP_PATH: $BACKUP_PATH"
 else
   echo "No /app/.env found. Using environment and env.sh variables."
 fi
 
+
 # Create rclone config directory
 mkdir -p /root/.config/rclone
 
+# Find all unique remotes by scanning environment variables that start with RCLONE_CONFIG_
+remotes=$(env | grep -oP '^RCLONE_CONFIG_\K\w+(?=_TYPE)' | sort -u)
+
 # Generate rclone config file
-cat > /root/.config/rclone/rclone.conf <<EOL
-[$RCLONE_REMOTE]
-type = $RCLONE_CONFIG_TYPE
-$(env | grep ^RCLONE_CONFIG_ | sed 's/^RCLONE_CONFIG_//' | sed 's/=/ = /')
+for REMOTE in $remotes; do
+  echo "Generating configuration for $REMOTE..."
+  cat >> /root/.config/rclone/rclone.conf <<EOL
+[$REMOTE]
+type = $(eval echo \$RCLONE_CONFIG_${REMOTE}_TYPE)
+$(env | grep ^RCLONE_CONFIG_${REMOTE}_ | sed "s/^RCLONE_CONFIG_${REMOTE}_//" | sed 's/=/ = /' | awk -F' = ' '{print tolower($1)" = "$2}' | grep -v '^type = ')
 EOL
+done
+
+
+
+
+echo "Rclone configuration generated."
 
 # Start PostgreSQL service
 service postgresql start &
