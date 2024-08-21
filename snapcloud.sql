@@ -622,6 +622,20 @@ COPY public.projects (id, projectname, ispublic, ispublished, notes, created, la
 12	RIAC Sound Levels	t	t	Created By Li and Ben. This application explores looking at sound levels and clones.	2023-12-21 13:09:04+00	2023-12-21 13:11:41+00	2023-12-21 13:10:32+00	outofpaper	2023-12-21 13:10:35+00	\N
 13	beat jumper	t	t		2023-12-21 13:10:26+00	2023-12-22 12:42:27+00	2023-12-21 13:11:10+00	mcat2000	2023-12-21 13:11:14+00	\N
 7	AI Development 001	t	t	This is a sneak peek into the brain(s) of AI.\n\nBrains are like parties. Connections are made and information is exchanged.\n\nThink of it as a social party where each of the colorful spheres is a guest. We’ve got a someone in blue, pink, yellow, green, and purple, all mingling through these orange lines that are the conversations happening between them.\n\nBrains be they real or virtual also connect in a simular fasion. Instead of people brains have neurons. Imagine each sphere as a neuron inside an AI's neural network. \n\nThose lines? They're the digital chit-chat—data zipping back and forth. Now, if you're diving into AI development, this is your bread and butter. You're the host of this shindig, and it's your job to make sure these guests connect, share info, and learn from each other.\n\nKeep this picture in mind when you're designing learning experiences. Each connection represents potential growth, a pathway to learning something new. And remember, just like in a real network, the strength of the connection matters. Weak connections? They're like those forgettable small talks. Strong connections are your deep, memorable conversations.\n\nNext time you're piecing together an AI, think about these vibrant little spheres. Your goal? To create those strong, meaningful links that turn a casual meet-up into a transformative gathering. Keep it colorful, keep it connected, and watch the magic happen!	2023-12-19 18:22:46+00	2023-12-23 18:41:42+00	2023-12-19 18:22:52+00	outofpaper	2023-12-19 18:22:55+00	\N
+16	Fishy ><>	t	t		2024-08-16 10:58:36+00	2024-08-17 09:33:30+00	2024-08-17 09:33:28+00	mcat2000	2024-08-17 09:33:30+00	\N
+24	Paint	t	t		2024-08-18 08:53:32+00	2024-08-18 09:04:56+00	2024-08-18 09:04:54+00	mcat2000	2024-08-18 09:04:56+00	\N
+15	Intro To Intros	t	t		2024-08-16 10:57:37+00	2024-08-17 09:33:37+00	2024-08-17 09:33:34+00	mcat2000	2024-08-17 09:33:37+00	\N
+25	pong	f	f		2024-08-19 08:39:42+00	2024-08-19 08:39:42+00	\N	mcat2000	\N	\N
+17	level designer	t	t	In this fun project which is a little big but you're You're gone to Advanced we make a small algorithm that makes levels well technically we make the levels but it chooses all of the costumes of the squares	2024-08-17 09:32:18+00	2024-08-17 09:33:41+00	2024-08-17 09:33:39+00	mcat2000	2024-08-17 09:33:41+00	\N
+26	3D walk	f	f		2024-08-19 08:55:29+00	2024-08-19 08:55:29+00	\N	mcat2000	\N	\N
+14	Square!:D	t	t		2024-08-16 10:53:48+00	2024-08-17 11:11:01+00	2024-08-17 11:10:59+00	mcat2000	2024-08-17 11:11:01+00	\N
+27	Level Designer	f	f	In this fun project which is a little big but you're You're gone to Advanced we make a small algorithm that makes levels well technically we make the levels but it chooses all of the costumes of the squares	2024-08-19 09:19:16+00	2024-08-19 09:19:16+00	\N	mcat2000	\N	\N
+18	Maze AI	t	t	In this project we created AI that can solve any maze in the fastest possible way	2024-08-17 11:01:19+00	2024-08-17 11:11:12+00	2024-08-17 11:11:09+00	mcat2000	2024-08-17 11:11:12+00	\N
+19	shapes and sides	t	t		2024-08-17 12:15:02+00	2024-08-17 12:15:15+00	2024-08-17 12:15:12+00	mcat2000	2024-08-17 12:15:15+00	\N
+20	Liner	t	t		2024-08-18 08:33:02+00	2024-08-18 08:33:22+00	2024-08-18 08:33:20+00	mcat2000	2024-08-18 08:33:22+00	\N
+21	Math Ask	t	t		2024-08-18 08:34:50+00	2024-08-18 08:35:00+00	2024-08-18 08:34:58+00	mcat2000	2024-08-18 08:35:00+00	\N
+23	Buzzy Bots	t	t		2024-08-18 08:39:52+00	2024-08-18 09:04:47+00	2024-08-18 09:04:45+00	mcat2000	2024-08-18 09:04:47+00	\N
+22	Make Blocks To Make Code	t	t		2024-08-18 08:38:55+00	2024-08-18 09:04:52+00	2024-08-18 09:04:50+00	mcat2000	2024-08-18 09:04:52+00	\N
 \.
 
 
@@ -680,7 +694,7 @@ SELECT pg_catalog.setval('public.flagged_projects_id_seq', 1, false);
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.projects_id_seq', 13, true);
+SELECT pg_catalog.setval('public.projects_id_seq', 27, true);
 
 
 --
