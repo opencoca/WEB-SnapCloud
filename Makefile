@@ -6,7 +6,7 @@ help:
 	# `make a_dev_env`
 	@LC_ALL=C $(MAKE) -pRrq -f $(firstword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/(^|\n)# Files(\n|$$)/,/(^|\n)# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | grep -E -v -e '^[^[:alnum:]]' -e '^$@$$'
 
-run:
+it_run:
 	./_Build.sh && ./_Run.sh
 
 amd64:
@@ -36,7 +36,6 @@ feature_finish:
 	# Ingest a feature name and save it to a variable we can access in feature_finish:
 	git flow feature finish $$(git branch --show-current)
 
-# Define the bump_version logic inline for each release type
 
 minor_release:
 	# Start a minor release with incremented minor version
