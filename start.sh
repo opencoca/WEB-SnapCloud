@@ -43,6 +43,19 @@ setup_rclone() {
     echo "*********"
 }
 
+
+# Function to perform backup
+backup() {
+  echo "Performing backup to $RCLONE_REMOTE..."
+  echo "rclone copy /app/store/ $RCLONE_REMOTE:/$BACKUP_PATH"
+  rclone copy /app/store/ "$RCLONE_REMOTE:/$BACKUP_PATH"
+  #TODO: Test Postgres backup
+  su postgres -c "pg_dump -d snapcloud" > /app/backup.snapcloud.sql
+  rclone copy /app/backup.snapcloud.sql "$RCLONE_REMOTE:/$BACKUP_PATH"
+  echo "Backup completed."
+}
+
+
 # Function to perform restore
 restore_backup() {
   if rclone lsf "$RCLONE_REMOTE:$BACKUP_PATH" > /dev/null 2>&1; then
@@ -53,16 +66,6 @@ restore_backup() {
   else
     echo "No backup found at $RCLONE_REMOTE. Using existing files."
   fi
-}
-
-# Function to perform backup
-backup() {
-  echo "Performing backup to $RCLONE_REMOTE..."
-  echo "rclone copy /app/store/ $RCLONE_REMOTE:/$BACKUP_PATH"
-  rclone copy /app/store/ "$RCLONE_REMOTE:/$BACKUP_PATH"
-  #TODO: Add Postgres backup
-
-  echo "Backup completed."
 }
 
 # Function to start the application
