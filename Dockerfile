@@ -4,7 +4,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install rclone
 # Add cron for scheduling backups
-RUN apt-get update && apt-get install -y cron rclone
+RUN apt-get update && apt-get install -y cron rclone bash-completion
+# cleanup APT when done.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Set default values for environment variables
 
