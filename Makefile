@@ -35,7 +35,11 @@ it_publish:
 	./Publish.sh
 
 it_flow:
-	git flow init
+	git branch master || \
+	git branch -m main master || \
+	git checkout master
+	# TODO: set v as the version prefix
+	git flow init -f
 
 feature:
 	# Ingest a feature name and save it to a variable we can access in feature_finish:
@@ -60,7 +64,7 @@ major_release:
 
 hotfix:
 	# Start a hotfix with incremented patch version
-	git flow hotfix start v$$(git tag --sort=-v:refname | sed 's/^v//' | head -n 1 | awk -F'.' '{print $$1"."$$2"."$$3+1}')
+	git flow hotfix start $$(git tag --sort=-v:refname | sed 's/^v//' | head -n 1 | awk -F'.' '{print $$1"."$$2"."$$3+1}')
 
 release_finish:
 	git flow release finish "$$(git branch --show-current | sed 's/release\///')" && git push origin develop && git push origin master && git push --tags && git checkout develop
