@@ -35,9 +35,11 @@ it_publish:
 	./Publish.sh
 
 it_flow:
-	git branch master || git branch -m main master || \
+	git branch master || \
+	git branch -m main master || \
 	git checkout master
-	git flow init
+	# TODO: set v as the version prefix
+	git flow init -f
 
 feature:
 	# Ingest a feature name and save it to a variable we can access in feature_finish:
