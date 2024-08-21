@@ -4,7 +4,7 @@ The Snap! Cloud is a backend for Snap<i>!</i> that stores only metadata in a dat
 
 # Getting started
 
-Shallow clone our repository to get the latest version of the code:
+To get the latest version of the code, clone our repository:
 
 Either using HTTPS:
 ```bash
@@ -12,7 +12,7 @@ git clone --depth 1 https://github.com/opencoca/WEB-SnapCloud
 ```
 Or using SSH:
 ```bash
-git clone --depth 1 git@github.com:opencoca/WEB-SnapCloud.git
+git clone --filter=tree:0 git@github.com:opencoca/WEB-SnapCloud.git
 ```
 
 Then, cd to the directory and get started with our Makefile:
