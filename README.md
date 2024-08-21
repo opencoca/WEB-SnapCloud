@@ -2,6 +2,31 @@
 
 The Snap! Cloud is a backend for Snap<i>!</i> that stores only metadata in a database for reduced query response time, while storing actual contents in disk.
 
+# Getting started
+
+Shallow clone our repository to get the latest version of the code:
+
+Either using HTTPS:
+```bash
+git clone --depth 1 https://github.com/opencoca/WEB-SnapCloud
+```
+Or using SSH:
+```bash
+git clone --depth 1 git@github.com:opencoca/WEB-SnapCloud.git
+```
+
+Then, cd to the directory and get started with our Makefile:
+```bash
+cd WEB-SnapCloud
+make
+```
+
+This will show you the available commands. Make sure to install the submodules and the dependencies before running the server using `make this_dev_env`.
+
+Then you can run the server using `make it_run` and access it at `http://localhost`.
+
+
+
 ## [Install](./INSTALL.md) And set things up.
 
 ## Use the Docker build to run things smoothly.
