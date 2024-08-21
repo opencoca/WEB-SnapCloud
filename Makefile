@@ -35,6 +35,8 @@ it_publish:
 	./Publish.sh
 
 it_flow:
+	git branch master || git branch -m main master
+	git checkout master
 	git flow init
 
 feature:
