@@ -626,16 +626,18 @@ COPY public.projects (id, projectname, ispublic, ispublished, notes, created, la
 24	Paint	t	t		2024-08-18 08:53:32+00	2024-08-18 09:04:56+00	2024-08-18 09:04:54+00	mcat2000	2024-08-18 09:04:56+00	\N
 15	Intro To Intros	t	t		2024-08-16 10:57:37+00	2024-08-17 09:33:37+00	2024-08-17 09:33:34+00	mcat2000	2024-08-17 09:33:37+00	\N
 25	pong	f	f		2024-08-19 08:39:42+00	2024-08-19 08:39:42+00	\N	mcat2000	\N	\N
-17	level designer	t	t	In this fun project which is a little big but you're You're gone to Advanced we make a small algorithm that makes levels well technically we make the levels but it chooses all of the costumes of the squares	2024-08-17 09:32:18+00	2024-08-17 09:33:41+00	2024-08-17 09:33:39+00	mcat2000	2024-08-17 09:33:41+00	\N
-26	3D walk	f	f		2024-08-19 08:55:29+00	2024-08-19 08:55:29+00	\N	mcat2000	\N	\N
 14	Square!:D	t	t		2024-08-16 10:53:48+00	2024-08-17 11:11:01+00	2024-08-17 11:10:59+00	mcat2000	2024-08-17 11:11:01+00	\N
-27	Level Designer	f	f	In this fun project which is a little big but you're You're gone to Advanced we make a small algorithm that makes levels well technically we make the levels but it chooses all of the costumes of the squares	2024-08-19 09:19:16+00	2024-08-19 09:19:16+00	\N	mcat2000	\N	\N
 18	Maze AI	t	t	In this project we created AI that can solve any maze in the fastest possible way	2024-08-17 11:01:19+00	2024-08-17 11:11:12+00	2024-08-17 11:11:09+00	mcat2000	2024-08-17 11:11:12+00	\N
 19	shapes and sides	t	t		2024-08-17 12:15:02+00	2024-08-17 12:15:15+00	2024-08-17 12:15:12+00	mcat2000	2024-08-17 12:15:15+00	\N
 20	Liner	t	t		2024-08-18 08:33:02+00	2024-08-18 08:33:22+00	2024-08-18 08:33:20+00	mcat2000	2024-08-18 08:33:22+00	\N
+26	3D walk	t	t		2024-08-19 08:55:29+00	2024-08-19 10:00:34+00	2024-08-19 10:00:32+00	mcat2000	2024-08-19 10:00:34+00	\N
 21	Math Ask	t	t		2024-08-18 08:34:50+00	2024-08-18 08:35:00+00	2024-08-18 08:34:58+00	mcat2000	2024-08-18 08:35:00+00	\N
 23	Buzzy Bots	t	t		2024-08-18 08:39:52+00	2024-08-18 09:04:47+00	2024-08-18 09:04:45+00	mcat2000	2024-08-18 09:04:47+00	\N
+27	Level Designer	t	t	In this fun project which is a little big but you're You're gone to Advanced we make a small algorithm that makes levels well technically we make the levels but it chooses all of the costumes of the squares	2024-08-19 09:19:16+00	2024-08-19 10:00:53+00	2024-08-19 10:00:50+00	mcat2000	2024-08-19 10:00:53+00	\N
 22	Make Blocks To Make Code	t	t		2024-08-18 08:38:55+00	2024-08-18 09:04:52+00	2024-08-18 09:04:50+00	mcat2000	2024-08-18 09:04:52+00	\N
+17	level designer	t	t	In this fun project which is a little big but you're You're gone to Advanced we make a small algorithm that makes levels well technically we make the levels but it chooses all of the costumes of the squares	2024-08-17 09:32:18+00	2024-08-17 09:33:41+00	2024-08-17 09:33:39+00	mcat2000	2024-08-17 09:33:41+00	2024-08-19 10:01:21+00
+28	say hello!	f	f		2024-08-19 10:03:30+00	2024-08-19 10:03:30+00	\N	mcat2000	\N	\N
+29	termanil	f	f		2024-08-19 14:21:05+00	2024-08-19 14:21:05+00	\N	mcat2000	\N	\N
 \.
 
 
@@ -694,7 +696,7 @@ SELECT pg_catalog.setval('public.flagged_projects_id_seq', 1, false);
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.projects_id_seq', 27, true);
+SELECT pg_catalog.setval('public.projects_id_seq', 29, true);
 
 
 --
