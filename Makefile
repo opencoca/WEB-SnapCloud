@@ -12,9 +12,11 @@ it_run:
 this_dev_env:
 	#make sure we have brew and docker installed
 	brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	brew install docker
+	docker --version || brew install docker
 	# shallow clone all submodules
 	git submodule update --init --recursive --depth=2
+	# setup git flow
+	$(make) it_flow
 
 amd64:
 	# Build for amd64 architecture
