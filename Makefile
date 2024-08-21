@@ -9,6 +9,13 @@ help:
 it_run:
 	./_Build.sh && ./_Run.sh
 
+this_dev_env:
+	#make sure we have brew and docker installed
+	brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	brew install docker
+	# shallow clone all submodules
+	git submodule update --init --recursive --depth=2
+
 amd64:
 	# Build for amd64 architecture
 	./Build.sh linux/amd64
