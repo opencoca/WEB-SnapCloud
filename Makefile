@@ -68,7 +68,7 @@ hotfix:
 
 release_finish:
 	$(eval RELEASE_VERSION := $(shell git rev-parse --abbrev-ref HEAD | sed 's/release\///'))
-	git flow release finish -m "Release $(RELEASE_VERSION)" "$(RELEASE_VERSION)"
+	git flow release finish "$(RELEASE_VERSION)"
 	git push origin develop
 	git push origin master
 	git push --tags
@@ -76,7 +76,7 @@ release_finish:
 
 hotfix_finish:
 	$(eval HOTFIX_VERSION := $(shell git rev-parse --abbrev-ref HEAD | sed 's/hotfix\///'))
-	git flow hotfix finish -m "Hotfix $(HOTFIX_VERSION)" "$(HOTFIX_VERSION)"
+	git flow hotfix finish "$(HOTFIX_VERSION)"
 	git push origin develop
 	git push origin master
 	git push --tags
