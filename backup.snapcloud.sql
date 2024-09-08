@@ -544,13 +544,13 @@ COPY public.collection_memberships (id, collection_id, project_id, created_at, u
 
 COPY public.collections (id, name, creator_id, created_at, updated_at, description, published, published_at, shared, shared_at, thumbnail_id, editor_ids, free_for_all) FROM stdin;
 0	Flagged	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00		f	\N	f	\N	\N	{}	f
-4	Featured	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00	This is the collection from which the "Featured Projects" front page carousel feeds.	t	2023-12-13 14:13:07.565057+00	t	2023-12-13 14:13:07.565057+00	\N	{}	f
 6	Games	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00	A collection of games curated by the Snap! team.	t	2023-12-13 14:13:07.565057+00	t	2023-12-13 14:13:07.565057+00	\N	{}	f
 7	Fractals	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00	A collection of fractals curated by the Snap! team.	t	2023-12-13 14:13:07.565057+00	t	2023-12-13 14:13:07.565057+00	\N	{}	f
 8	Art Projects	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00	A collection of art projects curated by the Snap! team.	t	2023-12-13 14:13:07.565057+00	t	2023-12-13 14:13:07.565057+00	\N	{}	f
 9	Science Projects	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00	A collection of science-related projects curated by the Snap! team.	t	2023-12-13 14:13:07.565057+00	t	2023-12-13 14:13:07.565057+00	\N	{}	f
 37	Animations	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00		t	2023-12-13 14:13:07.565057+00	t	2023-12-13 14:13:07.565057+00	\N	{}	f
 67	Simulations	519956	2023-12-13 14:13:07.565057+00	2023-12-13 14:13:07.565057+00	Simulating real-world behavior in Snap!.	f	\N	f	\N	\N	{}	f
+4	Featured	519956	2023-12-13 14:13:07.565057+00	2024-09-08 12:55:34+00	This is the collection from which the "Featured Projects" front page carousel feeds.	t	2023-12-13 14:13:07.565057+00	t	2023-12-13 14:13:07.565057+00	\N	{}	f
 \.
 
 
@@ -559,6 +559,7 @@ COPY public.collections (id, name, creator_id, created_at, updated_at, descripti
 --
 
 COPY public.featured_collections (collection_id, page_path, type, "order", created_at, updated_at) FROM stdin;
+4	index	event	0	2024-09-08 12:55:17+00	2024-09-08 12:55:17+00
 \.
 
 

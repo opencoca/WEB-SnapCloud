@@ -636,24 +636,8 @@ COPY public.projects (id, projectname, ispublic, ispublished, notes, created, la
 27	Level Designer	t	t	In this fun project which is a little big but you're You're gone to Advanced we make a small algorithm that makes levels well technically we make the levels but it chooses all of the costumes of the squares	2024-08-19 09:19:16+00	2024-08-19 10:00:53+00	2024-08-19 10:00:50+00	mcat2000	2024-08-19 10:00:53+00	\N
 22	Make Blocks To Make Code	t	t		2024-08-18 08:38:55+00	2024-08-18 09:04:52+00	2024-08-18 09:04:50+00	mcat2000	2024-08-18 09:04:52+00	\N
 17	level designer	t	t	In this fun project which is a little big but you're You're gone to Advanced we make a small algorithm that makes levels well technically we make the levels but it chooses all of the costumes of the squares	2024-08-17 09:32:18+00	2024-08-17 09:33:41+00	2024-08-17 09:33:39+00	mcat2000	2024-08-17 09:33:41+00	2024-08-19 10:01:21+00
+28	say hello!	f	f		2024-08-19 10:03:30+00	2024-08-19 10:03:30+00	\N	mcat2000	\N	\N
 29	termanil	f	f		2024-08-19 14:21:05+00	2024-08-19 14:21:05+00	\N	mcat2000	\N	\N
-43	checlist test	f	f		2024-09-06 14:39:57+00	2024-09-06 14:39:57+00	\N	mcat2000	\N	\N
-28	say hello!	t	t		2024-08-19 10:03:30+00	2024-08-30 14:25:03+00	2024-08-25 10:30:40+00	mcat2000	2024-08-25 10:30:42+00	\N
-38	dancing lights	f	f		2024-09-01 10:28:06+00	2024-09-01 10:28:06+00	\N	mcat2000	\N	\N
-30	dungen	f	f		2024-08-22 11:28:49+00	2024-08-24 09:34:09+00	\N	mcat2000	\N	\N
-31	My HTML Blocks	f	f		2024-08-24 12:58:32+00	2024-08-24 16:22:51+00	\N	mcat2000	\N	\N
-32	steam-moon	f	f		2024-08-25 10:20:26+00	2024-08-25 10:20:26+00	\N	mcat2000	\N	\N
-40	digi-pet	f	f		2024-09-03 09:53:02+00	2024-09-03 09:53:02+00	\N	mcat2000	\N	\N
-33	nober	t	t		2024-08-25 10:30:21+00	2024-08-25 10:30:52+00	2024-08-25 10:30:31+00	mcat2000	2024-08-25 10:30:52+00	\N
-34	controller	f	f		2024-08-25 20:33:59+00	2024-08-25 20:33:59+00	\N	mcat2000	\N	\N
-35	alarm	f	f		2024-08-26 10:07:17+00	2024-08-27 11:27:18+00	\N	mcat2000	\N	\N
-36	pixelate	f	f		2024-08-28 18:08:50+00	2024-08-28 18:08:50+00	\N	mcat2000	\N	\N
-37	Color Picker	t	t		2024-08-30 10:26:35+00	2024-08-30 10:26:52+00	2024-08-30 10:26:47+00	mcat2000	2024-08-30 10:26:52+00	\N
-44	Exchange	f	f		2024-09-06 15:03:11+00	2024-09-06 17:37:34+00	\N	mcat2000	\N	\N
-42	audio meter	t	t		2024-09-05 16:22:31+00	2024-09-05 17:18:14+00	2024-09-05 17:18:11+00	mcat2000	2024-09-05 17:18:14+00	\N
-39	idia	t	t		2024-09-03 08:56:17+00	2024-09-05 17:18:24+00	2024-09-05 17:18:22+00	mcat2000	2024-09-05 17:18:24+00	\N
-41	effects	f	f		2024-09-04 15:00:06+00	2024-09-06 10:59:24+00	\N	mcat2000	\N	\N
-45	cyphering	f	f		2024-09-07 18:37:32+00	2024-09-08 09:55:32+00	\N	mcat2000	\N	\N
 \.
 
 
@@ -712,7 +696,7 @@ SELECT pg_catalog.setval('public.flagged_projects_id_seq', 1, false);
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.projects_id_seq', 45, true);
+SELECT pg_catalog.setval('public.projects_id_seq', 29, true);
 
 
 --
