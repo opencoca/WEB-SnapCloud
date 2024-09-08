@@ -67,12 +67,20 @@ hotfix:
 	git flow hotfix start $$(git describe --tags --abbrev=0 | sed 's/^v//' | awk -F'.' '{print $$1"."$$2"."$$3+1}')
 
 release_finish:
-	git flow release finish -m "Release $$(git branch --show-current | sed 's/release\///')" "$$(git branch --show-current | sed 's/release\///')" && \
-	git push origin develop && git push origin master && git push --tags && git checkout develop
+	$(eval RELEASE_VERSION := $(shell git rev-parse --abbrev-ref HEAD | sed 's/release\///'))
+	git flow release finish "$(RELEASE_VERSION)"
+	git push origin develop
+	git push origin master
+	git push --tags
+	git checkout develop
 
 hotfix_finish:
-	git flow hotfix finish -m "Hotfix $$(git branch --show-current | sed 's/hotfix\///')" "$$(git branch --show-current | sed 's/hotfix\///')" && \
-	git push origin develop && git push origin master && git push --tags && git checkout develop
+	$(eval HOTFIX_VERSION := $(shell git rev-parse --abbrev-ref HEAD | sed 's/hotfix\///'))
+	git flow hotfix finish "$(HOTFIX_VERSION)"
+	git push origin develop
+	git push origin master
+	git push --tags
+	git checkout develop
 
 clean_git_repo:
 	git clean --exclude=!.env -Xdf
