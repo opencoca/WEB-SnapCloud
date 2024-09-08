@@ -1,6 +1,7 @@
 # Codezy Snap!Cloud v1.0.0 - The Snap! Cloud
 [![Build Status](https://travis-ci.org/opencoca/WEB-SnapCloud.svg?branch=master)](https://travis-ci.org/opencoca/WEB-SnapCloud)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/license-GPL-purple.svg)](https://opensource.org/licenses/GPL-3.0)
+[![GitHub stars](https://img.shields.io/github/stars/opencoca/WEB-SnapCloud.svg)](
 [![GitHub issues](https://img.shields.io/github/issues/opencoca/WEB-SnapCloud.svg)](
 
 ## Now with RCLone support! (v1.0.0)
