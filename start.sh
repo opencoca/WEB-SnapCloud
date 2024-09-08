@@ -61,7 +61,23 @@ restore_backup() {
   if rclone lsf "$RCLONE_REMOTE:$BACKUP_PATH" > /dev/null 2>&1; then
     echo "Restoring backup from $RCLONE_REMOTE..."
     rclone copy "$RCLONE_REMOTE:$BACKUP_PATH" /app/store/
-    #TODO: Add Postgres restore
+    
+    echo "Restoring PostgreSQL database..."
+    if rclone cat "$RCLONE_REMOTE:$BACKUP_PATH/backup.snapcloud.sql" > /app/restore.snapcloud.sql; then
+      # Drop and recreate the database
+      su postgres -c "psql -c 'DROP DATABASE IF EXISTS snapcloud;'"
+      su postgres -c "psql -c 'CREATE DATABASE snapcloud;'"
+      
+      # Restore the database
+      su postgres -c "psql -d snapcloud -f /app/restore.snapcloud.sql"
+      
+      # Clean up
+      rm /app/restore.snapcloud.sql
+      echo "Database restored successfully."
+    else
+      echo "Failed to retrieve database backup file."
+    fi
+    
     echo "Backup restored successfully."
   else
     echo "No backup found at $RCLONE_REMOTE. Using existing files."
@@ -72,6 +88,12 @@ restore_backup() {
 start_app() {
   # Start PostgreSQL service
   service postgresql start
+  # Wait for PostgreSQL to start
+  sleep 2
+  # if $AUTO_RESTORE is set to true, restore the backup
+  if [ "$AUTO_RESTORE" = "true" ]; then
+    restore_backup
+  fi
 
   # Set permissions for store
   chmod -R 777 /app/store
