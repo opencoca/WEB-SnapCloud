@@ -48,10 +48,11 @@ setup_rclone() {
 backup() {
   echo "Performing backup to $RCLONE_REMOTE..."
   echo "rclone copy /app/store/ $RCLONE_REMOTE:/$BACKUP_PATH"
-  rclone copy /app/store/ "$RCLONE_REMOTE:/$BACKUP_PATH"
-  #TODO: Test Postgres backup
+  #and log to log file
+  rclone copy /app/store/ "$RCLONE_REMOTE:/$BACKUP_PATH" >> /app/backup.log
+  #log the backup status
   su postgres -c "pg_dump -d snapcloud" > /app/backup.snapcloud.sql
-  rclone copy /app/backup.snapcloud.sql "$RCLONE_REMOTE:/$BACKUP_PATH"
+  rclone copy /app/backup.snapcloud.sql "$RCLONE_REMOTE:/$BACKUP_PATH" >> /app/backup.log
   echo "Backup completed."
 }
 
@@ -60,11 +61,27 @@ backup() {
 restore_backup() {
   if rclone lsf "$RCLONE_REMOTE:$BACKUP_PATH" > /dev/null 2>&1; then
     echo "Restoring backup from $RCLONE_REMOTE..."
-    rclone copy "$RCLONE_REMOTE:$BACKUP_PATH" /app/store/
-    #TODO: Add Postgres restore
-    echo "Backup restored successfully."
+    rclone copy "$RCLONE_REMOTE:$BACKUP_PATH" /app/store/ --exclude 'backup.snapcloud.sql' --exclude 'backup.log' >> /app/backup.log
+    
+    echo "Restoring PostgreSQL database..."
+    if rclone cat "$RCLONE_REMOTE:$BACKUP_PATH/backup.snapcloud.sql" > /app/restore.snapcloud.sql >> /app/backup.log; then
+      # Drop and recreate the database
+      su postgres -c "psql -c 'DROP DATABASE IF EXISTS snapcloud;'"
+      su postgres -c "psql -c 'CREATE DATABASE snapcloud;'"
+      
+      # Restore the database
+      su postgres -c "psql -d snapcloud -f /app/restore.snapcloud.sql" >> /app/backup.log
+      
+      # Clean up
+      rm /app/restore.snapcloud.sql
+      echo "Database restored successfully."
+    else
+      echo "Failed to retrieve database backup file." >> /app/backup.log
+    fi
+    
+    echo "Backup restored successfully." >> /app/backup.log
   else
-    echo "No backup found at $RCLONE_REMOTE. Using existing files."
+    echo "No backup found at $RCLONE_REMOTE. Using existing files." >> /app/backup.log
   fi
 }
 
@@ -72,6 +89,12 @@ restore_backup() {
 start_app() {
   # Start PostgreSQL service
   service postgresql start
+  # Wait for PostgreSQL to start
+  sleep 2
+  # if $AUTO_RESTORE is set to true, restore the backup
+  if [ "$AUTO_RESTORE" = "true" ]; then
+    restore_backup
+  fi
 
   # Set permissions for store
   chmod -R 777 /app/store
@@ -83,8 +106,7 @@ start_app() {
 
   # Schedule backups
   if [ -z "$BACKUP_HOOK" ]; then
-    # Set default backup time to 2am EST
-    BACKUP_CRON="${BACKUP_CRON:-'0 7 * * *'}"  # 7 AM UTC is 2 AM EST
+    BACKUP_CRON="${BACKUP_CRON:-'0 5 * * *'}"  # set BACKUP_CRON as environment variable or default to '0 5 * * *' 
     echo "$BACKUP_CRON root /app/start.sh backup" > /etc/cron.d/backup
     chmod 0644 /etc/cron.d/backup
     crontab /etc/cron.d/backup
