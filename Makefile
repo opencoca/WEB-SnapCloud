@@ -52,25 +52,35 @@ feature_finish:
 
 minor_release:
 	# Start a minor release with incremented minor version
-	git flow release start $$(git tag --sort=-v:refname | sed 's/^v//' | head -n 1 | awk -F'.' '{print $$1"."$$2+1".0"}')
+	git flow release start $$(git describe --tags --abbrev=0 | sed 's/^v//' | awk -F'.' '{print $$1"."$$2+1".0"}')
 
 patch_release:
 	# Start a patch release with incremented patch version
-	git flow release start $$(git tag --sort=-v:refname | sed 's/^v//' | head -n 1 | awk -F'.' '{print $$1"."$$2"."$$3+1}')
+	git flow release start $$(git describe --tags --abbrev=0 | sed 's/^v//' | awk -F'.' '{print $$1"."$$2"."$$3+1}')
 
 major_release:
 	# Start a major release with incremented major version
-	git flow release start $$(git tag --sort=-v:refname | sed 's/^v//' | head -n 1 | awk -F'.' '{print $$1+1".0.0"}')
+	git flow release start $$(git describe --tags --abbrev=0 | sed 's/^v//' | awk -F'.' '{print $$1+1".0.0"}')
 
 hotfix:
 	# Start a hotfix with incremented patch version
-	git flow hotfix start $$(git tag --sort=-v:refname | sed 's/^v//' | head -n 1 | awk -F'.' '{print $$1"."$$2"."$$3+1}')
+	git flow hotfix start $$(git describe --tags --abbrev=0 | sed 's/^v//' | awk -F'.' '{print $$1"."$$2"."$$3+1}')
 
 release_finish:
-	git flow release finish "$$(git branch --show-current | sed 's/release\///')" && git push origin develop && git push origin master && git push --tags && git checkout develop
+	$(eval RELEASE_VERSION := $(shell git rev-parse --abbrev-ref HEAD | sed 's/release\///'))
+	git flow release finish "$(RELEASE_VERSION)"
+	git push origin develop
+	git push origin master
+	git push --tags
+	git checkout develop
 
 hotfix_finish:
-	git flow hotfix finish "$$(git branch --show-current | sed 's/hotfix\///')" && git push origin develop && git push origin master && git push --tags && git checkout develop
+	$(eval HOTFIX_VERSION := $(shell git rev-parse --abbrev-ref HEAD | sed 's/hotfix\///'))
+	git flow hotfix finish "$(HOTFIX_VERSION)"
+	git push origin develop
+	git push origin master
+	git push --tags
+	git checkout develop
 
 clean_git_repo:
 	git clean --exclude=!.env -Xdf
