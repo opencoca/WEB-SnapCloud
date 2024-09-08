@@ -93,6 +93,7 @@ start_app() {
   sleep 2
   # if $AUTO_RESTORE is set to true, restore the backup
   if [ "$AUTO_RESTORE" = "true" ]; then
+    echo "AUTO_RESTORE is set to true. Restoring backup..."
     restore_backup
   fi
 
