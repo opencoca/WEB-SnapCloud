@@ -1,4 +1,9 @@
-# Codezy Snap!Cloud v0.3.2
+# Codezy Snap!Cloud v1.0.0 - The Snap! Cloud
+[![Build Status](https://travis-ci.org/opencoca/WEB-SnapCloud.svg?branch=master)](https://travis-ci.org/opencoca/WEB-SnapCloud)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![GitHub issues](https://img.shields.io/github/issues/opencoca/WEB-SnapCloud.svg)](
+
+## Now with RCLone support! (v1.0.0)
 
 The Snap! Cloud is a backend for Snap<i>!</i> that stores only metadata in a database for reduced query response time, while storing actual contents in disk.
 
