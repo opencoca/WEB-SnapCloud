@@ -64,27 +64,27 @@ restore_backup() {
   if rclone -vv lsf "$RCLONE_REMOTE:$BACKUP_PATH" > /dev/null 2>&1; then
     # Echo the date & time at which the backup was found
     echo "Backup found at $RCLONE_REMOTE on $(date)."
-    rclone -vv copy "$RCLONE_REMOTE:$BACKUP_PATH" /app/store/ --exclude 'backup.snapcloud.sql' --exclude 'backup.log' >> /app/backup.log
+    rclone -vv copy "$RCLONE_REMOTE:$BACKUP_PATH" /app/store/ --exclude 'backup.snapcloud.sql' --exclude 'backup.log'
     
     echo "Restoring PostgreSQL database..."
-    if rclone -vv cat "$RCLONE_REMOTE:$BACKUP_PATH/backup.snapcloud.sql" > /app/restore.snapcloud.sql >> /app/backup.log; then
+    if rclone -vv cat "$RCLONE_REMOTE:$BACKUP_PATH/backup.snapcloud.sql" > /app/restore.snapcloud.sql; then
       # Drop and recreate the database
       su postgres -c "psql -c 'DROP DATABASE IF EXISTS snapcloud;'"
       su postgres -c "psql -c 'CREATE DATABASE snapcloud;'"
       
       # Restore the database
-      su postgres -c "psql -d snapcloud -f /app/restore.snapcloud.sql" >> /app/backup.log
+      su postgres -c "psql -d snapcloud -f /app/restore.snapcloud.sql" 
       
       # Clean up
       rm /app/restore.snapcloud.sql
       echo "Database restored successfully."
     else
-      echo "Failed to retrieve database backup file." >> /app/backup.log
+      echo "Failed to retrieve database backup file." 
     fi
     
-    echo "Backup restored successfully." >> /app/backup.log
+    echo "Backup restored successfully."
   else
-    echo "No backup found at $RCLONE_REMOTE. Using existing files." >> /app/backup.log
+    echo "No backup found at $RCLONE_REMOTE. Using existing files."
   fi
 }
 
