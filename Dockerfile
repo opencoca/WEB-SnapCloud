@@ -45,10 +45,22 @@ COPY env.sh /app/.env
 
 COPY . /app
 
-# Download snap from https://github.com/jmoenig/Snap/archive/refs/tags/v10.2.5.zip
-RUN wget https://github.com/jmoenig/Snap/archive/refs/tags/v10.2.5.zip -O /app/Snap.zip
+# Download snap https://github.com/jmoenig/Snap/releases/tag/v10.2.5
+# from https://github.com/jmoenig/Snap/archive/refs/tags/v10.2.5.zip
+RUN wget https://github.com/jmoenig/Snap/archive/refs/tags/v10.2.5.zip -O /app/Snap.v10.2.5.zip
 # Unzip contents to /app/snap
-RUN unzip /app/Snap.zip -d /app/snap
+RUN unzip /app/Snap.v10.2.5.zip -d /app
+RUN rm -rf snap
+RUN mv /app/Snap-10.2.5 /app/snap
+# Inject "Process.prototype.enableJS = true;" in the script section of the snap.html file
+# Add a new line after line #64 to /app/snap/snap.html and inject "Process.prototype.enableJS = true;"
+# Add a new line after line #64 to /app/snap/snap.html and inject "Process.prototype.enableJS = true;"
+RUN head -n 64 /app/snap/snap.html > /app/snap/snap.tmp && \
+    echo "Process.prototype.enableJS = true;" >> /app/snap/snap.tmp && \
+    tail -n +65 /app/snap/snap.html >> /app/snap/snap.tmp && \
+    mv /app/snap/snap.tmp /app/snap/snap.html
+
+
 
 RUN chmod -R 777 /app/store
 
