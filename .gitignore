@@ -9,6 +9,8 @@ yarn-error.log
 
 # Python virtualenv
 .env
+envvars.sh
+backup.log
 setenv
 logs
 tmp/*
