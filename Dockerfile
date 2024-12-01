@@ -50,7 +50,7 @@ COPY . /app
 RUN wget https://github.com/jmoenig/Snap/archive/refs/tags/v10.2.5.zip -O /app/Snap.v10.2.5.zip
 # Unzip contents to /app/snap
 RUN unzip /app/Snap.v10.2.5.zip -d /app
-RUN rm -rf snap
+RUN rm -rf /app/snap
 RUN mv /app/Snap-10.2.5 /app/snap
 # Inject "Process.prototype.enableJS = true;" in the script section of the snap.html file
 # Add a new line after line #64 to /app/snap/snap.html and inject "Process.prototype.enableJS = true;"
