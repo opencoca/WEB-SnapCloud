@@ -1,4 +1,3 @@
-```md
 # Codezy Snap!Cloud v1.0.0 - The Snap! Cloud
 
 [![Build Status](https://travis-ci.org/opencoca/WEB-SnapCloud.svg?branch=master)](https://travis-ci.org/opencoca/WEB-SnapCloud)
@@ -44,7 +43,7 @@ To get the latest version of the code, clone our repository:
 
 ### Clone the Repository
 
-Either using HTTPS:
+Using HTTPS:
 
 ```bash
 git clone --filter=tree:0 https://github.com/opencoca/WEB-SnapCloud
