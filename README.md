@@ -1,41 +1,53 @@
-# Codezy Snap!Cloud v1.0.0 - The Snap! Cloud
+# Codezy Snap!Cloud v1.0.1 - The Snap! Cloud
+
+## Upgrading Snap to 10.2.5
 
 [![Build Status](https://travis-ci.org/opencoca/WEB-SnapCloud.svg?branch=master)](https://travis-ci.org/opencoca/WEB-SnapCloud)
 [![License](https://img.shields.io/badge/license-GPL-purple.svg)](https://opensource.org/licenses/GPL-3.0)
 [![GitHub stars](https://img.shields.io/github/stars/opencoca/WEB-SnapCloud.svg)](https://github.com/opencoca/WEB-SnapCloud/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/opencoca/WEB-SnapCloud.svg)](https://github.com/opencoca/WEB-SnapCloud/issues)
 
-## Now with RClone Support! (v1.0.0)
+## Now with RClone Support! (v1.0.1)
 
 Snap! Cloud is the behind-the-scenes engine for Snap!. It stores important info in a database for faster searches and saves all the actual content on your disk. With our latest update, it now supports `rclone` to back up your data to different cloud services, ensuring your information is safe and easy to recover.
 
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-  - [Clone the Repository](#clone-the-repository)
-  - [Installation with Makefile](#installation-with-makefile)
-  - [Docker Installation](#docker-installation)
-- [Configuration](#configuration)
-  - [Environment Variables](#environment-variables)
-  - [.env File](#env-file)
-- [Rclone Configuration](#rclone-configuration)
-- [Backup and Restore](#backup-and-restore)
-  - [Performing a Backup](#performing-a-backup)
-  - [Restoring from a Backup](#restoring-from-a-backup)
-- [Scheduling Backups](#scheduling-backups)
-- [Starting the Application](#starting-the-application)
-  - [Using Makefile](#using-makefile)
-  - [Using Docker](#using-docker)
-- [Custom Backup Hooks](#custom-backup-hooks)
-- [Third-party Dependencies](#third-party-dependencies)
-  - [Frameworks and Tools](#frameworks-and-tools)
-  - [Lua Rocks](#lua-rocks)
-  - [JS Libraries](#js-libraries)
-- [Live Instance](#live-instance)
-- [Contributing](#contributing)
-- [Troubleshooting](#troubleshooting)
-- [License](#license)
+- [Codezy Snap!Cloud v1.0.1 - The Snap! Cloud](#codezy-snapcloud-v101---the-snap-cloud)
+  - [Upgrading Snap to 10.2.5](#upgrading-snap-to-1025)
+  - [Now with RClone Support! (v1.0.1)](#now-with-rclone-support-v101)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Clone the Repository](#clone-the-repository)
+    - [Installation with Makefile](#installation-with-makefile)
+    - [Docker Installation](#docker-installation)
+      - [Building the Docker Image](#building-the-docker-image)
+      - [Running the Docker Container](#running-the-docker-container)
+  - [Configuration](#configuration)
+    - [Environment Variables](#environment-variables)
+    - [.env File](#env-file)
+  - [Rclone Configuration](#rclone-configuration)
+    - [Example Configuration for Google Drive](#example-configuration-for-google-drive)
+  - [Backup and Restore](#backup-and-restore)
+    - [Performing a Backup](#performing-a-backup)
+    - [Restoring from a Backup](#restoring-from-a-backup)
+  - [Scheduling Backups](#scheduling-backups)
+    - [Example Cron Expressions](#example-cron-expressions)
+  - [Starting the Application](#starting-the-application)
+    - [Using Makefile](#using-makefile)
+    - [Using Docker](#using-docker)
+  - [Custom Backup Hooks](#custom-backup-hooks)
+    - [Example](#example)
+  - [Third-party Dependencies](#third-party-dependencies)
+    - [Frameworks and Tools](#frameworks-and-tools)
+    - [Lua Rocks](#lua-rocks)
+    - [JS Libraries](#js-libraries)
+    - [Did We Forget to Mention Your Stuff?](#did-we-forget-to-mention-your-stuff)
+  - [Live Instance](#live-instance)
+  - [Contributing](#contributing)
+  - [Troubleshooting](#troubleshooting)
+  - [License](#license)
 
 ## Getting Started
 
