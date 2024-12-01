@@ -45,6 +45,11 @@ COPY env.sh /app/.env
 
 COPY . /app
 
+# Download snap from https://github.com/jmoenig/Snap/archive/refs/tags/v10.2.5.zip
+RUN wget https://github.com/jmoenig/Snap/archive/refs/tags/v10.2.5.zip -O /app/Snap.zip
+# Unzip contents to /app/snap
+RUN unzip /app/Snap.zip -d /app/snap
+
 RUN chmod -R 777 /app/store
 
 EXPOSE 80
