@@ -25,10 +25,21 @@ BRANCH=${FULL_BRANCH##*/}
 TAG=$(git describe --always --tag)
 
 # Print the values of the variables
+echo ****************************************
 echo PROJECTPATH=$PROJECTPATH
 echo     PROJECT=$PROJECT
 echo FULL_BRANCH=$FULL_BRANCH
 echo      BRANCH=$BRANCH
+echo ****************************************
+
+#  Ensure all subrepositories are up to date
+echo "Updating submodules..."
+git submodule update --init --recursive
+git submodule update --recursive --remote
+echo "Submodules updated."
+echo ****************************************
+
+echo "Building Docker image..."
 
 # Check if PLATFORM is set and not empty
 if [ -n "$PLATFORM" ]; then
