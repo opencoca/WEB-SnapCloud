@@ -45,6 +45,7 @@ COPY env.sh /app/.env
 
 COPY . /app
 
+RUN touch /tmp/touch.txt
 
 RUN cd app \
   && wget https://github.com/opencoca/STARTR-Snap/archive/refs/heads/master.zip \
