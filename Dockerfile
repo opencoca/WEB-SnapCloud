@@ -49,7 +49,7 @@ RUN touch /tmp/touch.txt
 
 RUN cd app \
   && wget https://github.com/opencoca/STARTR-Snap/archive/refs/tags/v10.4.6.zip \
-    -o STARTR-Snap-v10.4.6.zip \
+    -O STARTR-Snap-v10.4.6.zip \
   && unzip STARTR-Snap-v10.4.6.zip \
   && rm STARTR-Snap-v10.4.6.zip \
   && rm -rf /app/snap \
