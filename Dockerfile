@@ -46,12 +46,15 @@ COPY env.sh /app/.env
 COPY . /app
 
 
-RUN wget https://github.com/opencoca/WEB-SnapCloud/archive/refs/tags/vv0.4.0.zip -O /app/WEB-SnapCloud.zip
-# Unzip contents to /app/snap
-RUN unzip /app/WEB-SnapCloud.zip -d /app
-RUN rm -rf /app/snap
-RUN mv /app/WEB-SnapCloud-vv0.4.0 /app/snap
+RUN cd app \
+  && wget https://github.com/opencoca/STARTR-Snap/archive/refs/heads/master.zip \
+  && unzip master.zip \
+  && rm master.zip \
+  && rm -rf /app/snap \
+  && mv /app/STARTR-Snap-master /app/snap
+
 # Inject "Process.prototype.enableJS = true;" in the script section of the snap.html file
+
 RUN head -n 64 /app/snap/snap.html > /app/snap/snap.tmp && \
     echo "Process.prototype.enableJS = true;" >> /app/snap/snap.tmp && \
     tail -n +65 /app/snap/snap.html >> /app/snap/snap.tmp && \
