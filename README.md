@@ -1,4 +1,4 @@
-# Startr Snap!Cloud v0.4.0 - The Snap! Cloud
+# Startr Snap!Cloud v0.4.1 - The Snap! Cloud
 
 ## Upgrading Snap to 10.4.6
 
@@ -183,8 +183,10 @@ This will:
 To manually restore from a backup, execute:
 
 ```bash
-docker exec snapcloud-server restore
+docker exec snap-cloud /app/start.sh restore
 ```
+
+Where `e24` is the name/hash of the Docker container.
 
 This will:
 
