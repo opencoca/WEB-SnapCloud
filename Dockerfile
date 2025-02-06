@@ -48,11 +48,12 @@ COPY . /app
 RUN touch /tmp/touch.txt
 
 RUN cd app \
-  && wget https://github.com/opencoca/STARTR-Snap/archive/refs/heads/master.zip \
-  && unzip master.zip \
-  && rm master.zip \
+  && wget https://github.com/opencoca/STARTR-Snap/archive/refs/tags/v10.4.6.zip \
+    -o STARTR-Snap-v10.4.6.zip \
+  && unzip STARTR-Snap-v10.4.6.zip \
+  && rm STARTR-Snap-v10.4.6.zip \
   && rm -rf /app/snap \
-  && mv /app/STARTR-Snap-master /app/snap
+  && mv /app/STARTR-Snap-10.4.6 /app/snap
 
 # Inject "Process.prototype.enableJS = true;" in the script section of the snap.html file
 
