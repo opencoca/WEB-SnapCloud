@@ -45,16 +45,13 @@ COPY env.sh /app/.env
 
 COPY . /app
 
-# Download snap https://github.com/jmoenig/Snap/releases/tag/v10.2.5
-# from https://github.com/jmoenig/Snap/archive/refs/tags/v10.2.5.zip
-RUN wget https://github.com/jmoenig/Snap/archive/refs/tags/v10.2.5.zip -O /app/Snap.v10.2.5.zip
+# Download snap 
+RUN wget https://github.com/opencoca/STARTR-Snap/archive/refs/heads/master.zip -O /app/Snap.zip
 # Unzip contents to /app/snap
-RUN unzip /app/Snap.v10.2.5.zip -d /app
+RUN unzip /app/Snap.zip -d /app
 RUN rm -rf /app/snap
-RUN mv /app/Snap-10.2.5 /app/snap
+RUN mv /app/Snap /app/snap
 # Inject "Process.prototype.enableJS = true;" in the script section of the snap.html file
-# Add a new line after line #64 to /app/snap/snap.html and inject "Process.prototype.enableJS = true;"
-# Add a new line after line #64 to /app/snap/snap.html and inject "Process.prototype.enableJS = true;"
 RUN head -n 64 /app/snap/snap.html > /app/snap/snap.tmp && \
     echo "Process.prototype.enableJS = true;" >> /app/snap/snap.tmp && \
     tail -n +65 /app/snap/snap.html >> /app/snap/snap.tmp && \
