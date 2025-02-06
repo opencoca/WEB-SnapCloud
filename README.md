@@ -253,6 +253,10 @@ BACKUP_HOOK="./custom_backup.sh"
 
 Ensure that your custom script handles all necessary backup steps, such as data synchronization and database dumps.
 
+## Deploy using CapRover
+
+### Note a proper build with the current Dockerfile results in a lot of red text. This is good. Irconically, the build hasn't worked fully if you don't see red text!
+
 ## Third-party Dependencies
 
 ### Frameworks and Tools
