@@ -1,4 +1,4 @@
-# Startr Snap!Cloud v0.4.1 - The Snap! Cloud
+# Startr Snap!Cloud v0.4.2 - The Snap! Cloud
 
 ## Upgrading Snap to 10.4.6
 
