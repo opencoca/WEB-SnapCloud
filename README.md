@@ -183,8 +183,10 @@ This will:
 To manually restore from a backup, execute:
 
 ```bash
-docker exec snapcloud-server restore
+docker exec snap-cloud /app/start.sh restore
 ```
+
+Where `e24` is the name/hash of the Docker container.
 
 This will:
 

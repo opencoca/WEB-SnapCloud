@@ -45,13 +45,12 @@ COPY env.sh /app/.env
 
 COPY . /app
 
-# Download snap https://github.com/jmoenig/Snap/releases/tag/v10.2.5
-# from https://github.com/jmoenig/Snap/archive/refs/tags/v10.2.5.zip
-RUN wget https://github.com/jmoenig/Snap/archive/refs/tags/v10.2.5.zip -O /app/Snap.v10.2.5.zip
+
+RUN wget https://github.com/opencoca/WEB-SnapCloud/archive/refs/tags/vv0.4.0.zip -O /app/WEB-SnapCloud.zip
 # Unzip contents to /app/snap
-RUN unzip /app/Snap.v10.2.5.zip -d /app
+RUN unzip /app/WEB-SnapCloud.zip -d /app
 RUN rm -rf /app/snap
-RUN mv /app/Snap-10.2.5 /app/snap
+RUN mv /app/WEB-SnapCloud-vv0.4.0 /app/snap
 # Inject "Process.prototype.enableJS = true;" in the script section of the snap.html file
 # Add a new line after line #64 to /app/snap/snap.html and inject "Process.prototype.enableJS = true;"
 # Add a new line after line #64 to /app/snap/snap.html and inject "Process.prototype.enableJS = true;"
