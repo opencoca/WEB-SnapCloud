@@ -1,6 +1,6 @@
-# Codezy Snap!Cloud v1.0.1 - The Snap! Cloud
+# Startr Snap!Cloud v0.4.0 - The Snap! Cloud
 
-## Upgrading Snap to 10.2.5
+## Upgrading Snap to 10.4.6
 
 [![Build Status](https://travis-ci.org/opencoca/WEB-SnapCloud.svg?branch=master)](https://travis-ci.org/opencoca/WEB-SnapCloud)
 [![License](https://img.shields.io/badge/license-GPL-purple.svg)](https://opensource.org/licenses/GPL-3.0)
