@@ -48,10 +48,10 @@ COPY . /app
 RUN touch /tmp/touch.txt
 
 RUN cd app \
-  && wget https://github.com/opencoca/STARTR-Snap/archive/refs/tags/v11.0.0.zip \
-    -O STARTR-Snap-v11.0.0.zip \
-  && unzip STARTR-Snap-v11.0.0.zip \
-  && rm STARTR-Snap-v11.0.0.zip \
+  && wget https://github.com/opencoca/STARTR-Snap/archive/refs/tags/11.0.0.zip \
+    -O STARTR-Snap-11.0.0.zip \
+  && unzip STARTR-Snap-11.0.0.zip \
+  && rm STARTR-Snap-11.0.0.zip \
   && rm -rf /app/snap \
   && mv /app/STARTR-Snap-11.0.0 /app/snap
 
