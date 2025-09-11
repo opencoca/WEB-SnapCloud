@@ -1,6 +1,6 @@
-# Startr Snap!Cloud v0.4.2 - The Snap! Cloud
+# Startr Snap!Cloud v0.4.3 - The Snap! Cloud
 
-## Upgrading Snap to 10.4.6
+## Upgrading Snap to 11.0.0
 
 [![Build Status](https://travis-ci.org/opencoca/WEB-SnapCloud.svg?branch=master)](https://travis-ci.org/opencoca/WEB-SnapCloud)
 [![License](https://img.shields.io/badge/license-GPL-purple.svg)](https://opensource.org/licenses/GPL-3.0)
