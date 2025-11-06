@@ -73,7 +73,6 @@ DOCKER_RUN_ARGS := --rm -p $(PORT_MAPPING) \
 
 DEV_RUN_ARGS := --rm -p $(PORT_MAPPING) \
 	--add-host=host.docker.internal:host-gateway \
-	-p 5173:5173 \
 	-v $(VOLUME_DATA) \
 	-v $(ENV_FILE) \
 	-v $(FRONTEND_SRC) \
