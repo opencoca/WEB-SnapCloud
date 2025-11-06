@@ -61,6 +61,8 @@ RUN cd app \
 
 RUN head -n 64 /app/snap/snap.html > /app/snap/snap.tmp && \
     echo "Process.prototype.enableJS = true;" >> /app/snap/snap.tmp && \
+    echo "Cloud.prototype.knownDomains['Sage Start Cloud'] = 'https://snap.startr.cloud/';" >> /app/snap/snap.tmp && \
+    echo "Cloud.prototype.defaultDomain = Cloud.prototype.knownDomains['Sage Start Cloud'];" >> /app/snap/snap.tmp && \
     tail -n +65 /app/snap/snap.html >> /app/snap/snap.tmp && \
     mv /app/snap/snap.tmp /app/snap/snap.html
 
