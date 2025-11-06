@@ -2,9 +2,9 @@ FROM openco/snapcloud-develop:latest-prerequisites
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install rclone
-# Add cron for scheduling backups
-RUN apt-get update && apt-get install -y cron rclone bash-completion
+# Install rclone and inotify-tools
+# Add cron for scheduling backups (keeping for compatibility)
+RUN apt-get update && apt-get install -y cron rclone bash-completion inotify-tools
 # cleanup APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -15,6 +15,7 @@ ENV BACKUP_PATH=snapcloud-backups
 ENV BACKUP_CRON="0 2 *"  
 # 2 AM EST (7 AM UTC)
 ENV NOTIFY_URL=https://your-webhook-url.com/notify
+ENV BACKUP_MODE=inotify
 
 # Document the environment variables
 # RCLONE_REMOTE: The remote storage service to use (default: dropbox)

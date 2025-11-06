@@ -88,6 +88,23 @@ restore_backup() {
   fi
 }
 
+# Function to perform inotify-based backups
+inotify_backup() {
+  echo "Starting inotify-based backup monitoring for /app/store/..."
+  local last_backup=0
+  local cooldown=300  # 5 minutes cooldown between backups
+  inotifywait -m -r -e modify,create,delete,move /app/store/ | while read path action file; do
+    current_time=$(date +%s)
+    if (( current_time - last_backup >= cooldown )); then
+      echo "Change detected in $path$file ($action), running backup..."
+      backup
+      last_backup=$current_time
+    else
+      echo "Change detected, but within cooldown period. Skipping backup."
+    fi
+  done
+}
+
 # Function to schedule backups
 schedule_backups() {
   local MINUTE HOUR DAY
@@ -155,10 +172,15 @@ start_app() {
     && . env.sh \
     && lapis server $LAPIS_ENVIRONMENT --trace &
 
-  # Schedule backups
+  # Start backup monitoring
   if [ -z "$BACKUP_HOOK" ]; then
-    BACKUP_CRON="${BACKUP_CRON:-0 5 *}"  # Default to '0 5 *' (5:00 AM every day)
-    schedule_backups &
+    BACKUP_MODE="${BACKUP_MODE:-inotify}"  # Default to 'inotify' for change-based backups
+    if [ "$BACKUP_MODE" = "inotify" ]; then
+      inotify_backup &
+    else
+      BACKUP_CRON="${BACKUP_CRON:-0 5 *}"  # Default to '0 5 *' (5:00 AM every day)
+      schedule_backups &
+    fi
   else
     # Run custom backup hook if provided
     eval "$BACKUP_HOOK"

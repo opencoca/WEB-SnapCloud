@@ -36,7 +36,7 @@
                 <i class="stop-button fas fa-octagon clickable"
                     onclick="stopProject();"></i>
         <% if params.editButton then %>
-                <a title="See source code" class="edit" href="<%= project:url_for('open', params.devVersion) %>" target="_blank"><i class="far fa-eye"></i></a>
+                <a title="See source code" class="edit" href="/snap<%= project:url_for('open', params.devVersion) %>" target="_blank"><i class="far fa-eye"></i></a>
         <% end %>
             </div>
             <iframe allow="geolocation; microphone; camera" sandbox="allow-scripts allow-same-origin" src="<%= project:url_for('viewer', params.devVersion) %>" height="406"></iframe>

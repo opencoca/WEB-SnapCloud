@@ -58,7 +58,7 @@
         --of-lg: initial;" 
         ><%- locale.get('snap_description', '<em>!</em>') %></div>
         <div style="--m: 2em auto; --ta: center">
-            <a href="/snap" class="pure-button">
+            <a href="/snap/" class="pure-button">
                 <button class="red">
                     <%- locale.get('run_now', '<em>!</em>') %>
                 </button>
