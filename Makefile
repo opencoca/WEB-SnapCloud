@@ -11,22 +11,40 @@ ifneq (,$(wildcard ./.env))
 endif
 
 # Configuration variables with defaults (override with .env file)
+# Default Docker image name, derived from the project directory name.
 IMAGE_NAME ?= $(shell basename $(shell git rev-parse --show-toplevel) | tr '[:upper:]' '[:lower:]')
+# GitHub Container Registry image name.
 GHCR_IMAGE_NAME ?= ghcr.io/$(IMAGE_NAME)
+# Docker image for build prerequisites.
 PREREQUISITES_IMAGE ?= openco/snapcloud-develop
+
+# Get the latest Git tag, sorted by version.
 GIT_TAG := $(shell git tag --sort=-v:refname | sed 's/^v//' | head -n 1)
+# Use the latest Git tag as the image tag, or default to 'latest'.
 IMAGE_TAG := $(if $(GIT_TAG),$(GIT_TAG),latest)
+# Get the current Git branch name.
 GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
+# Handle detached HEAD state by using tag or short commit hash.
 ifeq ($(GIT_BRANCH),HEAD)
-    GIT_BRANCH := $(shell git describe --tags --exact-match 2>/dev/null || git rev-parse --short HEAD)
+	GIT_BRANCH := $(shell git describe --tags --exact-match 2>/dev/null || git rev-parse --short HEAD)
 endif
+# Sanitize the branch name for use in Docker tags (replace '/' with '-').
 SAFE_GIT_BRANCH := $(subst /,-,$(GIT_BRANCH))
+# Convert sanitized branch name to lowercase.
 SAFE_GIT_BRANCH := $(shell echo $(SAFE_GIT_BRANCH) | tr '[:upper:]' '[:lower:]')
+# Default container name.
+
 CONTAINER_NAME ?= $(IMAGE_NAME)-container
-PORT_MAPPING ?= 80:8080
+# Port mapping for Docker container: host port 8080 to container port 80.
+PORT_MAPPING ?= 8080:80
+# Volume mount for persistent data: named volume based on IMAGE_NAME to container path /app/backend/data.
+# To mount a local directory instead, use: VOLUME_DATA ?= $$(pwd)/data:/app/backend/data
 VOLUME_DATA ?= $(IMAGE_NAME):/app/backend/data
+# Mount the .env file into the container.
 ENV_FILE := $$(pwd)/.env:/app/.env
+# Mount the frontend source code for development.
 FRONTEND_SRC := $$(pwd)/app/src/:/app/src/
+# Mount the backend source code for development.
 BACKEND_SRC := $$(pwd)/app/backend/:/app/backend/
 
 # Architectures to build for
