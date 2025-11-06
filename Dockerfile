@@ -11,7 +11,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # Set default values for environment variables
 
 ENV BACKUP_PATH=snapcloud-backups
-ENV BACKUP_CRON="0 2 * * *"  
+# Set cron to run daily at 2 AM EST it should be noted that this is not standard cron format but only the first three fields
+ENV BACKUP_CRON="0 2 *"  
 # 2 AM EST (7 AM UTC)
 ENV NOTIFY_URL=https://your-webhook-url.com/notify
 
@@ -26,7 +27,7 @@ ENV NOTIFY_URL=https://your-webhook-url.com/notify
 # RCLONE_CONFIG_DRIVE_SCOPE: The scope for Google Drive (default: drive)
 # RCLONE_CONFIG_DRIVE_TOKEN: The access token for Google Drive (default: {"access_token":"YOUR_ACCESS_TOKEN","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"})
 # BACKUP_PATH: The path where backups will be stored (default: snapcloud-backups)
-# BACKUP_CRON: The cron schedule for backups (default: "0 2 * * *")
+# BACKUP_CRON: The cron schedule for backups (default: "0 2 * " for daily at 2 AM EST)
 # NOTIFY_URL: The URL for notifications (default: https://your-webhook-url.com/notify)
 
 
@@ -61,8 +62,6 @@ RUN head -n 64 /app/snap/snap.html > /app/snap/snap.tmp && \
     echo "Process.prototype.enableJS = true;" >> /app/snap/snap.tmp && \
     tail -n +65 /app/snap/snap.html >> /app/snap/snap.tmp && \
     mv /app/snap/snap.tmp /app/snap/snap.html
-
-
 
 RUN chmod -R 777 /app/store
 

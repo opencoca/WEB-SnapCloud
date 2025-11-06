@@ -11,8 +11,9 @@ ifneq (,$(wildcard ./.env))
 endif
 
 # Configuration variables with defaults (override with .env file)
-IMAGE_NAME ?= startr/app-image
+IMAGE_NAME ?= $(shell basename $(shell git rev-parse --show-toplevel) | tr '[:upper:]' '[:lower:]')
 GHCR_IMAGE_NAME ?= ghcr.io/$(IMAGE_NAME)
+PREREQUISITES_IMAGE ?= openco/snapcloud-develop
 GIT_TAG := $(shell git tag --sort=-v:refname | sed 's/^v//' | head -n 1)
 IMAGE_TAG := $(if $(GIT_TAG),$(GIT_TAG),latest)
 GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
@@ -21,8 +22,8 @@ ifeq ($(GIT_BRANCH),HEAD)
 endif
 SAFE_GIT_BRANCH := $(subst /,-,$(GIT_BRANCH))
 SAFE_GIT_BRANCH := $(shell echo $(SAFE_GIT_BRANCH) | tr '[:upper:]' '[:lower:]')
-CONTAINER_NAME ?= app-container
-PORT_MAPPING ?= 8080:8080
+CONTAINER_NAME ?= $(IMAGE_NAME)-container
+PORT_MAPPING ?= 80:8080
 VOLUME_DATA ?= sage-open-webui:/app/backend/data
 ENV_FILE := $$(pwd)/.env:/app/.env
 FRONTEND_SRC := $$(pwd)/app/src/:/app/src/
@@ -101,6 +102,30 @@ it_build:
 	            -t $(IMAGE_NAME):$(SAFE_GIT_BRANCH) \
 	            .
 	afplay /System/Library/Sounds/Glass.aiff
+
+# Build Prerequisites Docker Image
+it_build_prerequisites:
+	@echo "Building prerequisites Docker image with BuildKit and buildx for amd64..."
+	@docker buildx create --use --name prereqs-builder 2>/dev/null || docker buildx use prereqs-builder || true
+	@docker buildx build --platform linux/amd64 \
+	            -f Dockerfile.prerequisites \
+	            -t $(PREREQUISITES_IMAGE):latest-prerequisites \
+	            -t $(PREREQUISITES_IMAGE):$(IMAGE_TAG)-prerequisites \
+	            --build-arg PLATFORM=linux/amd64 \
+	            --load \
+	            .
+	afplay /System/Library/Sounds/Glass.aiff
+
+# Push Prerequisites Image to Docker Hub
+it_push_prerequisites:
+	@echo "Pushing prerequisites image to Docker Hub..."
+	docker push $(PREREQUISITES_IMAGE):latest-prerequisites
+	docker push $(PREREQUISITES_IMAGE):$(IMAGE_TAG)-prerequisites
+	@echo "Prerequisites image pushed successfully"
+
+# Build and Push Prerequisites (combo)
+it_build_n_push_prerequisites: it_build_prerequisites
+	@make it_push_prerequisites
 
 # Build Docker Image without Cache and with Branch Name
 it_build_no_cache:
@@ -263,6 +288,7 @@ show-version:
 	@echo "Current version: $(IMAGE_TAG)"
 
 .PHONY: it_build it_build_no_cache dev_run it_run it_build_n_run it_build_n_run_no_cache \
+	it_build_prerequisites it_push_prerequisites it_build_n_push_prerequisites \
 	clean-manifests-dockerhub clean-manifests-ghcr \
 	build-amd64-dockerhub build-arm64-dockerhub \
 	build-amd64-ghcr build-arm64-ghcr \
