@@ -23,6 +23,7 @@
         <div class="project big embed">
             <i class="project-loader fas fa-spinner fa-spin fa-3x"
                 aria-hidden="true"></i>
+        <% if params.showTitle or params.pauseButton or params.editButton then %>
             <div class="controlbar">
         <% if params.showTitle then %>
                 <span class="title"><%= project.projectname %><% if params.showAuthor then %><span class="author"> by <a href="<%= project:url_for('author') %>" target=""><strong><%= project.username %></strong></a></span><% end %></span>
@@ -39,8 +40,8 @@
                 <a title="See source code" class="edit" href="/snap<%= project:url_for('open', params.devVersion) %>" target="_blank"><i class="far fa-eye"></i></a>
         <% end %>
             </div>
+        <% end %>
             <iframe allow="geolocation; microphone; camera" sandbox="allow-scripts allow-same-origin" src="<%= project:url_for('viewer', params.devVersion) %>" height="406"></iframe>
-
         </div>
         <script type="text/javascript">
             document.body.style.overflow = 'hidden';
